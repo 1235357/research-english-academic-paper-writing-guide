@@ -1,0 +1,29 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Keep local source archives and credentials out of the publishable repo.
+# Copyright-sensitive original course material: local fidelity-audit source
+# only, never part of the publishable skill package (see SKILL.md source
+# order note 1).
+Original_Transcript+PDF/
+*.pdf
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.env
+.env*
+!.gitignore

@@ -1,0 +1,44 @@
+Repository License and Course Content Notice
+
+Copyright (c) 2026, repository contributors.
+
+This repository combines original packaging, scripts, metadata, and derivative
+study notes based on the public course "科研与英文学术论文写作指南" taught by
+Yu Jing (于静), Institute of Information Engineering, Chinese Academy of
+Sciences.
+
+1. Original repository code and packaging
+
+The original scripts, repository metadata, validation workflow, and skill
+packaging instructions created for this repository are licensed under the MIT
+License:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of those original software and packaging files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+2. Course-derived content
+
+The course-derived lecture reconstructions, playbooks, checklists, and
+summaries are provided as study notes and are not a transfer of copyright in
+the original course slides, videos, transcript, examples, or teaching content.
+The original course content remains owned by the course instructor and/or
+their institution or other applicable rights holders.
+
+Do not treat this license as permission to redistribute the original slides,
+videos, transcripts, or any third-party examples beyond what applicable law or
+separate permission allows. See NOTICE for attribution and provenance details.

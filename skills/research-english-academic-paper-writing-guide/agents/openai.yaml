@@ -1,0 +1,5 @@
+interface:
+  display_name: "Research and English Academic Paper Writing Guide"
+  short_description: "Research planning and academic paper writing"
+  brand_color: "#1F4E79"
+  default_prompt: "Use $research-english-academic-paper-writing-guide to first consult the full course reconstruction, then audit my research idea, paper section, figure, experiment, English, or literature review plan."

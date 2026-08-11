@@ -1,0 +1,26 @@
+name: Validate package
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate repository package
+        run: python3 scripts/validate_package.py
+      - name: Run reviewer-feedback regression tests
+        run: |
+          python3 scripts/test_review_feedback_evidence_playbook.py
+          python3 scripts/test_professor_feedback_operationalization.py
+          python3 scripts/test_dataset_census_experiment_evidence.py
+      - name: Smoke-test helper scripts
+        run: |
+          python3 skills/research-english-academic-paper-writing-guide/scripts/check_title.py "A Novel Framework for Visual Question Answering"
+          python3 skills/research-english-academic-paper-writing-guide/scripts/new_research_point_canvas.py > /tmp/research-point-canvas.md
+          test -s /tmp/research-point-canvas.md

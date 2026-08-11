@@ -1,0 +1,35 @@
+Research & English Academic Paper Writing Guide - Notice
+
+Course attribution:
+
+- Course: 《科研与英文学术论文写作指南》
+- Instructor: 于静 (Yu Jing), Institute of Information Engineering, Chinese
+  Academy of Sciences
+- Course homepage: https://mmlab-iie.github.io/course/
+- Public videos: https://space.bilibili.com/301285406
+- Course material credits listed by the course page: 丁阳、庄佳敏、林鑫杰、
+  唐源民、屈详颜、李一立
+
+Repository scope:
+
+This repository publishes an Agent Skill and a Markdown study reconstruction
+derived from the public course. It intentionally does not redistribute the
+original slide PDFs, raw transcripts, videos, screenshots, or image assets.
+Source-exact verification should use the official course links in
+`skills/research-english-academic-paper-writing-guide/references/lecture-index.md`
+and the SHA-256 checksums in
+`skills/research-english-academic-paper-writing-guide/references/provenance.md`.
+
+Known source correction:
+
+The archived source backup had a filename/content swap between Lecture 11 and
+the Lecture 11 pre-lecture bonus session. Canonical pairing is by PDF title
+page, page count, and checksum: the 20-page deck is Lecture 11, and the
+9-page deck is the pre-lecture bonus session.
+
+Redistribution:
+
+For public redistribution, marketplace listing, or commercial use, keep this
+NOTICE with the repository and preserve the course attribution above. Obtain
+permission from the relevant rights holder before redistributing original
+course materials.
