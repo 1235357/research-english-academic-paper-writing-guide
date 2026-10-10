@@ -1,0 +1,24 @@
+{
+  "schema": "distribution-validation/1",
+  "repository": "research-english-academic-paper-writing-guide",
+  "version": "4.7.0",
+  "official_plugin_schema": "Agent Plugins 1.0.0",
+  "official_schema_passed": true,
+  "skill_names": [
+    "research-english-academic-paper-writing-guide"
+  ],
+  "original_files": 54,
+  "original_files_exact": 51,
+  "original_files_with_exact_preserved_prefix": [
+    "CHANGELOG.md",
+    "README.md",
+    "skills/research-english-academic-paper-writing-guide/SKILL.md"
+  ],
+  "claude_online_validation": {
+    "status": "blocked",
+    "reason": "automatic approval review rejected a previous CLI validation process that attempted to send private data to api.anthropic.com; no retry or bypass"
+  },
+  "hosted_upload_or_directory_approval_tested": false,
+  "errors": [],
+  "passed": true
+}

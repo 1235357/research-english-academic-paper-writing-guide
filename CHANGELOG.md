@@ -794,3 +794,11 @@ Initial publishable release candidate.
 - Excluded raw PDFs, raw transcripts, and image assets from the final repo.
 - Added lightweight helper scripts for title checks and research-point canvases.
 - Added repository-level license, notice, package validation, and CI metadata.
+
+
+## 4.7.0 — 2026-10-10
+
+- 增量新增单根Skill／插件ZIP构建与逐文件SHA-256验证，原有内容不删改。
+- 增加Agent Plugins 1.0.0、Claude叠加清单、两市场入口和Git来源npx安装。
+- 完整离线复制、幂等安装、保护个人修改、干净升级及全部旧文件备份。
+- 明确云端容量、网络、官方目录审核和实际客户端导入的适用范围。

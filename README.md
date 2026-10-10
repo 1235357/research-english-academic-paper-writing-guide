@@ -172,3 +172,8 @@ citations, experiments, PDF, archive contents, or venue compliance.
 
 全部课程视频见于老师 B 站主页：<https://space.bilibili.com/301285406>，
 逐讲链接见 [`references/lecture-index.md`](skills/research-english-academic-paper-writing-guide/references/lecture-index.md)。
+
+
+## 4.7.0：Skill／插件发布与完整安装
+
+原有内容完整保留。本次新增[安装和平台兼容说明](docs/INSTALLATION.md)、[正式发布附件](https://github.com/1235357/research-english-academic-paper-writing-guide/releases/tag/v4.7.0)、标准Skill ZIP、Agent Plugins／Claude插件清单、社区npx与离线字节校验安装器。发布层版本与旧正文里的历史版本号分别记录。

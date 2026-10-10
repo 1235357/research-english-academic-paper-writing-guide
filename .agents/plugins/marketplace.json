@@ -1,0 +1,20 @@
+{
+  "name": "szsdt-research-writing",
+  "interface": {
+    "displayName": "Research and English Academic Paper Writing Guide"
+  },
+  "plugins": [
+    {
+      "name": "research-english-academic-paper-writing-guide",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

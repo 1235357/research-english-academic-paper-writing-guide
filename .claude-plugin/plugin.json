@@ -1,0 +1,17 @@
+{
+  "name": "research-english-academic-paper-writing-guide",
+  "version": "4.7.0",
+  "description": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows.",
+  "author": {
+    "name": "1235357",
+    "url": "https://github.com/1235357"
+  },
+  "homepage": "https://github.com/1235357/research-english-academic-paper-writing-guide",
+  "repository": "https://github.com/1235357/research-english-academic-paper-writing-guide",
+  "keywords": [
+    "agent-skills",
+    "education",
+    "source-preservation"
+  ],
+  "license": "MIT"
+}

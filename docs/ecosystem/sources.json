@@ -1,0 +1,64 @@
+{
+  "schema": "distribution-primary-sources/1",
+  "sources": [
+    {
+      "url": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+      "retrieved_at": "2026-10-10",
+      "cached_path": "docs/ecosystem/agent-plugin.schema.json",
+      "sha256": "0a4aad95ce337878ad38802ebf0daa3fde76abe3f65400c86bcbb1ec0b3ab883",
+      "bytes": 1805
+    },
+    {
+      "url": "https://agentskills.io/specification.md",
+      "retrieved_at": "2026-10-10",
+      "sha256": "4c649bdf0e0a51c9e215d9f91009ecdca05ee9d073edb6f37c20265bbd829e11",
+      "bytes": 7697
+    },
+    {
+      "url": "https://developers.openai.com/plugins/build/plugins.md",
+      "retrieved_at": "2026-10-10",
+      "sha256": "6599defbac9993d26648fd34efa48e178d8c5d6bc5246c44302ba014ff82ab7f",
+      "bytes": 38052
+    },
+    {
+      "url": "https://raw.githubusercontent.com/vercel-labs/skills/main/README.md",
+      "retrieved_at": "2026-10-10",
+      "sha256": "e555a40d019f5c4a68ede233c3f2cafa9085e6526284ccfb2adebf2c5cf9d2c0",
+      "bytes": 27276
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/build-with-claude/skills-guide",
+      "retrieved_at": "2026-10-10",
+      "verification": "official page opened and verified using both web retrieval and authoritative search; request cap 20; total uncompressed skill bytes below 30 MB; no network/runtime package installs; root or single enclosing folder permitted"
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases",
+      "retrieved_at": "2026-10-10",
+      "verification": "Release asset must be below 2 GiB; releases permit up to 1,000 assets; Git file limits are separate"
+    },
+    {
+      "url": "https://docs.npmjs.com/cli/v11/configuring-npm/package-json",
+      "retrieved_at": "2026-10-10",
+      "verification": "package.json bin identifies command entry points; Git-source npx is not npm-registry publication"
+    },
+    {
+      "url": "https://code.claude.com/docs/en/plugins-reference",
+      "retrieved_at": "2026-10-10",
+      "verification": "Claude overlay plugin manifest and root skill component conventions"
+    }
+  ],
+  "platform_invariants": {
+    "claude_api_max_skills_per_request": 20,
+    "claude_api_max_skill_uncompressed_bytes": 30000000,
+    "cloud_strict_budget_bytes": 29000000,
+    "claude_api_network": false,
+    "claude_api_runtime_package_installation": false,
+    "github_release_asset_strict_limit_bytes": 2147483648
+  },
+  "tested_claim_boundaries": {
+    "npm_registry_published": false,
+    "official_plugin_directory_approved": false,
+    "hosted_ui_upload_tested": false,
+    "claude_online_plugin_validate": "blocked by automatic approval review; not retried"
+  }
+}

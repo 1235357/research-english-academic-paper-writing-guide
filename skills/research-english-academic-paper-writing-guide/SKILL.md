@@ -560,3 +560,8 @@ Most non-native-speaker "my English isn't good enough" self-diagnoses are actual
 - **A figure feels muddled?** Part IV's failure-mode sequences double as diagnostic checklists — locate where a draft figure sits on the sequence rather than jumping straight to aesthetics.
 - **Prose reads as unrigorous or unprofessional?** Part V's rules are independently checkable one at a time — run them as a sequence (undefined terms → symbol definitions → paragraph logic → whole-document consistency) rather than trying to fix everything in one pass.
 - **Need the exact original wording, a full worked example, or want to verify this skill's fidelity to the source lectures?** Every claim above traces to a specific file in `references/lectures/` (each file's Version 2 half is this synthesis's own full reconstruction) and, for absolute source fidelity, to the official course PDFs/videos linked in `references/lecture-index.md`.
+
+
+## 发布与安装附录（4.7.0）
+
+原有指令与全部课程内容完整保留；当前发布版本为 4.7.0。使用 [安装说明](references/installation.md) 选择标准 Skill ZIP、Agent Plugins、Claude Code 或社区 npx skills 安装方式。原始版本标记保留其历史身份。目录结构检查、实际客户端安装与平台市场审核分别记录，不以文件存在推断安装成功。

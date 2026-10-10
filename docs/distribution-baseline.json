@@ -1,0 +1,276 @@
+{
+  "schema": "incremental-distribution-baseline/1",
+  "base_commit": "036777d921b528f922df5fb74a6bdb07ec8aafbd",
+  "files": [
+    {
+      "path": ".github/workflows/validate.yml",
+      "size": 982,
+      "sha256": "1a350ad83ead4f567da40ebbde28922b5e426d9967df532fe6aafb6323825a69"
+    },
+    {
+      "path": ".gitignore",
+      "size": 460,
+      "sha256": "b1fb34236bd4015ea5a19a041e5ded73e3dfb5278113a8746da6e9949a522923"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size": 48281,
+      "sha256": "ded3352681a4e4cc91347dc4b4b24588cee79834b926af4aea165d73ce30aaa0"
+    },
+    {
+      "path": "LICENSE",
+      "size": 2190,
+      "sha256": "0d9155dc92a1a5d6aa98e5c067049a7c0b47b394266f76a24e96e18dcbf0fbe9"
+    },
+    {
+      "path": "NOTICE",
+      "size": 1537,
+      "sha256": "3079b22f6d2b667aae575ff232a51e8a16cde9c344ad10b800bce889d60f604f"
+    },
+    {
+      "path": "README.md",
+      "size": 11217,
+      "sha256": "766449495ee64c720f353eb107b5e5d4de0e0174581c65844fb8dd146731330c"
+    },
+    {
+      "path": "docs/course-full-reconstruction.md",
+      "size": 1212736,
+      "sha256": "17587b1eadd2483fa27987583e05ce56c933ebcbba5e83cd126ace62c402a3e5"
+    },
+    {
+      "path": "scripts/playbook_contract.py",
+      "size": 10014,
+      "sha256": "964d39be8c1f75f71c262c325d030e65e8e1924f8b48f99fa445c5f5cf3977b1"
+    },
+    {
+      "path": "scripts/test_course_fidelity_and_generality.py",
+      "size": 8883,
+      "sha256": "f7af0ba585513dc8309cc74a4dfcd21fa17a8ad48241b00fcef87db8a1d1d69a"
+    },
+    {
+      "path": "scripts/test_dataset_census_experiment_evidence.py",
+      "size": 8237,
+      "sha256": "3ed0879ce91d1b58cc316f195436d57fec1e09365a509cf34a9e59c83e94c5a7"
+    },
+    {
+      "path": "scripts/test_professor_feedback_operationalization.py",
+      "size": 5579,
+      "sha256": "86a530c1667d11880c6f97ff3e4b7877dd2d7ac255d52b59e7b90ad933f01c61"
+    },
+    {
+      "path": "scripts/test_review_feedback_evidence_playbook.py",
+      "size": 4954,
+      "sha256": "c3d8395416d6717b1e751a9eacbeaceafe8e46552a4eacc49df048ee0124c30a"
+    },
+    {
+      "path": "scripts/validate_package.py",
+      "size": 9309,
+      "sha256": "b040520082898eace6a59782477e747d47d4233d2cc06bc40216211819d68a89"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/SKILL.md",
+      "size": 55537,
+      "sha256": "c9b087c0aaa5cefbc6633d3c5dca1239c8616b54c909316c9bdc52082ab83398"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/agents/openai.yaml",
+      "size": 392,
+      "sha256": "53ec25d7cb517c19d4ae097756fa79706f190f795e8b0550fbeaf8ea98a17409"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/course-full-reconstruction.md",
+      "size": 1212736,
+      "sha256": "17587b1eadd2483fa27987583e05ce56c933ebcbba5e83cd126ace62c402a3e5"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lecture-index.md",
+      "size": 5230,
+      "sha256": "42442567eacbf4edd40650066cad6c35ea9741fa5a1f75730d5700f23e629808"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-01-overview.md",
+      "size": 121363,
+      "sha256": "1aa511db02d5d0ac79229e68e77c490fa5446db95c4b1c6a35c93f90981e05ed"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-02-conception-and-title.md",
+      "size": 78663,
+      "sha256": "77031c77ab987e48dbbffb8f674e0d1e979dc8e7db95594e74c9c31e106a269c"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-03-abstract-and-introduction.md",
+      "size": 82645,
+      "sha256": "9b4f491b326dcaed77bc8727c94fe76c58eab78acb724fffb56e6617a3b1b189"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-04-related-work-and-method.md",
+      "size": 82909,
+      "sha256": "d733948c15c6b8e0adb2581b0284994a22374d732b880e8986ae19bd3b93bc06"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-05-experiments-conclusion-references.md",
+      "size": 81332,
+      "sha256": "f609d150b5ec2af5ea47dd74c689b64b5f492d148a16e47ed1c4b8458457f728"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-06-motivation-figure.md",
+      "size": 91826,
+      "sha256": "f182df4eecc26dbd79422a0ad244882b62500afa780d934caf168316aeef5264"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-07-framework-figure-overview.md",
+      "size": 91614,
+      "sha256": "76ab7af6619a1793eb65657c0cb27818f456f6b40ee9f54db4fd8b800febf334"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-08-framework-figure-extension.md",
+      "size": 77044,
+      "sha256": "7253907c8fcf01d8ff6905eae36b18f4a1854e86a49a44c093263903a648074e"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-09-concise-and-rigorous.md",
+      "size": 74177,
+      "sha256": "43fbe490be696880e132dced959267886308927ccd402d7b778fdcb5b272bbe0"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-10-terminology-symbols-figures-references.md",
+      "size": 73348,
+      "sha256": "067a0abf038d4f30777ca693a6eb1947dbc4ac4110620293747014e53f7e5cd2"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-11-innovation-angles.md",
+      "size": 117509,
+      "sha256": "c560751f047a6f8fced3d51fe2edf04f0a5fbeff14bf0df32270a3263d1fd68c"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-11-pre-prerequisites.md",
+      "size": 86304,
+      "sha256": "0e5a71388ec2c5cf09ab22dcb30dac0f0a6315a8f3faa600774acb9285856a0f"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/lectures/lecture-12-find-papers-literature-review.md",
+      "size": 140227,
+      "sha256": "402f74cd4f63f4b12995d75cfd23de0e54b4f1ab5a79ccf6ff5aea93821ead69"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/01-overview.md",
+      "size": 12792,
+      "sha256": "e50e63465372b1dff3a7414e6aaf76cd783757f153c16fc33c0d7bd67898cb9a"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/02-conception-and-title.md",
+      "size": 11441,
+      "sha256": "a80aaf524e63ddaa993c2bd119d230fd6a13fbadcdd97fb834d5b342a9b34e2e"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/03-abstract-and-introduction.md",
+      "size": 10872,
+      "sha256": "1500261f70b0bc5bd47aaf7117c9ae8d3fd4548d7fca4f18541b94db352079a5"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/04-related-work-and-method.md",
+      "size": 12727,
+      "sha256": "fc52072e5b0d3d01543c780bb6e53c8686447e7d6de7cf012dacff10c4922979"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/05-experiments-conclusion-references.md",
+      "size": 8764,
+      "sha256": "7c4890c0c5df7963a2fc0a308710ba5a58fe812effdec480be98b9072ac03cec"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/06-motivation-figure.md",
+      "size": 13069,
+      "sha256": "f1e462c5552959cd0fe0e15fb623865632f53fcf5f76c4cbcf68dfecc44eb3e3"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/07-framework-figure-overview.md",
+      "size": 8529,
+      "sha256": "f2ebc814e23a0fa469cf33c51dfcf0486dd23af0dcba6f30668225be539e7b02"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/08-framework-figure-extension.md",
+      "size": 7829,
+      "sha256": "cc6af0f75fcbbdb3169d4b8fb40aa79e9f0417d68f899f0a3ca7960ea6ed6d97"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/09-concise-and-rigorous.md",
+      "size": 8797,
+      "sha256": "24ce243939e506511b2366f083b03e603a224025b2e7e7f88825ada40dba2020"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/10-terminology-symbols-figures-references.md",
+      "size": 9921,
+      "sha256": "5370360f083e98037f0624bc8eb35cdb520c501e5b096b816a8197b841431493"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/11-innovation-angles.md",
+      "size": 9538,
+      "sha256": "3f42a5f55c0c8c9d8fda05df2cdf98d4d80e2ae0e537fad685f73f97dff86c64"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/11-pre-prerequisites.md",
+      "size": 7716,
+      "sha256": "6231d973d96c1a91a223b992e4aea12b36ca1ae5887689931f5bdda93b68fa7c"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/12-find-papers-literature-review.md",
+      "size": 12242,
+      "sha256": "7ddc01e4ed5e15f132699069d082935db9cd92c37ceb7f0b0cfccef1067c77ab"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/13-review-feedback-evidence-contract.md",
+      "size": 35305,
+      "sha256": "0529b241067b70bae7aaa6320aeb1d51d98ec302806d6a5675d1e8a00962f71e"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/14-figure-schema-and-rendering-gate.md",
+      "size": 41938,
+      "sha256": "44976cfeea6645635a7d541225bc096c75880a259ed5d9f080f93f137854f4f0"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/15-table-taxonomy-and-layout.md",
+      "size": 18833,
+      "sha256": "7ed58a06cecf20b298d42241f8c5b920c80ec9eadcb9a2681d4e38fcb4c8ca5f"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/16-fast-reader-and-skim-path.md",
+      "size": 12307,
+      "sha256": "46f5e9791f2da6990481e265dd26571421a87ca316d8668ae8abb82ea307fddb"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/17-native-register-and-ai-detection.md",
+      "size": 25033,
+      "sha256": "30af12c81c1f6617b34b6f67f1fc1e07835a9d0cd20f3e2fb436387d4a336414"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/18-submission-sprint-discipline.md",
+      "size": 16640,
+      "sha256": "25f08fa88ac20f1e0ad8926af7a655ddf60798a64bd12d65b0db7c847b3601f4"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/provenance.md",
+      "size": 29331,
+      "sha256": "e7d31716466becb5e4d2d8b53e0c9ddb9544b1b5f193fb3d916534f279f760b5"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/quick-reference.md",
+      "size": 8459,
+      "sha256": "8cc53df91eb6586f222483a02c08b943e76f59dd8619e31e28c5a7c85bfb6673"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/scripts/check_title.py",
+      "size": 2321,
+      "sha256": "880cf086cde764c1bda44de185e54d457ef278799cb389c57a41d1c298cfd07e"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/scripts/measure_prose_rhythm.py",
+      "size": 10130,
+      "sha256": "2738f660b83936624fd002ac0ffbf2a4ad15e88144d3b051a3c0962be6dcff42"
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/scripts/new_research_point_canvas.py",
+      "size": 1280,
+      "sha256": "947d9d4bec8ea4f4bcaa549a34b898eb669de31fdec649f6c4a1c619c6c1ef19"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "schema": "owned-skill-repositories/1",
+  "checked_date": "2026-10-10",
+  "owned_repositories": 25,
+  "skill_repositories": [
+    "1235357/research-english-academic-paper-writing-guide",
+    "1235357/xuexiguan-agent-skill"
+  ],
+  "repositories": [
+    {
+      "repository": "1235357/0",
+      "private": true,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/1",
+      "private": true,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/2",
+      "private": true,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/3",
+      "private": true,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/4",
+      "private": true,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/berkeley-stat-157",
+      "private": false,
+      "default_branch": "master",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/cam-notes",
+      "private": false,
+      "default_branch": "master",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/cambridge-maths-notes",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/debate-engine",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/DeepLearningSystem",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/Feather-Light-Fourier-Domain-Adaptation",
+      "private": false,
+      "default_branch": "master",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/Interactive-Visual-Scheduler-Simulator",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/Linear-Algebra-Left-Undone",
+      "private": false,
+      "default_branch": "new",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/Obsidian",
+      "private": true,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/obsidian-xuexiguan-reader",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/PyFigureEditor",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/Python-Basics-File-Handling-Lecture",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/research-english-academic-paper-writing-guide",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [
+        "skills/research-english-academic-paper-writing-guide/SKILL.md"
+      ],
+      "release_count": 1
+    },
+    {
+      "repository": "1235357/Segment-Anything-CSharp",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/sqlib",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/StatProofBookTools",
+      "private": false,
+      "default_branch": "master",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/tmp",
+      "private": true,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/UML-Diagram-Development-Assistant",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/Wine-Quality-Evaluation-Statistical-Analysis-and-Modeling",
+      "private": false,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [],
+      "release_count": null
+    },
+    {
+      "repository": "1235357/xuexiguan-agent-skill",
+      "private": true,
+      "default_branch": "main",
+      "tree_truncated": false,
+      "skill_files": [
+        "skills/read-xuexiguan/SKILL.md"
+      ],
+      "release_count": 0
+    }
+  ]
+}

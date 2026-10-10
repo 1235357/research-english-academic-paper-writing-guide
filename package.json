@@ -1,0 +1,36 @@
+{
+  "name": "research-english-academic-paper-writing-guide",
+  "version": "4.7.0",
+  "description": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows.",
+  "type": "module",
+  "private": false,
+  "bin": {
+    "research-writing-skill-install": "bin/install.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "skills",
+    "bin",
+    "tools",
+    "docs",
+    "plugin.json",
+    ".claude-plugin",
+    ".agents",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1235357/research-english-academic-paper-writing-guide.git"
+  },
+  "homepage": "https://github.com/1235357/research-english-academic-paper-writing-guide",
+  "license": "MIT",
+  "scripts": {
+    "test:installer": "node --test tools/test_installer.mjs",
+    "validate:distribution": "python tools/validate_distribution.py"
+  }
+}
