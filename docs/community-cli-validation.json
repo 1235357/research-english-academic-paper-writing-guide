@@ -1,0 +1,51 @@
+{
+  "schema": "community-cli-executed/1",
+  "cli": "skills@1.7.2",
+  "telemetry_disabled": true,
+  "actual_local_installation": true,
+  "actual_public_git_installation": true,
+  "checks": [
+    {
+      "source_kind": "local",
+      "agent": "codex",
+      "installed_files": 42,
+      "source_files": 42,
+      "complete_byte_match": true,
+      "missing": [],
+      "extra": [],
+      "changed": []
+    },
+    {
+      "source_kind": "local",
+      "agent": "claude-code",
+      "installed_files": 42,
+      "source_files": 42,
+      "complete_byte_match": true,
+      "missing": [],
+      "extra": [],
+      "changed": []
+    },
+    {
+      "source_kind": "public-git",
+      "agent": "codex",
+      "installed_files": 42,
+      "source_files": 42,
+      "complete_byte_match": true,
+      "missing": [],
+      "extra": [],
+      "changed": []
+    },
+    {
+      "source_kind": "public-git",
+      "agent": "claude-code",
+      "installed_files": 42,
+      "source_files": 42,
+      "complete_byte_match": true,
+      "missing": [],
+      "extra": [],
+      "changed": []
+    }
+  ],
+  "all_byte_matches": true,
+  "tested_at_utc": "2026-10-11"
+}
