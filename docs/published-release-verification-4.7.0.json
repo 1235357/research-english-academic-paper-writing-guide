@@ -1,0 +1,62 @@
+{
+  "schema": "published-release-reverified/1",
+  "repository": "1235357/research-english-academic-paper-writing-guide",
+  "version": "4.7.0",
+  "release_url": "https://github.com/1235357/research-english-academic-paper-writing-guide/releases/tag/v4.7.0",
+  "published": true,
+  "release_id": 409331864,
+  "source_commit": "b78787cfacd65d3c146d1be631df1e719a500999",
+  "assets_actually_downloaded_and_sha_verified": 4,
+  "assets": [
+    {
+      "name": "release-assets.json",
+      "size": 935,
+      "sha256": "29ba191862b3a66c1b96c645abf8a87b19f481c5cb451998012218ceed4ed77c",
+      "actual_download_sha_matches_github": true,
+      "asset_id": 629501405
+    },
+    {
+      "name": "research-english-academic-paper-writing-guide-v4.7.0-plugin.zip",
+      "size": 1463544,
+      "sha256": "2c6b96608b268d53ba19da1f66fc7969e8137a050aa23e0032f5a6206d76c1ce",
+      "actual_download_sha_matches_github": true,
+      "asset_id": 629501622,
+      "single_root_folder": "research-english-academic-paper-writing-guide",
+      "manifest_source_commit_matches_release_tag": true,
+      "source_commit": "b78787cfacd65d3c146d1be631df1e719a500999",
+      "actual_zip_entry_verification": {
+        "root": "research-english-academic-paper-writing-guide",
+        "kind": "plugin",
+        "files_verified": 72,
+        "all_entries_sha256_verified": true,
+        "zip_crc_verified_by_full_read": true
+      }
+    },
+    {
+      "name": "research-english-academic-paper-writing-guide-v4.7.0-skill-full.zip",
+      "size": 982141,
+      "sha256": "446f8dc885d5000643bb21b017154ff24c4499f01a07b9a6e0e9ac92469b4205",
+      "actual_download_sha_matches_github": true,
+      "asset_id": 629501865,
+      "single_root_folder": "research-english-academic-paper-writing-guide",
+      "manifest_source_commit_matches_release_tag": true,
+      "source_commit": "b78787cfacd65d3c146d1be631df1e719a500999",
+      "actual_zip_entry_verification": {
+        "root": "research-english-academic-paper-writing-guide",
+        "kind": "skill",
+        "files_verified": 42,
+        "all_entries_sha256_verified": true,
+        "zip_crc_verified_by_full_read": true
+      }
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 264,
+      "sha256": "94d3995e3e411315803fbc72ad36a2f78ad3808aed89ce79848d6a4e4813e828",
+      "actual_download_sha_matches_github": true,
+      "asset_id": 629501176
+    }
+  ],
+  "checked_at_utc": "2026-10-11T05:41:24.347393+00:00",
+  "hosted_ui_import_tested": false
+}
