@@ -3,12 +3,68 @@
 
 Requirement: https://developers.openai.com/plugins/deploy/submission-errors
 """
+import hashlib
 import json
 from pathlib import Path
 import shutil
 import tempfile
 import unittest
 from validate_distribution import ROOT, check
+
+
+class CurrentReleaseTest(unittest.TestCase):
+    def test_notice_matches_metadata_and_preserves_entire_prior_entrypoint(self):
+        from configure_distribution import SPECS
+        package = json.loads((ROOT / 'package.json').read_text())
+        self.assertEqual(SPECS[package['name']]['version'], package['version'])
+        report = check(ROOT)
+        self.assertTrue(report['passed'], report['errors'])
+        skill = ROOT / 'skills/research-english-academic-paper-writing-guide/SKILL.md'
+        text = skill.read_bytes()
+        start = text.index(b'## Current package release (authoritative)\n')
+        end = text.index(b'# Research and English Academic Paper Writing Guide\n', start)
+        preserved = text[:start] + text[end:]
+        # Full 4.7.2 entrypoint at release commit 4a1cee23, including frontmatter,
+        # both historical reconstructions and every appended release layer.
+        self.assertEqual(hashlib.sha256(preserved).hexdigest(),
+                         '05e6c2865cb23b811a86de0b3aec977d987c58f3ba0884a42e3b2c99bd76572c')
+        self.assertIn(b'Version: `4.6.2`.', preserved)
+        self.assertIn('发布与安装补充（4.7.2）'.encode(), preserved)
+
+    def test_missing_stale_relocated_and_duplicate_versions_are_rejected(self):
+        with tempfile.TemporaryDirectory(prefix='research-release-identity-') as temporary:
+            root = Path(temporary) / 'repository'
+            shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', '__pycache__'))
+            path = root / 'skills/research-english-academic-paper-writing-guide/SKILL.md'
+            original = path.read_text()
+            version = json.loads((root / 'package.json').read_text())['version']
+            declaration = f'Current package version: `{version}`.'
+            start = original.index('## Current package release (authoritative)\n')
+            end = original.index('# Research and English Academic Paper Writing Guide\n', start)
+            notice = original[start:end]
+            no_notice = original[:start] + original[end:]
+            mutations = {
+                'missing': no_notice,
+                'stale': original.replace(declaration, 'Current package version: `4.6.2`.', 1),
+                'relocated': no_notice + '\n' + notice,
+                'duplicate': original + '\n' + declaration + '\n',
+            }
+            manifest_path = root / 'docs/semantic-amendments.json'
+            manifest = json.loads(manifest_path.read_text())
+            row = next(r for r in manifest['files'] if r['path'] == path.relative_to(root).as_posix())
+            for name, text in mutations.items():
+                with self.subTest(mutation=name):
+                    path.write_text(text)
+                    # Make the ordinary payload digest valid, proving the new
+                    # identity check catches the defect independently of hashing.
+                    data = path.read_bytes()
+                    row.update(after_sha256=hashlib.sha256(data).hexdigest(), after_size=len(data))
+                    manifest_path.write_text(json.dumps(manifest))
+                    report = check(root)
+                    self.assertFalse(report['passed'])
+                    self.assertTrue(any('current-release notice' in e or 'current-package version' in e
+                                        for e in report['errors']), report['errors'])
+                    self.assertFalse(any('exact reviewed replacement' in e for e in report['errors']))
 
 
 class PluginIdentityTest(unittest.TestCase):

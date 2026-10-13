@@ -32,9 +32,9 @@
       "path": "skills/research-english-academic-paper-writing-guide/SKILL.md",
       "baseline_sha256": "c9b087c0aaa5cefbc6633d3c5dca1239c8616b54c909316c9bdc52082ab83398",
       "before_sha256": "8bcf4175204c4058a1817fa79d8afa8167338c8f179100acf9c2db63dae7164d",
-      "after_sha256": "05e6c2865cb23b811a86de0b3aec977d987c58f3ba0884a42e3b2c99bd76572c",
-      "after_size": 58671,
-      "reason": "Reconcile rendering delegation and detector claims; add dated corrections beside preserved historical synthesis. Full-course semantic review: add current scope/evidence corrections and accurate source attribution. Release-only appendix identifies version4.7.2 and preservation/activation boundaries."
+      "after_sha256": "3d4963a615c6c046e572b35865c5c1af66ffb5d2a3b86237365b0171c60c682e",
+      "after_size": 59398,
+      "reason": "Reconcile rendering delegation and detector claims; add dated corrections beside preserved historical synthesis. Full-course semantic review: add current scope/evidence corrections and accurate source attribution. Release-only appendix identifies version4.7.2 and preservation/activation boundaries. Version 4.7.3 prepends an authoritative current-package notice while preserving the entire 4.7.2 entrypoint byte-for-byte; archive release labels and reconstruction lineage names remain unchanged."
     },
     {
       "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/01-overview.md",

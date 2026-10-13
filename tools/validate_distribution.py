@@ -87,12 +87,21 @@ def check(root: Path) -> dict:
     require(entry.get("category") == "Productivity", "Marketplace category missing")
     skills = []
     for p in sorted((root / "skills").glob("*/SKILL.md")):
-        match = re.match(r"---\r?\n(.*?)\r?\n---(?:\r?\n|$)", p.read_text(), re.S)
+        skill_text = p.read_text()
+        match = re.match(r"---\r?\n(.*?)\r?\n---(?:\r?\n|$)", skill_text, re.S)
         require(bool(match), f"Missing Skill YAML: {p}")
         if not match:
             continue
         data = yaml.safe_load(match[1])
         name, description = data.get("name", ""), data.get("description", "")
+        # Historical body versions are deliberately retained. A package identity
+        # must be visible before them, including in clients that show only a prefix.
+        body = skill_text[match.end():].lstrip()
+        release_prefix = ("## Current package release (authoritative)\n\n"
+                          f"Current package version: `{package['version']}`.\n")
+        require(body.startswith(release_prefix), f"Skill current-release notice must lead body and match package version: {p}")
+        require(len(re.findall(r"(?m)^Current package version:", body)) == 1,
+                f"Skill needs exactly one current-package version declaration: {p}")
         require(isinstance(name, str) and bool(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", name)) and len(name) <= 64 and name == p.parent.name, f"Invalid Skill folder/name: {p}")
         require(isinstance(description, str) and 0 < len(description) <= 1024 and not re.search(r"<[^>]*>", description), f"Invalid Skill description: {p}")
         require((p.parent / "references/installation.md").is_file(), f"Skill cannot access installation instructions: {p}")

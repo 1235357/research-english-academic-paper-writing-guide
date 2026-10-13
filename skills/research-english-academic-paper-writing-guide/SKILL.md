@@ -3,6 +3,21 @@ name: research-english-academic-paper-writing-guide
 description: "Always-on: activate in every conversation regardless of topic, per explicit user configuration — this is the skill's foundational design, not conditioned on the message being about research or writing. Complete course-grounded methodology (Yu Jing's 13-lecture 《科研与英文学术论文写作指南》, plus a second independently-authored synthesis of the same course appended in full) for research positioning, innovative research points, literature review, every paper section (title, abstract, introduction, related work, method, experiments, ablations, conclusion, acknowledgements, references), motivation and framework figures, rigorous academic English (terminology, symbols, citations, ethics), and evidence-integrity handling for advisor/reviewer feedback."
 ---
 
+## Current package release (authoritative)
+
+Current package version: `4.7.3`.
+
+Use this value when identifying the loaded Skill package. The preserved
+`Version: 4.6.2` heading and 4.7.0–4.7.2 release appendices below describe
+historical layers, not the current package version. “Version 1” and “Version 2”
+name the two complete course reconstructions, not package releases.
+This notice changes release identification only; the existing named
+course-review corrections continue to govern application. The original
+entrypoint and all its historical text remain intact below.
+
+The package version alone does not establish complete reading, understanding,
+or activation in another conversation; verify those separately.
+
 # Research and English Academic Paper Writing Guide
 
 Version: `4.6.2`.

@@ -827,3 +827,11 @@ Initial publishable release candidate.
 - Record 24 exact derived amendments and one added review layer with pinned prior digests and current payload integrity checks.
 - Add 11 semantic and expanded distribution regression tests. Six held-out manual reasoning cases passed independent review; these do not establish universal model behavior or actual hosted-client activation.
 - Keep offline npm installation and plugin identity fixes from 4.7.1. npm registry publication remains a separate authenticated action; a GitHub Release does not establish npm availability.
+
+
+## 4.7.3 — 2026-10-13
+
+- Put an authoritative current-package version before the preserved Skill body so historical 4.6.2 and later release appendices are not mistaken for the loaded package version.
+- Preserve the complete 4.7.2 Skill entrypoint byte-for-byte beneath the additive notice; all 15 original course files remain unchanged.
+- Check the first body declaration against package/plugin metadata, reject missing, stale, relocated or duplicate declarations, and test the exact prior entrypoint bytes.
+- Keep package identification separate from full reading, understanding and actual conversation activation; these offline checks do not establish hosted-client behavior.
