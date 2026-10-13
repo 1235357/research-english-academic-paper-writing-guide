@@ -812,3 +812,7 @@ Initial publishable release candidate.
 - Run distribution and packed-artifact tests in CI; clarify registry publication, local installation and client activation as separate checks.
 
 - Restore the prior Skill/receipt pair if receipt persistence fails after replacement; preserve failed new files for recovery, clean temporary receipts, and test write/rename failures on both fresh installs and upgrades.
+
+- Shorten plugin identity to academic-research (63-character namespaced Skill identity), retaining the original Skill/npm names and all course bytes; validate the 64-character OpenAI import limit with boundary regressions.
+
+- Keep plugin directory display name and short description within the documented 30-character limits, with boundary tests; standalone Skill source metadata remains unchanged.

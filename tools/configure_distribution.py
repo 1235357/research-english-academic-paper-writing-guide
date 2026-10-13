@@ -17,10 +17,10 @@ SPECS = {
         "base": "eb4f3d83b27868bd5ae86554e18ff583aeababd5",
     },
     "research-english-academic-paper-writing-guide": {
-        "version": "4.7.0", "skill": "research-english-academic-paper-writing-guide", "bin": "research-writing-skill-install",
-        "display": "Research and English Academic Paper Writing Guide", "marketplace": "szsdt-research-writing",
+        "version": "4.7.1", "plugin": "academic-research", "skill": "research-english-academic-paper-writing-guide", "bin": "research-writing-skill-install",
+        "display": "Academic Research & Writing", "marketplace": "szsdt-research-writing",
         "description": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows.",
-        "short": "Research planning and academic paper writing", "private": False,
+        "short": "Research and paper writing", "private": False,
         "base": "036777d921b528f922df5fb74a6bdb07ec8aafbd",
     },
 }
@@ -114,7 +114,7 @@ DISABLE_TELEMETRY=1 npx --yes skills@1.7.2 add 1235357/{repo} --skill {skill} --
 
 ```text
 /plugin marketplace add 1235357/{repo}
-/plugin install {repo}@{spec['marketplace']}
+/plugin install {spec.get("plugin", repo)}@{spec['marketplace']}
 ```
 
 ChatGPT／Codex支持的本地客户端可读取仓库市场清单；重启或刷新客户端后选择插件。公开Plugins Directory或组织工作区发布仍需相应账号、审核与权限，GitHub Release不等于已进入官方目录。本项目不添加无用途的MCP服务器、自动联网钩子或凭证接收工具。
@@ -141,14 +141,14 @@ def configure(root: Path) -> None:
     spec = SPECS[repo]
     baseline(root, spec)
     url = f"https://github.com/1235357/{repo}"
-    portable = {"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json", "name": repo, "version": spec["version"], "description": spec["description"], "author": {"name": "1235357", "url": "https://github.com/1235357"}, "homepage": url, "repository": url, "keywords": ["agent-skills", "education", "source-preservation"], "extensions": {"com.openai": {"interface": {"displayName": spec["display"], "shortDescription": spec["short"], "longDescription": spec["description"], "developerName": "1235357", "category": "Productivity", "capabilities": ["Read", "Write"], "websiteURL": url, "defaultPrompt": [f"Use ${spec['skill']} to read the complete source before applying its reasoning."]}}}}
+    portable = {"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json", "name": spec.get("plugin", repo), "version": spec["version"], "description": spec["description"], "author": {"name": "1235357", "url": "https://github.com/1235357"}, "homepage": url, "repository": url, "keywords": ["agent-skills", "education", "source-preservation"], "extensions": {"com.openai": {"interface": {"displayName": spec["display"], "shortDescription": spec["short"], "longDescription": spec["description"], "developerName": "1235357", "category": "Productivity", "capabilities": ["Read", "Write"], "websiteURL": url, "defaultPrompt": [f"Use ${spec['skill']} to read the complete source before applying its reasoning."]}}}}
     if not spec["private"]:
         portable["license"] = "MIT"
     dump(root / "plugin.json", portable)
     claude = {key: value for key, value in portable.items() if key not in ("$schema", "extensions")}
     dump(root / ".claude-plugin/plugin.json", claude)
-    dump(root / ".agents/plugins/marketplace.json", {"name": spec["marketplace"], "interface": {"displayName": spec["display"]}, "plugins": [{"name": repo, "source": {"source": "local", "path": "./"}, "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"}, "category": "Productivity"}]})
-    dump(root / ".claude-plugin/marketplace.json", {"name": spec["marketplace"], "owner": {"name": "1235357"}, "plugins": [{"name": repo, "source": "./", "description": spec["description"]}]})
+    dump(root / ".agents/plugins/marketplace.json", {"name": spec["marketplace"], "interface": {"displayName": spec["display"]}, "plugins": [{"name": spec.get("plugin", repo), "source": {"source": "local", "path": "./"}, "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"}, "category": "Productivity"}]})
+    dump(root / ".claude-plugin/marketplace.json", {"name": spec["marketplace"], "owner": {"name": "1235357"}, "plugins": [{"name": spec.get("plugin", repo), "source": "./", "description": spec["description"]}]})
     package = {"name": repo, "version": spec["version"], "description": spec["description"], "type": "module", "private": spec["private"], "bin": {spec["bin"]: "bin/install.mjs"}, "engines": {"node": ">=18"}, "files": ["skills", "bin", "tools", "docs", "plugin.json", ".claude-plugin", ".agents", "README.md", "CHANGELOG.md", "LICENSE", "NOTICE"], "repository": {"type": "git", "url": f"git+{url}.git"}, "homepage": url, "license": "UNLICENSED" if spec["private"] else "MIT", "scripts": {"test:installer": "node --test tools/test_installer.mjs", "validate:distribution": "python tools/validate_distribution.py"}}
     dump(root / "package.json", package)
     text = installation(spec, repo)

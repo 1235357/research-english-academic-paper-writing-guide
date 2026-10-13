@@ -1,11 +1,11 @@
 {
   "name": "szsdt-research-writing",
   "interface": {
-    "displayName": "Research and English Academic Paper Writing Guide"
+    "displayName": "Academic Research & Writing"
   },
   "plugins": [
     {
-      "name": "research-english-academic-paper-writing-guide",
+      "name": "academic-research",
       "source": {
         "source": "local",
         "path": "./"

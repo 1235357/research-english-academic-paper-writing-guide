@@ -73,7 +73,7 @@ DISABLE_TELEMETRY=1 npx --yes skills@1.7.2 add 1235357/research-english-academic
 
 ```text
 /plugin marketplace add 1235357/research-english-academic-paper-writing-guide
-/plugin install research-english-academic-paper-writing-guide@szsdt-research-writing
+/plugin install academic-research@szsdt-research-writing
 ```
 
 ChatGPT／Codex支持的本地客户端可读取仓库市场清单；重启或刷新客户端后选择插件。公开Plugins Directory或组织工作区发布仍需相应账号、审核与权限，GitHub Release不等于已进入官方目录。本项目不添加无用途的MCP服务器、自动联网钩子或凭证接收工具。
@@ -102,3 +102,8 @@ python tools/build_release.py --output /absolute/path/outside-repository --kind 
 5. 一个客户端的本地安装不会同步到另一个客户端、浏览器聊天或其他电脑；已有云端插件/桥接器也有独立版本，需要分别核验。
 
 本次离线实测覆盖 npm tarball 的安装命令入口、完整复制、幂等重装、SHA-256 核验与 ZIP 内容；不把这些结果等同于任何登录后客户端的真实导入验收。
+
+
+### 插件身份与 Skill 身份
+
+插件名为 `academic-research`；独立 Skill 与 npm 包名继续为 `research-english-academic-paper-writing-guide`。插件安装命令使用短插件名，独立技能调用和 npm 命令保持原名。根据 [OpenAI 插件提交错误说明](https://developers.openai.com/plugins/deploy/submission-errors)，插件与 Skill 的组合身份最长 64 字符；当前 `academic-research:research-english-academic-paper-writing-guide` 为 63 字符，旧同名组合为 91 字符。此项修复面向插件导入校验，不代表已通过目录审核或所有客户端实际安装。

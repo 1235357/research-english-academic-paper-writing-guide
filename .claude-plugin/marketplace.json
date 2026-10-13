@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "research-english-academic-paper-writing-guide",
+      "name": "academic-research",
       "source": "./",
       "description": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows."
     }

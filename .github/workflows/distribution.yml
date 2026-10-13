@@ -18,6 +18,7 @@ jobs:
       - name: Validate distribution and actual npm tarball installation
         run: |
           python3 tools/validate_distribution.py
+          python3 tools/test_distribution.py
           node --test tools/test_installer.mjs tools/test_npm_package.mjs
       - name: Build and verify complete Skill and plugin ZIPs
         run: python3 tools/build_release.py --output "$RUNNER_TEMP/release-artifacts" --kind all

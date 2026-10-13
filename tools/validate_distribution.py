@@ -21,9 +21,12 @@ def check(root: Path) -> dict:
     plugin = json.loads((root / "plugin.json").read_text())
     for error in jsonschema.Draft202012Validator(schema).iter_errors(plugin):
         errors.append(f"Official plugin schema: {error.message}")
+    interface = plugin.get("extensions", {}).get("com.openai", {}).get("interface", {})
+    for field in ("displayName", "shortDescription"):
+        require(isinstance(interface.get(field), str) and 0 < len(interface[field]) <= 30, f"OpenAI directory {field} must be 1-30 characters")
     package = json.loads((root / "package.json").read_text())
     claude = json.loads((root / ".claude-plugin/plugin.json").read_text())
-    require(plugin["name"] == package["name"] == claude["name"], "Plugin/npm identities differ")
+    require(plugin["name"] == claude["name"], "Portable/Claude plugin identities differ")
     require(plugin["version"] == package["version"] == claude["version"], "Plugin/npm versions differ")
     require(bool(re.fullmatch(r"\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?", plugin["version"])), "Invalid release SemVer")
     require(claude.get("description") == plugin.get("description") and bool(claude.get("description")), "Claude description is missing or inconsistent")
@@ -52,6 +55,9 @@ def check(root: Path) -> dict:
         require(isinstance(description, str) and 0 < len(description) <= 1024 and not re.search(r"<[^>]*>", description), f"Invalid Skill description: {p}")
         require((p.parent / "references/installation.md").is_file(), f"Skill cannot access installation instructions: {p}")
         require((p.parent / "references/installation.md").read_bytes() == (root / "docs/INSTALLATION.md").read_bytes(), f"Skill and repository install instructions differ: {p}")
+        # OpenAI submission validation applies to the namespaced identity, not
+        # only the standalone Agent Skills name limit. npm identity is separate.
+        require(len(f"{plugin['name']}:{name}") <= 64, f"skill_identity_too_long: {plugin['name']}:{name} exceeds 64 characters")
         skills.append(name)
     require(bool(skills), "No root skills discovered")
     baseline = json.loads((root / "docs/distribution-baseline.json").read_text())
