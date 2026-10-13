@@ -60,6 +60,12 @@ they're tied together and tested as one contract.
 
 ## Mandatory Source Order
 
+For application, first read `references/course-review-notes.md` with the relevant
+lecture. Its named, dated scope/evidence corrections override conflicting archived
+instructions, including the full-course reading protocol and companion synthesis.
+For attribution of what the lecturer said, use the source order below; preserve
+unresolved discrepancies rather than inventing a correction.
+
 Use sources in this order:
 
 1. Original transcript and slide material, when locally available
@@ -70,10 +76,10 @@ Use sources in this order:
      sources and are not part of the publishable skill package.
 2. `references/course-full-reconstruction.md`
    - Full classroom reconstruction of those 13 published modules (this
-     package's own Version 1 lineage).
+     Version 1 and Version 2 lineages).
    - Highest-priority course source bundled inside this skill.
    - Read it first when using this skill for a new task type.
-   - If any playbook/quick-reference conflicts with it, this file wins.
+   - It governs course attribution; the named current-review exceptions govern application.
 3. `references/playbooks/*.md`
    - Task execution playbooks. Playbooks 01-12 are distilled from the
      lectures — now enriched with the source lectures' own named case
@@ -118,14 +124,18 @@ subsections before applying a rule.
 
 ## Non-Negotiable Doctrine
 
-Apply these rules to every paper task:
+Apply the appropriate parts to the actual contribution and user goal. The course
+primarily models empirical ML method papers; theory, datasets, systems, analysis,
+negative results and engineering delivery need their own evidence and structure.
+Do not invent novelty, mechanisms, methods or positive results to fill a template.
+See `references/course-review-notes.md` §§A–B.
 
 1. **Need -> scientific problem -> method.**
    - Actual need: what capability or real-world demand matters.
    - Scientific problem: the mechanism-level obstacle behind that need.
    - Method: the technical path designed for that problem.
    - Never call "improve accuracy" a scientific problem.
-   - Never start with a fashionable method and search backward for a task.
+   - Method-first exploration is allowed; investigate its value and mechanism without fabricating a need or post-hoc discovery story.
 
 2. **Problem-method-experiment closure.**
    - The introduction raises the exact problem.
@@ -150,8 +160,8 @@ Apply these rules to every paper task:
      scientific problem.
    - Caption and body text are complementary, not redundant: the figure/table
      caption states what is shown; the nearby prose interprets why it matters.
-     A caption that restates a full paragraph of protocol or repeats a claim
-     already made in body text is a defect, not thoroughness.
+     Avoid mechanical repetition, while retaining definitions, assumptions and
+     evidence status needed to interpret the figure without guessing.
    - **Design authority and rendering authority are separate.** An agent may
      design what a figure should show — module decomposition, layout, visual
      encoding — grounded in the actual project's code, data, and results, and
@@ -167,16 +177,14 @@ Apply these rules to every paper task:
    - Distinguish fact, assumption, observation, explanation, conclusion.
    - Avoid absolute, oral, subjective, inflated, or unsupported wording.
    - Keep terminology, symbols, captions, tables, and citations consistent.
-   - **But do not let consistency flatten rhythm.** Rules 5a-5d optimize for
-     clarity through standardization, and standardization is what AI
-     detectors score as machine authorship — a collision the course could not
-     anticipate. Terminology stays frozen; sentence *frames* and sentence
-     *lengths* must vary. Splitting only overloaded sentences trims the long
-     tail without ever creating short ones, which leaves the flat profile
-     intact. See `references/playbooks/17-native-register-and-ai-detection.md`
+   - **Check rhythm without inferring authorship.** Clarity and consistent
+     terminology do not establish an AI-detection profile. Review repetitive
+     sentence frames and lengths when they impede a human reader; vary them
+     only where the argument benefits. A sentence-length statistic does not
+     establish a detector mechanism or predict a score. See `references/playbooks/17-native-register-and-ai-detection.md`
      and measure with `scripts/measure_prose_rhythm.py` rather than guessing.
-     A detector score is a style signal and never a reason to change a
-     number, a claim, or an honest hedge.
+     A detector score is an uncertain classifier output, not a writing-quality
+     verdict, and never a reason to change a number, claim, or honest hedge.
 
 6. **A frozen draft is read-only.**
    - When the author calls a version approved, satisfied, or final, it is a
@@ -271,7 +279,7 @@ When revising text:
 
 When evaluating an idea:
 - Give a three-one verdict:
-  one recognized actual need,
+  one recognized or convincingly evidenced actual need,
   one essence-hitting scientific problem,
   one method that cuts into it.
 - If any one is missing, say the idea is not ready.
@@ -280,12 +288,11 @@ When handling figures:
 - Check whether the figure answers the reader's first question.
 - Check input, output, key process, innovation, module boundary, naming,
   consistency, and text-figure correspondence.
-- Check self-sufficiency both ways: could a reader reconstruct the pipeline
-  from the figure alone, without the caption or Method prose explaining it —
-  and, the inverse gut-check, if the figure were covered up, would the
-  remaining prose and tables alone still be comprehensible? If either
-  direction fails, the fix is more real content in the figure or its
-  surrounding tables, never a longer caption
+- Check that the figure with its caption makes the main message, inputs/outputs,
+  module boundaries and relevant flow legible. Keep necessary definitions,
+  assumptions and evidence status in the caption; link Method prose for details
+  that cannot be shown clearly. Do not demand full reproducibility from pixels,
+  hide misleading or illegible figure content in prose, or ban a necessary caption
   (`references/playbooks/14-figure-schema-and-rendering-gate.md`).
 - Before any drawing tool opens, confirm reference figures were sourced
   from the same task domain and figure type (same playbook's Google Lens
@@ -396,19 +403,19 @@ Optional Python 3 stdlib helpers:
 - Do not treat a single AI-generation pass (even a well-prompted one) as
   ready to stand in for a figure's final design. Reference figures must be
   sourced first (`references/playbooks/14-figure-schema-and-rendering-gate.md`'s
-  Google Lens method or equivalent) and a human must hand-adapt from them;
-  an agent may extract and critique fragments, never approve a complete
-  AI-generated diagram as final.
+  Google Lens method or equivalent). The author may draw or explicitly
+  delegate a named figure; either route still requires an editable design,
+  evidence checks, visual QA, and applicable attribution/venue-policy checks.
+  A single generation pass is not final approval.
 - Do not place reported metric values or LaTeX-style formula blocks inside a
   Method-section framework/architecture figure — those belong in the
   Results tables/figures and the surrounding prose, not the framework
   diagram (small illustrative toy numbers demonstrating a labeling
   convention are the one exception; see playbook 14).
-- Do not let a figure's caption carry explanatory weight the figure itself
-  should carry. A caption states what the figure is an overview of and any
-  non-visually-inferable convention; it does not restate what a careful
-  look at the image already shows (playbook 14's caption-minimalism
-  section).
+- Keep the main structure legible in the figure; use its caption for necessary
+  definitions, assumptions and evidence status, and linked methods for full
+  implementation detail. Avoid needless duplication without treating caption
+  length alone as a defect (playbook 14).
 
 ---
 ---
@@ -448,9 +455,21 @@ The user asked for unconditional triggering in every conversation, regardless of
 
 ## Traceability
 
+> Editorial clarification (2026-10-13): the historical paragraph below's
+> exclusion statement refers to standalone source files. Markdown lecture
+> appendices do contain verbatim transcript text; see the current provenance
+> and NOTICE. This audit has not established third-party redistribution rights.
+
+
 This section is the condensed, action-oriented synthesis this skill's second author originally wrote as their entire SKILL.md. In this merged package, full slide-by-slide and transcript-level reconstructions for each of the 13 units live in `references/lectures/` — each of the 13 files there now contains **two** independent reconstructions back to back (Version 1 from this package's original lineage, Version 2 from this synthesis's author), rather than the separate `references/01...`-style numbered files this paragraph originally pointed to. Original, unmodified transcripts and slide decks are not redistributed in this package (see `references/provenance.md`); official download links and checksums are there instead. **Important, preserved from the original note:** in the original uploaded materials, the bonus lecture's and Lecture 11's slide PDFs had their filenames swapped — both this package's own audit and this synthesis's author independently caught and corrected this; see `references/provenance.md` for the correction note. Lecture 12 has no accompanying slide deck in the archive this synthesis's author worked from (transcript only); this package's own Version 1 lineage separately tracked down the missing Lecture 12 slide deck from the official course site (see `references/provenance.md`).
 
 ---
+
+> Current application note (2026-10-13): the preserved companion narrative below
+> is a historical synthesis. Apply `references/course-review-notes.md` to its
+> figurative career stages, venue examples, template scope, method exploration,
+> optimality/causality language, and figure/detail heuristics; do not treat these
+> historical generalizations as overriding the corrected operational guidance.
 
 ## Part I — Research Mindset (Lecture 1)
 
@@ -532,12 +551,12 @@ Task-specific → **domain-general** (shared across multiple tasks in one field,
 ## Part IV — Drawing the Two Figures That Matter Most (Lectures 6–8)
 
 ### IV.1 The research-motivation figure (Introduction) — Lecture 6
-Draw it before the text; it exists to convey the problem and the innovation at a glance. **Recurring failure patterns:** piling up disconnected examples with no stated relationship; no core-problem statement even when the figure looks busy; imprecise/unprofessional terminology; ambiguous or biased examples; presentation that costs the reader time to decode; undefined symbols/acronyms; no visible differentiation between stages/frameworks being compared; a figure that "looks fine" but conveys nothing on its own (the test: does the image alone tell a reader what the paper contributes?). **The fix that resolves most of these:** unify the representation — make the *compared things* share one visual/structural form (e.g. both "old" and "new" knowledge sources drawn as the same graph structure, or every historical method forced through the same four-layer pipeline) so the actual point of difference becomes the only thing left to notice. **Beyond big-picture contrast:** to show implementation-level (not just approach-level) innovation, use a maximally concrete, mechanism-accurate single example rather than a general schematic. **Final checklist:** states the problem? states the innovation? sharply contrastive example? precise/typical/non-ambiguous coverage? echoes the paper's actual narrative so the same example threads through the prose?
+Draw it before the text; it exists to convey the problem and the innovation at a glance. **Recurring failure patterns:** piling up disconnected examples with no stated relationship; no core-problem statement even when the figure looks busy; imprecise/unprofessional terminology; ambiguous or biased examples; presentation that costs the reader time to decode; undefined symbols/acronyms; no visible differentiation between stages/frameworks being compared; a figure that "looks fine" but conveys nothing on its own (the test: does the image alone tell a reader what the paper contributes?). **The fix that resolves most of these:** unify the representation — make the *compared things* share one visual/structural form (e.g. both "old" and "new" knowledge sources drawn as the same graph structure, or comparable functional roles aligned without inventing absent stages or hiding material differences) so the actual point of difference becomes the only thing left to notice. **Beyond big-picture contrast:** to show implementation-level (not just approach-level) innovation, use a maximally concrete, mechanism-accurate single example rather than a general schematic. **Final checklist:** states the problem? states the innovation? sharply contrastive example? precise/typical/non-ambiguous coverage? echoes the paper's actual narrative so the same example threads through the prose?
 
 ### IV.2 The model/framework figure (Method) — Lectures 7–8
-Same principle: draw first, then write to match. **A real 8-version failure-mode sequence, useful as a diagnostic at any stage:** process/boundaries unclear → boundaries still unclear even with the full pipeline sketched → modules named but boundaries still not visually locatable → color-coded but titles don't align with highlighted regions → aligned but font/size inconsistent (an unprofessional first impression quietly discounts the whole paper) → font fixed but image sizes/symbol definitions/background consistency still off → representation consistent but two subtler bugs remain: (a) identical content drawn differently in two places reads as two different things needing separate explanation — keep it consistent everywhere; (b) redundant elements (if removing something loses no necessary information, remove it) → final. **Writing text from the finished figure:** the module with the most figure space gets the most prose; section headers should match the figure's module titles word-for-word. **When the framework itself is new** (not just the idea within a familiar one): the figure must both teach the new framework *and* make the specific innovation legible — visual emphasis (color/vividness) should track information content, not the reverse (the flashiest color shouldn't land on the least informative part). **When the contribution is a small, generic component within an existing framework** (e.g. a new loss function): don't spend the most space narrating the pre-existing framework even if it's chronologically first — draw/write it briefly, and give full detail (with one concrete example threaded throughout) to the actual contribution, wherever it sits in the pipeline. **Five-point checklist:** clear input/output/key-processes; innovation gets the most space (not whatever took longest to build); modules with clearly stated roles; precise naming (prefer field-consensus terms over inventing new ones); full consistency between the figure and the main text.
+Same principle: draw first, then write to match. **A real 8-version failure-mode sequence, useful as a diagnostic at any stage:** process/boundaries unclear → boundaries still unclear even with the full pipeline sketched → modules named but boundaries still not visually locatable → color-coded but titles don't align with highlighted regions → aligned but font/size inconsistent (an unprofessional first impression quietly discounts the whole paper) → font fixed but image sizes/symbol definitions/background consistency still off → representation consistent but two subtler bugs remain: (a) identical content drawn differently in two places reads as two different things needing separate explanation — keep it consistent everywhere; (b) redundant elements (if removing something loses no necessary information, remove it) → final. **Writing text from the finished figure:** allocate prose by explanatory and reproducibility needs; section headers should map clearly to figure modules. **When the framework itself is new** (not just the idea within a familiar one): the figure must both teach the new framework *and* make the specific innovation legible — visual emphasis (color/vividness) should track information content, not the reverse (the flashiest color shouldn't land on the least informative part). **When the contribution is a small, generic component within an existing framework** (e.g. a new loss function): don't spend the most space narrating the pre-existing framework even if it's chronologically first — draw/write it briefly, and give full detail (with one concrete example threaded throughout) to the actual contribution, wherever it sits in the pipeline. **Five-point checklist:** clear input/output/key-processes; innovation gets the most space (not whatever took longest to build); modules with clearly stated roles; precise naming (prefer field-consensus terms over inventing new ones); full consistency between the figure and the main text.
 
-*(Full worked examples — the complete real revision histories for MuKEA (V1→V4) and ET-BERT (V1→V4, plus a separate 8-version model-figure arc), and two "appreciation" exemplars (DualVD, CogTree): `references/lectures/lecture-06-motivation-figure.md` through `references/lectures/lecture-08-framework-figure-extension.md` (each file's Version 2 half).)*
+*(Full worked examples — the complete real revision histories for MuKEA (motivation V1→V4, framework V1→V8) and ET-BERT (motivation V1→V3, framework V1→V4; selected teaching snapshots, not total revision counts), and two "appreciation" exemplars (DualVD, CogTree): `references/lectures/lecture-06-motivation-figure.md` through `references/lectures/lecture-08-framework-figure-extension.md` (each file's Version 2 half).)*
 
 ---
 
@@ -547,6 +566,12 @@ Same principle: draw first, then write to match. **A real 8-version failure-mode
 Most non-native-speaker "my English isn't good enough" self-diagnoses are actually a logical-organization problem, not a vocabulary one — citing 施一公 (Shi Yigong): use the simplest words for the clearest result, not sophisticated-sounding phrasing. **Three tips, demonstrated on a real draft-to-camera-ready rewrite:** one sentence, one idea (split a sentence carrying 2–3 distinct ideas; push implementation detail to where the reader needs it, not the sentence meant to preview an idea); avoid translating Chinese sentence structure into English, in either direction (writing *or* reading someone else's paper via translation software, which flattens the precise word choices carrying real distinctions); avoid repetitive assertion (support the same conclusion from different angles — theory in one place, experimental evidence in another — rather than restating "we can do this" unsupported). **Reviewer-empathy exercise:** imagine a reviewer with one hour before a deadline — what loses them: a model/method name suddenly used with zero prior definition; an ad-hoc symbol that's either non-standard or simply never explained; a figure that doesn't convey its logic quickly. **Four rigor rules:** define every term at first use (full name + abbreviation together); explain every symbol immediately after every formula (three nested levels — general math convention, sub-field convention, and still an explicit inline definition regardless); use transition words to build one coherent "story" (state each sentence's logical relationship to what came before/after, rather than a flat recitation of facts); keep naming completely consistent across the whole paper (figure captions, table captions, main text, model names must all match exactly).
 
 ### V.2 Terminology, symbols, honest results, citations, ethics (Lecture 10)
+
+> Editorial correction (2026-10-13): the historical synthesis below retains its
+> original “~200 pages” wording. The linked [Math Vault PDF](https://mathvault.ca/wp-content/uploads/Comprehensive-List-of-Mathematical-Symbols.pdf)
+> has 28 pages in the version checked on this date. Use 28 for that PDF,
+> not for differently titled or later editions. See playbook 10.
+
 **Three phrasing habits to eliminate:** absolute/overclaiming language ("no doubt the first," "the best"); colloquial phrasing carried from speech ("as we know," "obviously"); evaluative adjectives with no data/theory behind them. You don't know your reviewer's seniority — write precisely enough to hold up either way. **Curated resources:** Felicia Brittman's *"The Most Common Habits from more than 200 English Papers written by Graduate Chinese Engineering Students"*; Math Vault's *"Comprehensive List of Mathematical Symbols"* (~200 pages, check before inventing notation); CCF's Terminology Committee / CCFpedia (term.ccf.org.cn) for fast-moving CS/AI term definitions; `rebiber` (GitHub) for one-command `.bib`-file reformatting against DBLP. **Four-question honesty checklist for experiments:** does the reporting genuinely reflect results? Only best-case-vs-worst-case comparisons? Only qualitative with no quantitative backing? Only a single run with no repeated-trial verification? Fix proactively: averages, error bars, bounds; bad-case analysis stating capability *limits*; quantified breakdown alongside any qualitative example; an anonymized code link where space allows. **Reference-list hygiene:** incomplete author lists, inconsistent full/abbreviated venue names, unnecessary links, blindly copying a "cite as" export or another paper's format without checking completeness and target-venue fit — check the venue's own template, prefer DBLP, use `rebiber` for long lists. **The anti-plagiarism bottom line:** a paper follows a researcher for life; plagiarism (of results *or* of phrasing — "expression plagiarism" is not a minor exception) discovered later damages the author's lifelong reputation, every co-author, and the home institution, illustrated by real, publicly-documented cases the lecture itself cites (framed as accusations/disputes, not adjudicated verdicts).
 
 *(Full detail — the exact bad-example sentences, all resource links, and the academic-integrity case discussion as presented: `references/lectures/lecture-09-concise-and-rigorous.md`, `references/lectures/lecture-10-terminology-symbols-figures-references.md` (each file's Version 2 half).)*
@@ -570,3 +595,8 @@ Most non-native-speaker "my English isn't good enough" self-diagnoses are actual
 ### 发布与安装补充（4.7.1）
 
 当前发布层版本为 4.7.1；完整课程正文与既有历史说明保留。npm registry 发布、本地文件安装和客户端加载是三个独立检查，具体命令与故障定位见 `references/installation.md`。
+
+
+### 发布与安装补充（4.7.2）
+
+当前发布层版本为 4.7.2。13讲与两份完整课程重建共15份课程原文逐字节保留；本版修订派生应用指南，并增加独立标识的当前复核层。历史版本标记不代表当前包版本。安装方法见 `references/installation.md`；课程修订的适用边界与来源区分见 `references/course-review-notes.md`。npm 发布和客户端实际加载仍需分别验证。

@@ -10,7 +10,7 @@
 Apply this skill to keep every research-writing decision centered on the paper's core problem. Always check whether the paper's problem, method, experiment, conclusion, and references form one aligned story:
 
 ```text
-problem -> method designed for the problem -> experiments proving the method -> conclusion after verification -> references supporting the research context
+problem -> method designed for the problem -> experiments testing the claims -> conclusion after verification -> references supporting the research context
 ```
 
 For detailed course-derived explanations and source context, consult `references/lectures/lecture-05-experiments-conclusion-references.md`. For provenance, use `references/provenance.md`.
@@ -19,7 +19,7 @@ For detailed course-derived explanations and source context, consult `references
 
 1. Identify the central research problem and the specific claim the section must support.
 2. Map each method component to the problem it solves.
-3. Require experiments to prove those method components and the original motivation one by one.
+3. Choose contribution-appropriate tests of the claimed component roles and motivation, including outcomes that would weaken or falsify them.
 4. Write analysis in this order: conclusion first, factual support second, mechanism explanation third, exception or limitation fourth.
 5. Close with verified conclusions, explicit limitations, future work, complete acknowledgements, and checked references.
 
@@ -48,11 +48,20 @@ When writing or revising comparison with existing methods, structure the paragra
 ```text
 Conclusion: state the main finding from the table or figure.
 Evidence: cite the relevant datasets, metrics, and method groups.
-Mechanism: explain which design difference causes the result.
+Explanation: separate a candidate reason for the result from an independently tested mechanism; state controls and identifying assumptions for causal claims.
 Exception: analyze weaker or abnormal results, including dataset properties, fairness, extra data, extra knowledge, or task mismatch.
 ```
 
 Before analyzing results, group baseline methods by technical route so later comparisons can discuss method-level differences instead of reintroducing every baseline.
+
+## Evidence-strength note
+
+The course's “proof/optimal” wording is pedagogical. Finite comparisons support
+claims only in the tested setting; they do not prove global optimality. A plausible
+rationale, attention map or subgroup improvement does not alone identify a causal
+mechanism. Report uncertainty, controls, alternatives and failures. Choose tests
+for the contribution; do not require SOTA or separable ablations for every paper
+(see `references/course-review-notes.md` §§A–B).
 
 ## Ablation study pattern
 
@@ -79,7 +88,7 @@ A weak ablation statement says: "removing each module decreases performance." A 
 Never merely redescribe a figure or its caption. For qualitative, visualization, attention, explanation, or case-study analysis, write:
 
 ```text
-Observation 1: what capability the visualization demonstrates.
+Observation 1: what the visualization actually shows in the selected case, and which broader hypothesis it may illustrate.
 Evidence 1: which case, node, relation, attention, retrieved fact, generated answer, or error supports it.
 Observation 2: how the visualization distinguishes the method from baselines.
 Boundary: what the visualization reveals about failures or multiple plausible answers.

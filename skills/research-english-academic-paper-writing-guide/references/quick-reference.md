@@ -3,6 +3,10 @@
 Compact rules distilled from the whole course. For task-specific workflows
 use `references/playbooks/`; for full lectures use `references/lectures/`.
 
+Current scope/evidence corrections: read `references/course-review-notes.md`
+with the relevant lecture. The course's method-paper patterns are diagnostic,
+not mandatory invented content for every research genre or engineering goal.
+
 ## 1. Separate three concepts
 
 - **Actual need (需求)**: the real task demand — accurate, fast, robust,
@@ -13,8 +17,7 @@ use `references/playbooks/`; for full lectures use `references/lectures/`.
   scientific problem.
 
 Never replace a scientific problem with a metric target such as "improve
-accuracy". Never start from a trendy method and look for a task to attach it
-to.
+accuracy". Method-first exploration is allowed; test its value without fabricating a need or post-hoc discovery story.
 
 ## 2. Problem chain template (use before writing or revising)
 
@@ -72,8 +75,8 @@ contributions list modules rather than scientific value.
 
 ### Related work
 Write by dimensions (task-, problem-, method-related; technical route or
-assumption; data/model/objective/learning strategy), never a chronological
-list. For each group: shared idea → limitation → relation to this paper.
+assumption; data/model/objective/learning strategy). Chronology may explain
+technical evolution; avoid a mere author-by-author list. For each group: shared idea → limitation → relation to this paper.
 End each group by connecting the limitation to this paper's difference.
 
 ### Method
@@ -84,12 +87,12 @@ will be verified. Avoid a step-by-step engineering recipe with no
 motivation. Allocate space by novelty, not by implementation effort.
 
 ### Experiments
-Required evidence: overall effectiveness; fair baselines grouped by route;
-ablation for each core component (grouped by design dimension); analysis of
-why the method works; qualitative/visualization evidence with statistics;
-robustness/generalization/interpretability when claimed; limitations.
-Analysis order: conclusion first → supporting evidence → mechanism →
-exceptions. Be honest: no cherry-picked runs or examples.
+Match evidence to the contribution: fair baselines and controlled ablations where
+separable for method claims; valid construction/annotation/evaluation for tasks
+and data; appropriate proofs, measurements or falsifiable tests for theory,
+systems, analysis and exploratory work. SOTA/ablation is not universal. Separate
+observations, candidate explanations and tested mechanisms; finite comparisons
+do not prove global optimality. Report failures, uncertainty and limitations.
 
 ### Conclusion and references
 Conclusion: restate problem and insight, summarize verified findings, state
@@ -142,7 +145,7 @@ what is new beyond applying a known framework.
 
 ## 7. Innovation and literature review
 
-**Innovation from three levels:** actual need (real, field-recognized, not
+**Innovation from three levels:** actual need (real, recognized or convincingly evidenced, not
 pseudo-need) → scientific problem (well-studied / timely / emerging / not
 yet formulated) → solution method. Method-level dimensions to search:
 - Data: bias, imbalance, missing information, noise, annotation cost,
@@ -156,7 +159,8 @@ yet formulated) → solution method. Method-level dimensions to search:
 
 **Three-stage literature review:**
 1. Find core papers, clarify the task (tutorials, surveys, benchmarks,
-   high-citation papers; 5W1H) → understand the real need and boundary.
+   high-citation papers; 5W1H) → prioritize relevance/evidence and inspect available
+   authorized data, labels, splits and scoring. Mark document-only gaps explicitly.
 2. Read fast to map scientific problems and method routes (title, abstract,
    intro, method overview, figures, tables) → know what has been tried.
 3. Read deeply to locate limitations and design experiments (line-by-line,

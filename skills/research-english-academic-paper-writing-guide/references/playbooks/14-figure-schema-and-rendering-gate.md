@@ -1,4 +1,4 @@
-# Two-Phase Figure Workflow: Schema Authoring and the Human-Rendering Gate
+# Two-Phase Figure Workflow: Schema Authoring and the Author-Approval Gate
 
 > This playbook formalizes a workflow boundary that most of this course predates:
 > AI image generation was not a mainstream paper-figure tool when Yu Jing's
@@ -18,8 +18,9 @@
 
 ## Core rule
 
-**An agent may design what a figure should show. An agent may not render the
-final artwork.** These are two different decisions with two different owners:
+**An agent may design what a figure should show. Final rendering requires
+an explicit, per-figure request from the author.** These are separate
+permissions; evidence readiness alone does not grant rendering authority:
 
 1. **Figure design** (what to draw, why, how it is organized) follows from the
    paper's actual source code, experiments, and results. An agent that has
@@ -36,8 +37,8 @@ final artwork.** These are two different decisions with two different owners:
    collaborator's already-rendered files). This playbook covers the
    *authoring* side: what an agent should produce instead of a rendered image.
 
-Until a human renders the real artwork, every figure in the manuscript stays a
-placeholder (a boxed caption-plus-description stand-in, never TikZ or another
+Until the author renders the artwork or explicitly delegates that specific
+figure's rendering, every figure in the manuscript stays a placeholder (a boxed caption-plus-description stand-in, never TikZ or another
 programmatic drawing that would itself constitute rendering). The placeholder
 and the manuscript's prose must already be complete and internally consistent
 — finishing the *text* around a figure does not require the figure itself to
@@ -107,9 +108,8 @@ Verified directly against the Lecture 6/7/8/10 transcripts (2026-07-13 audit):
   reviewer-readability sense, not on a specific course rule.
 - **Not grounded**: the course states no fixed required *count* of figures for
   a top-tier submission, and no literal statement that rendering must be
-  100% manual. The "AI designs, human renders" boundary in this playbook is a
-  professional norm for AI-assisted drawing pipelines that this skill adopts
-  by policy — a reasonable extension of "the value of figure-making is
+  100% manual. The author-approval boundary in this playbook is a
+  workflow policy this skill adopts — a reasonable extension of "the value of figure-making is
   clarifying your own logic" (Lecture 7's closing point), not a transcribed
   rule. State this distinction if a user asks "does the course really say
   that."
@@ -366,9 +366,11 @@ carry a recognizable "AI feel" (see the diagnostic checklist below), and
 experienced reviewers dock papers for it on sight, independent of the
 science. The professional norm this playbook now adopts instead, confirmed
 directly by a real advisor's feedback on a real submission (see
-"Provenance" below): **find a structurally similar published figure in the
-same subfield first, then hand-adapt a real drawing tool from that
-reference. Never let one generation pass decide the final design.**
+"Provenance" below): **find structurally relevant published figures first, then create an
+editable design grounded in the paper's actual mechanism. Never treat a
+single generation pass as a verified final design.** The author can perform
+this work or explicitly delegate rendering for a named figure. Final use
+still requires evidence, visual QA, attribution, and venue-policy checks.
 
 ### Step 1: Source reference figures before opening any drawing tool
 
@@ -435,11 +437,11 @@ harder, more original design problem, not a shortcut to skip sourcing.
 
 ### Step 2: Hand-adapt, don't regenerate
 
-Using 1-2 of the sourced references as a starting layout, the paper's author
-(not the agent) produces the actual artwork in a real vector tool — a tool
-that keeps every element independently re-editable (see the tool-choice
-note under "Core rule" above). An agent's role here is strictly advisory and
-text-based:
+Using sourced references for structural inspiration, the author or an agent
+explicitly asked to render that specific figure produces editable artwork.
+Use a tool that keeps elements independently re-editable where practical
+(see "Core rule"). Without that per-figure request, the agent stays advisory
+and text-based:
 
 - Point out which reference's layout best fits the schema's zone count and
   connection grammar, and why.
@@ -447,8 +449,8 @@ text-based:
   from the reference and whether that divergence is intentional (a genuine
   difference in the paper's own logic) or accidental drift worth reverting.
 - Review a draft the author produces and check it against the AI-tell
-  checklist below — an agent may critique and flag, never silently "fix"
-  pixels itself.
+  checklist below. An agent must not silently change pixels outside the
+  explicitly requested figure-editing scope.
 
 **The AI-material line: fragments are fine, a finished whole is not.** It is
 fine to generate isolated, scattered raw material with AI and hand-extract
@@ -563,33 +565,18 @@ the reference figures, not a re-prompt.
 
 ## Caption-minimalism and figure self-sufficiency
 
-A high-quality figure and its caption divide labor sharply, and getting this
-division backwards is one of the most common tells of a weaker paper. This
-principle is course-grounded, not just an external addition: Lecture 8's own
-transcript states it directly — "真实数据要贯穿始终...图中最好使用一个与核心
-问题最相关、最直观的真实数据样例，让读者跟着它理解每一步如何变化" ("real
-data should run throughout... the figure should ideally use a real data
-example most relevant to the core problem, most intuitive, letting the
-reader follow it to understand how each step changes"). The CCGS worked
-example below is this exact course principle taken to its logical extreme —
-a real question, real timestamps, real matrix values — and the session's
-own rules (the metrics/formula line above, the density-over-whitespace tell)
-are pointed at the same underlying target from different angles.
+A figure and caption should convey the main message together: principal
+inputs/outputs, module boundaries, relevant flow, and the claimed distinction.
+The course supports using a concrete example and linking figure modules to prose
+for what cannot be explained visually (Lecture 7). It does not set a caption
+length or require complete pipeline reconstruction from an image. These are
+current editorial application limits; see `references/course-review-notes.md` §B.
 
-**The caption's only two jobs**: (1) orient the reader in one short phrase
-("Overview of the proposed X method"), and (2) state anything true about the
-figure that is not visually inferable from looking at it — almost always a
-convention decision, not content (e.g. "modules in the same color share the
-same parameters"). A caption should never restate what a careful look at the
-figure already shows.
-
-**The figure's job is everything else.** A reader who studies the figure
-carefully — without reading the Method section prose at all — should be able
-to reconstruct the actual pipeline: what real inputs look like, what each
-stage actually computes, what the real intermediate representations are,
-and how the loss or evaluation is structured. This is a much higher bar than
-"the figure illustrates the method" — it means the figure IS the method,
-in a visual register, and the caption is not doing any of the explaining.
+A concise caption orients the reader and supplies necessary definitions,
+assumptions, conventions and evidence status. Avoid needless duplication, but
+include information essential to interpretation. Linked Method prose supplies
+implementation and reproducibility details. Never hide illegible or misleading
+figure content in prose, and never draw unmeasured effects as measured outcomes.
 
 **Worked example** (external to the course, added to this skill by explicit
 request — see Provenance): Li, Weng, Sun & Li, *"Learning to Locate Visual
@@ -604,18 +591,15 @@ backbones used (I3D for video, a PLM for text) with the actual module names
 from the paper's own equations (Context Query Attention, Conv1D, Dropout,
 Embedding Split Linear Layer), and a fully worked example of the global-span
 matrix itself with real cell values and the actual ground-truth label
-convention. A reader who studies this one figure for a few minutes has
-effectively read the Method section. That is the standard to hold every
-framework figure to — not "does it look nice" but "if I deleted the Method
-section text, would this figure alone still teach the pipeline."
+convention. This example illustrates information-rich design, not a universal demand to
+replace the Method section. Other contribution types may need different detail.
 
-**Self-sufficiency test** (apply before calling a figure done): could a
-reader who has not read the Method section reconstruct the pipeline from the
-figure plus its 1-2 sentence caption alone? If the honest answer is no, the
-fix is almost always to add more real, concrete content to the figure (a
-worked example with real values, not just labeled boxes) — never to lengthen
-the caption to compensate. A long, explanatory caption is a symptom that the
-figure itself under-delivered, not a valid fix for it.
+**Self-sufficiency test** (apply before calling a figure done): can a suitable
+reader recover the main message and relevant structure from the figure plus its
+caption, with clear links to Method detail? Repair unclear visual structure in
+the figure; add necessary caption definitions or qualifications where appropriate.
+Do not impose a one-to-two-sentence limit, require every implementation detail in
+pixels, or use prose to conceal a misleading or illegible drawing.
 
 **The two-tier test** (a second, complementary check, verified live in a
 real advisor session — see Provenance): a genuinely good figure clears two
@@ -666,7 +650,7 @@ manuscript: figure number, the one core claim it exists to support (tied to
 a specific paragraph, per Step 1 above), current status, and a
 beginner-oriented hand-drawing walkthrough covering, at minimum:
 
-1. What this figure must let a reader reconstruct on its own (the
+1. What main message and structure the figure with its caption must convey (the
    self-sufficiency test above, answered concretely for this specific
    figure)
 2. The reference figures sourced for it (Step 1, via the Google Lens method
@@ -674,7 +658,7 @@ beginner-oriented hand-drawing walkthrough covering, at minimum:
 3. The layout archetype, zones, color mapping, and connection grammar
    (Phase 1, Steps 2-5 — cross-reference the schema entry rather than
    duplicating it)
-4. The exact draft caption (1-2 sentences, per the discipline above)
+4. The exact draft caption, including necessary definitions, assumptions and evidence status
 5. Which real drawing tool the author will use (see the tool-choice note
    under "Core rule"), and which sourced reference is the starting template
 6. The AI-tell checklist above, to be re-run once a draft exists

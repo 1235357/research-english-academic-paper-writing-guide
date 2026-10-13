@@ -5,8 +5,8 @@ Companion to references/playbooks/09-concise-and-rigorous.md and
 references/playbooks/17-native-register-and-ai-detection.md.
 
 Reports sentence-length distribution and its coefficient of variation
-(SD / mean, the standard "burstiness" measure in the general literature on
-this topic) plus a histogram. Python 3 stdlib only.
+(SD / mean, a descriptive sentence-length statistic) plus a histogram.
+It does not measure token surprisal or a detector's internal burstiness. Python 3 stdlib only.
 
 This is a readability diagnostic, not a detector proxy, and it deliberately
 has no "target" to hit. An earlier version of this script printed a
@@ -95,11 +95,13 @@ def strip_latex(src: str, keep_abstract: bool = False) -> str:
     return re.sub(r"\s+", " ", src).strip()
 
 
-def sentences(text: str, min_words: int = 4) -> list[str]:
+def sentences(text: str, min_words: int = 1) -> list[str]:
     """Split into sentences, ignoring fragments below `min_words`.
 
-    The min_words floor drops list labels and stray tokens that would
-    otherwise be counted as very short sentences.
+    Preserve genuine short sentences, including "Transfer is weak." from
+    playbook 17. A higher optional floor changes the population measured;
+    do not silently discard short claims to filter extraction artifacts.
+    Review extracted prose for list labels and other fragments separately.
     """
     # Protect common abbreviations so they do not end a sentence.
     protected = re.sub(
@@ -177,8 +179,8 @@ def report(r: dict, show_long: int) -> None:
         for f in flags:
             print(f"  - {f}")
         print(
-            "  This reads as flat to a human reader independent of any detector\n"
-            "  question. See playbook 09 (concise/rigorous prose) and playbook 17\n"
+            "  Inspect the prose: concentration alone does not prove monotony\n"
+            "  or authorship. See playbook 09 (concise/rigorous prose) and playbook 17\n"
             "  R2-R3 (split a judgment from its supporting detail into its own\n"
             "  sentence) for how to fix it -- there is no numeric band to aim for,\n"
             "  only 'does every sentence here carry the same weight.'"
@@ -191,7 +193,7 @@ def report(r: dict, show_long: int) -> None:
 
     print(
         "\nNOTE: this measures rhythm only. It does not reproduce, estimate, or\n"
-        "      correlate with any AI-detection vendor's score, and this skill\n"
+        "      predict any AI-detection vendor's score, and this skill\n"
         "      does not provide a target range to rewrite toward -- see\n"
         "      playbook 17 section 2.4 for why."
     )

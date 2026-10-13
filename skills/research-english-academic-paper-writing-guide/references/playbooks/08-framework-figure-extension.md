@@ -23,7 +23,13 @@ Use this priority order:
 
 ## Contribution-type routing
 
-### Old task + new framework
+Choose the actual contribution and reader need. These course examples are not an
+exhaustive taxonomy; frameworks without pretraining/fine-tuning should show their
+actual interfaces and processes. Data, evaluation, systems and delivery figures
+may emphasize access boundaries, contracts, latency, reliability or recovery.
+Do not invent a training stage or scientific novelty to fit the example.
+
+### Transferred pretraining framework (the ET-BERT case)
 
 Examples: ET-BERT for encrypted traffic classification with pre-training transformers.
 
@@ -57,10 +63,10 @@ Examples: CogTree loss for unbiased scene graph generation.
 Show:
 - the mechanism in detail;
 - the real or representative data that exposes the core problem;
-- the before/after effect, such as distribution movement or bias reduction;
+- a measured before/after effect with source/settings, or an explicitly labeled schematic/expected distribution or bias change;
 - training and prediction paths separately if they differ.
 
-Do not let the standard backbone or existing task framework consume the main figure area. Draw it briefly and clearly, then spend space on the new mechanism.
+Compress inherited backbone detail only where its identity, input/label flow, assumptions and interfaces remain clear or precisely referenced. Preserve reproducibility-critical boundaries even when they are not novel, then emphasize the actual contribution.
 
 ## Figure planning workflow
 
@@ -79,7 +85,7 @@ Before drafting or reviewing a diagram, answer these questions explicitly:
 Reject or revise a figure when any of these are true:
 
 - The figure looks polished but the innovation is not visible.
-- The largest visual area is preprocessing, baseline comparison, or existing framework material.
+- Routine background crowds out the contribution or necessary interfaces; retain preprocessing, baselines and inherited components when central to the claim or its validity.
 - The most saturated colors or boldest boxes are not the contribution.
 - Modules are shown but their purpose is not legible.
 - Training, fine-tuning, inference, or prediction paths are mixed without distinction.
@@ -145,7 +151,7 @@ When the contribution is a loss or objective:
 - sketch the existing model only enough to locate where the loss applies;
 - draw the loss construction and effect in detail;
 - use a real example aligned with the core problem;
-- show distribution/representation changes when they explain why the method works;
+- distinguish observed distribution/representation changes from schematic expectations; neither alone proves a causal mechanism;
 - separate training and prediction if they differ.
 
 ### Pre-drawing prompt template

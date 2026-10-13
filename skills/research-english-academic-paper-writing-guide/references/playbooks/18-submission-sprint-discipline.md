@@ -265,22 +265,17 @@ surprise.
 
 ## 8. Positioning: main paper claims, supplement explains
 
-Where a limitation is placed, and how many times it is repeated, changes
-how a reader weighs it — independent of whether the underlying fact is
-disclosed at all. The general principle: the main text should carry the
-paper's strongest, most complete case for its contribution; a limitation
-belongs in the location where it is most informative, generally the
-supplement, explained as a structural property of the setting rather than
-restated as an apology; and it should be stated once, not scattered
-through the paper as if instinctively hedging. This is not a license to
-hide a result — every fact stays in the paper. What changes is location,
-repetition, and voice, never presence.
+Place limitations where readers need them to interpret a claim, method, or
+result. Keep essential boundaries in the main text. The conclusion should
+synthesize the most consequential boundary and corresponding future work,
+while the supplement can carry secondary diagnostics and exhaustive details.
+Avoid mechanical repetition, not necessary disclosure. Follow playbook 05's
+"Limitation honesty, placement, and conclusion closure" guidance.
 
-- **R26.** State each limitation **once**, in its single most informative
-  location. A result that falls below a benchmark floor, repeated
-  separately in the abstract, introduction, results, and conclusion, reads
-  as anxiety rather than honesty — and dilutes the one place a careful
-  reader would actually want the full explanation.
+- **R26.** Do not enforce an exact-once rule. State a boundary beside an
+  affected result when interpretation requires it; summarize it again in the
+  conclusion when it is central to the paper's scope. Each occurrence must
+  do a distinct job rather than repeat the same caveat verbatim.
 - **R27.** Where a limitation is explained, explain it **mechanistically**
   — as a property of the method or setting, not as a confession. "The
   approach cannot recover an exact boundary because its scoring function
@@ -289,9 +284,10 @@ repetition, and voice, never presence.
   localization is weak" is a value judgment that invites the reader to
   simply agree with it.
 - **R28.** Deleting a limitation entirely, so that it appears nowhere, is
-  out of bounds regardless of page pressure. Moving it to its single best
-  location, and stating it once, is the correct move; removing it is not
-  an option R23's "substitution over addition" licenses.
+  out of bounds regardless of page pressure. Moving secondary detail is
+  acceptable only if the main text remains honestly interpretable on its
+  own. R23's "substitution over addition" does not authorize hiding a
+  load-bearing limitation in the supplement.
 - **R29.** Do not report a negative or null control as an empirical finding
   when it is actually a structural identity of the architecture. A control
   that returns identical results under a manipulation that should matter

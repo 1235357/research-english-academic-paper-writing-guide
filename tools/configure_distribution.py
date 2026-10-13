@@ -17,7 +17,7 @@ SPECS = {
         "base": "eb4f3d83b27868bd5ae86554e18ff583aeababd5",
     },
     "research-english-academic-paper-writing-guide": {
-        "version": "4.7.1", "plugin": "academic-research", "skill": "research-english-academic-paper-writing-guide", "bin": "research-writing-skill-install",
+        "version": "4.7.2", "plugin": "academic-research", "skill": "research-english-academic-paper-writing-guide", "bin": "research-writing-skill-install",
         "display": "Academic Research & Writing", "marketplace": "szsdt-research-writing",
         "description": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows.",
         "short": "Research and paper writing", "private": False,

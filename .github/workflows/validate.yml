@@ -19,6 +19,8 @@ jobs:
           python3 scripts/test_review_feedback_evidence_playbook.py
           python3 scripts/test_professor_feedback_operationalization.py
           python3 scripts/test_dataset_census_experiment_evidence.py
+          python3 scripts/test_course_fidelity_and_generality.py
+          python3 scripts/test_semantic_coherence.py
       - name: Smoke-test helper scripts
         run: |
           python3 skills/research-english-academic-paper-writing-guide/scripts/check_title.py "A Novel Framework for Visual Question Answering"

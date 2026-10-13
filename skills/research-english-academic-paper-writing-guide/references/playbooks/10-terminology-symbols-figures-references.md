@@ -50,7 +50,8 @@ Use this sequence for drafts, revisions, paper reviews, paper outlines, figure/t
    - Encourage personal expression banks and collocation tools for language improvement rather than copying sentences from existing papers.
    - The lecture is emphatic that this is not a minor point: a paper follows
      its author for life, "expression plagiarism" (copying phrasing, not just
-     results) is not treated as a lesser offense than results plagiarism, and
+     results) is also an integrity concern; the lecture does not establish equal
+     severity or sanctions across different conduct. It warns that
      a plagiarism finding damages every co-author and the home institution,
      not only the first author. The lecture illustrates this with real,
      publicly-documented top-venue plagiarism disputes — treat these as

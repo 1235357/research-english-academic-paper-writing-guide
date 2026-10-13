@@ -153,9 +153,11 @@ citations, experiments, PDF, archive contents, or venue compliance.
 
 - 课程内容版权归 **于静老师**（中科院信息工程研究所）所有；课程素材致谢
   丁阳、庄佳敏、林鑫杰、唐源民、屈详颜、李一立。
-- 本仓库为**学习用途的派生笔记**：官方 slides PDF 与原始 transcript **不在
-  本仓库中再分发**，官方 PDF 请从课程主页下载（`references/lecture-index.md`
-  含逐讲链接；`references/provenance.md` 含 SHA-256 校验和）。
+- 本仓库为**学习用途的派生笔记**：不包含独立的原始 PDF、transcript、视频或
+  图片文件，但 Markdown 讲义含逐字转写附录；不能把“未包含原始文件”表述为
+  “未再分发转写文本”。课程公开可读及保留署名并不自动授予再分发许可，
+  本仓库没有据此确认第三方课程文本的再分发授权。官方 PDF 请从课程主页下载
+  （`references/lecture-index.md` 含逐讲链接；`references/provenance.md` 含校验和）。
 - v4.0.0 起，本仓库合并了另一位作者基于同一课程材料独立整理的 skill 版本；
   合并明细见 `references/provenance.md` → "Merge history"。
 - 公开传播或商业使用前，请先征得课程作者许可，并保留课程署名。

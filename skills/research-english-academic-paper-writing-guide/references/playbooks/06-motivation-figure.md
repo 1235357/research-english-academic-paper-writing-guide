@@ -19,21 +19,29 @@ A motivation figure is not decoration and not an author-only memo. It is a compa
 2. Why is this problem important?
 3. Why do existing methods or representations fail?
 4. What is the paper's new idea, framework, or implementation detail?
-5. Which examples prove the contrast sharply and without ambiguity?
+5. Which examples illustrate the contrast clearly, with observed versus schematic status explicit?
 6. How does the figure map onto the introduction's background -> status quo -> problem -> method logic?
 
 ## Default Workflow
 
 For any relevant task, proceed in this order:
 
-1. **Classify the contribution type.** Decide whether the work is mainly a new idea/small model, a new framework/large model, or a technical implementation refinement. If unclear, state the ambiguity and infer a working type.
+1. **Identify the actual contribution.** Course cases include new ideas/representations, frameworks and local mechanisms; these are non-exhaustive and independent of model size. Adapt to data, analysis, systems or delivery work rather than forcing a method-paper category.
 2. **Separate demand, scientific problem, and solution.** Do not let the proposed method masquerade as the problem. Write the actual need, the research problem behind it, and the method separately.
 3. **Extract the contrast.** Identify what existing methods can do, what they cannot do, and the exact dimension where the proposed method differs.
 4. **Choose representative examples.** Prefer examples that are vivid, unambiguous, reviewer-credible, and collectively cover the paper's central claim.
-5. **Standardize the comparison.** Compare existing and proposed approaches at the same level of abstraction. For framework papers, modularize every method into the same pipeline stages and highlight differences at the same stage.
+5. **Standardize the comparison.** Compare existing and proposed approaches at the same level of abstraction. Align comparable functional roles without inventing absent stages or hiding non-equivalent input, supervision, compute or evaluation conditions.
 6. **Use precise terminology.** Replace vague labels with task-accurate terms. Define arrows, symbols, abbreviations, inputs, outputs, entities, relations, and modules.
 7. **Align with the introduction.** Map each major figure element to the exact introduction paragraph or sentence it supports.
 8. **Review from the non-author viewpoint.** Ask whether a reviewer can infer the problem, limitation, innovation, and contribution from the figure alone. If not, revise.
+
+## Evidence and comparison safeguards
+
+Label each example as observed/reproduced, cited, synthetic/toy, or schematic.
+Give the source and setting for measured outcomes. Never invent prior failure or
+proposed success; selected cases do not prove general improvement or causality.
+For broad claims, link quantitative coverage, uncertainty and counterexamples.
+Keep standard names/citations for inherited components; renaming is not novelty.
 
 ## Revision Heuristics from the Lecture
 
@@ -42,13 +50,13 @@ Use the MuKEA iteration pattern when the contribution is a new idea or represent
 - V1 failure: intuitive motivation only; arrows unclear; core problem missing; no professional symbols.
 - V2 failure: examples chosen but labels vague, triples listed too textually, examples may be ambiguous, layout unprofessional.
 - V3 improvement: unified graph-like representation and better examples, but paper contribution may still be unclear.
-- Final target: highlight entities and relations, mark prior-method failure vs proposed-method success, and make the figure correspond to introduction text.
+- Final target: highlight entities and relations, mark only observed or cited outcomes, including failures or no improvement, and make the figure correspond to introduction text.
 
 Use the ET-BERT iteration pattern when the contribution is a new framework:
 
 - V1 failure: technical history, data, methods, and outputs mixed together; framework differences inaccurate.
 - V2 failure: more categories but capability boundaries remain fuzzy; innovation hidden behind existing model names.
-- Final target: one modular pipeline shared by all compared frameworks, with differences shown at the same processing stage.
+- Final target: comparable roles aligned, with absent/non-equivalent stages explicitly marked and material differences preserved.
 
 ## Common Anti-Patterns
 
@@ -103,21 +111,21 @@ If any statement is missing, do not draw the figure yet.
 
 ### 2. Match contribution type to figure strategy
 
-#### New idea / new representation / small model
+#### New idea / new representation (not a model-size category)
 
 Use concrete examples to show what existing representations miss and what the proposed representation captures.
 
 Canonical structure:
 
 ```text
-input example -> existing representation and failure -> proposed representation and success
+input example -> existing representation/observed outcome -> proposed representation/observed or explicitly expected outcome
 ```
 
 Lecture anchor: MuKEA moved from vague motorcycle examples to a final contrast between Knowledge Graph and Multimodal Knowledge, with entities and relations highlighted and the figure tied to the introduction.
 
-#### New framework / large model
+#### New framework (not a model-size category)
 
-Use modular pipeline comparison. Every method row must use the same stages.
+Use modular pipeline comparison. Align comparable stages when accurate; mark absent or non-equivalent stages rather than forcing a common pipeline.
 
 Canonical structure:
 
@@ -134,7 +142,7 @@ Use a precise example to expose the implementation-level limitation and show how
 Canonical structure:
 
 ```text
-concrete failure case -> old mechanism behavior -> new mechanism behavior -> improved result
+concrete case -> old behavior -> proposed behavior -> actual result or explicitly labeled hypothesis
 ```
 
 Lecture anchors: DualVD, DAM, and CogTree each use a motivation figure to foreground the key problem and research idea.
@@ -183,12 +191,14 @@ Recommended mapping:
 | existing method block | related-work status quo |
 | failure marker | limitation or unresolved challenge |
 | proposed method block | contribution preview |
-| success marker | claimed advantage |
-| multiple examples | scope and generality claim |
+| success marker | supported outcome for that case; not assumed superiority |
+| multiple examples | illustrated coverage; broader generality needs evaluation |
 
-### 7. Final acceptance criteria
+### 7. Optional quick comprehension check
 
-A motivation figure is ready only when a non-author can answer these four questions after looking at it for less than one minute:
+Ask a suitable non-author these questions using a reasonable time for the audience
+and complexity. This is an editorial diagnostic, not a course-derived one-minute
+acceptance threshold or a substitute for technical validation:
 
 1. What problem is the paper solving?
 2. Why are existing methods insufficient?
@@ -224,7 +234,7 @@ A motivation figure is ready only when a non-author can answer these four questi
 - What problem it solves:
 
 ## Examples
-| example | why representative | existing method failure | proposed method success | introduction paragraph |
+| example and evidence status | selection basis | existing-method outcome | proposed-method outcome or hypothesis | introduction paragraph |
 |---|---|---|---|---|
 | | | | | |
 

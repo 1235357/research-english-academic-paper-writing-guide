@@ -21,17 +21,17 @@ Never let a research idea stop at a method name or a performance improvement. Al
 
 1. **Classify the user's idea.** Decide whether it currently starts from a real demand, a scientific problem, or a solution method.
 2. **Recover the missing levels.** If the user only provides a method, infer or ask for the real demand and scientific problem. If the user only provides a demand, derive the scientific problem and possible method families.
-3. **Audit the demand.** Reject pseudo-demand. Ask whether the demand is field-recognized, scenario-grounded, and not merely a dataset artifact.
+3. **Audit the demand.** Reject pseudo-demand. Ask whether the demand is recognized or convincingly evidenced, scenario-grounded, and not merely a dataset artifact.
 4. **Audit the scientific problem.** Rewrite technical-problem wording into mechanism-level scientific-problem wording.
-5. **Audit the method.** Map every method component to data, model, objective function, or learning method. Require a mechanism explanation for why it works.
-6. **Design validation.** Require SOTA comparison, ablation, and at least one mechanism-oriented analysis.
+5. **Audit the method.** Map every method component to data, model, objective function, or learning method. State a testable rationale and distinguish it from an independently established mechanism.
+6. **Design validation.** Match evidence to the contribution: fair relevant baselines and controlled ablations where separable for method claims; construction/annotation/evaluation validity for tasks/data; appropriate proof, measurement or falsifiable tests for theory, systems, analysis and exploratory work. Do not require SOTA or ablation when they do not test the claim.
 7. **Return an actionable paper logic.** Output a refined research point, introduction chain, method rationale, and experiment checklist.
 
 ## Mandatory Standards
 
 A valid innovative research point must satisfy the three-one standard:
 
-1. one field-recognized real demand;
+1. one recognized or convincingly evidenced real demand;
 2. one essence-hitting scientific problem;
 3. one effective method that cuts into the problem.
 
@@ -40,7 +40,7 @@ Reject or revise ideas that confuse:
 - real demand with scientific problem;
 - scientific problem with technical problem;
 - true demand with pseudo-demand;
-- method transfer with real innovation.
+- unexplained transfer with an established contribution. Method-first transfer is a legitimate exploratory start; investigate it without fabricating need or discovery chronology.
 
 ## Response Pattern
 
@@ -108,24 +108,17 @@ Check four dimensions:
 | objective function | does the learning signal reward the wrong behavior or ignore important cases? | reweighting, auxiliary tasks, contrastive losses, curriculum losses, task-specific constraints |
 | learning method | is the one-shot learning process unsuitable for the task? | feedback learning, curriculum learning, reinforcement learning, iterative correction, teacher-student learning |
 
-Never stop at `method works`. Require the mechanism explaining why it works.
+For a mechanism claim, go beyond `method works`: state the hypothesis, controls, identifying assumptions and evidence that could falsify it. Do not imply the mechanism is already known.
 
-**Why auxiliary objectives work — a cognitive-psychology anchor for the
-objective-function row.** The lecture motivates auxiliary/multi-task
-objectives with a real memory experiment: subjects are shown a list of
-words to memorize. One group simply memorizes and recalls; a second group,
-while memorizing, must also classify each word's emotional valence
-(positive / negative / neutral) before later recall. The second group
-recalls significantly more accurately — being forced to process the
-material one level deeper, even via a nominally unrelated side task,
-strengthens retention of the primary task. The machine-learning parallel:
-an auxiliary task that forces a model to process its representation more
-deeply (not just optimize the headline objective directly) can improve
-performance on the main task itself, which is the mechanism-level reason
-"add an auxiliary task" is a real contribution and not just complexity for
-its own sake. When a user proposes an auxiliary loss or multi-task setup,
-ask what deeper processing it forces, not just whether it improves a
-number.
+**Auxiliary objectives as a hypothesis-generating analogy.** The instructor
+reports an unnamed human-memory example: a group also classifying words by
+emotional valence recalled more accurately. No primary study or statistical test
+is supplied here. Treat this as an instructor-reported qualitative illustration,
+not statistical significance or evidence of an ML mechanism. It motivates a
+hypothesis that an auxiliary objective may encourage useful intermediate
+processing. For a proposed loss, specify the predicted change, matched controls,
+diagnostics, negative-transfer risks and falsifying outcomes; adding an auxiliary
+task is not automatically a contribution. See `references/course-review-notes.md` §B.
 
 #### 2. Innovation from scientific problem
 
@@ -167,7 +160,7 @@ Reject pseudo-demand by asking:
 
 A strong research point must contain:
 
-1. one field-recognized real demand;
+1. one recognized or convincingly evidenced real demand;
 2. one essence-hitting scientific problem;
 3. one effective method that cuts into the problem.
 

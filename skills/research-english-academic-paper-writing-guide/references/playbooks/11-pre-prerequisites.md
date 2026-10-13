@@ -27,9 +27,9 @@ The goal is to prevent shallow innovation claims, pseudo-needs, method chasing, 
 
 Use these questions whenever evaluating a user's idea, draft, title, abstract, introduction, method section, experiment section, or research plan:
 
-- is the stated demand a real field-recognized need, or a pseudo-need invented to justify a method?
+- is the stated demand a real recognized or convincingly evidenced need, or a pseudo-need invented to justify a method?
 - is the stated problem a scientific problem, or merely a demand, performance symptom, parameter-tuning issue, or technical gap?
-- is the method designed around the scientific problem, or is it an "a task + b method = c method" combination?
+- if exploration began with transfer or an A+B combination, has the actual need and claim been investigated, rather than a post-hoc rationale invented?
 - can every method component be tied to a contribution toward solving the scientific problem?
 - do the experiments explain why the method works, or do they only report performance?
 

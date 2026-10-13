@@ -144,8 +144,10 @@ different field, should be flagged the same way.
    readable and its letters should come from a consistent, findable position.
 3. *"Understanding like humans: multimodal representation for..."* — asserts
    an unproven cognitive-science claim (how humans understand is not a
-   settled scientific consensus). A claim like this can motivate a method in
-   prose (with citations) but must not appear as an assertion in the title.
+   settled scientific consensus). A labeled cognitive analogy may inspire a hypothesis, but cite only the
+   precise supported finding and test the ML analogy separately. A citation or
+   moving the claim into prose does not establish a human-like mechanism;
+   avoid unsupported assertions in both title and body.
 4. *"Graph Neural Networks for Image-Text Matching"* — technically correct
    and grammatical, but generic/dated: this exact "method-for-task" framing
    would have signaled real novelty around 2016-2017, when GNNs were new to

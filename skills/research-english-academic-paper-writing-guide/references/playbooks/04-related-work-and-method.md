@@ -43,6 +43,16 @@ Always start by identifying the paper's actual task, exact research problem, met
    - For rewriting: preserve technical meaning, rewrite into route-based Related Work or motivation-first Method prose, and label any assumptions.
    - For planning: produce section headings, paragraph purposes, and the logic each paragraph must establish.
 
+## Evidence and reproducibility scope
+
+Theory, a rationale, ablations and visualizations have different evidential roles.
+Separate observations, candidate explanations and independently tested mechanisms;
+none automatically establishes a global optimum. Keep routine details concise in
+the main text while retaining all conditions needed to interpret/reproduce the
+work in methods, appendices or artifacts. Novelty does not justify omitting
+preprocessing, splits, prompts, optimization or inherited-component identity.
+See `references/course-review-notes.md` §B.
+
 ## Non-negotiable lecture principles
 
 - Related Work includes only papers needed to understand the current paper's themes and problem. Do not include every paper the author has read.

@@ -816,3 +816,14 @@ Initial publishable release candidate.
 - Shorten plugin identity to academic-research (63-character namespaced Skill identity), retaining the original Skill/npm names and all course bytes; validate the 64-character OpenAI import limit with boundary regressions.
 
 - Keep plugin directory display name and short description within the documented 30-character limits, with boundary tests; standalone Skill source metadata remains unchanged.
+
+
+## 4.7.2 — 2026-10-13
+
+- Review all 13 lectures and both course reconstructions; preserve all 15 original course files byte-for-byte.
+- Correct derived guidance on contribution-specific evidence, method-first exploration, analogy versus causality, authorized data inspection, figure/caption roles, and research versus delivery goals.
+- Separate current editorial corrections from archived course claims in a new course-review-notes layer; retain both independent reconstructions.
+- Reconcile rendering delegation and detector-related claims; disclose transcript content and unresolved third-party redistribution permission.
+- Record 24 exact derived amendments and one added review layer with pinned prior digests and current payload integrity checks.
+- Add 11 semantic and expanded distribution regression tests. Six held-out manual reasoning cases passed independent review; these do not establish universal model behavior or actual hosted-client activation.
+- Keep offline npm installation and plugin identity fixes from 4.7.1. npm registry publication remains a separate authenticated action; a GitHub Release does not establish npm availability.

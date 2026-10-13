@@ -65,17 +65,15 @@ layered on top of the ones already in this skill.
   prose measured as *less* readable than rejected papers' — read this as
   "dense, technically substantive writing is not penalized," not as
   "obscure writing helps"; it does not license writing worse prose.
-- **AI-assisted reviewing is now a measured, real phenomenon at the exact
-  venues this skill targets, not a hypothetical.** A January 2026 study
-  ("Do LLMs Favor LLMs? Quantifying Interaction Effects in Peer Review,"
-  Cornell) analyzed over 125,000 paper-review pairs across ICLR, NeurIPS,
-  and ICML and found a measurable interaction effect: LLM-assisted reviews
-  appear to score LLM-assisted papers more favorably than minimal-LLM-use
-  papers, on average. Treat this as evidence that AI-assisted review is
-  real and growing at these venues, not as evidence for any specific
-  mechanism to exploit — this skill does not turn this into "write to game
-  an AI reviewer," only into "the fast-skim dynamic below is not shrinking
-  as review gets more AI-assisted, it may be sharpening."
+- **AI-assisted reviewing is a measured phenomenon in these venues.**
+  Sharma, Joachims & Dean's January 2026 preprint,
+  ["Do LLMs Favor LLMs? Quantifying Interaction Effects in Peer Review"](https://arxiv.org/abs/2601.20920),
+  analyzes over 125,000 paper-review pairs from ICLR, NeurIPS, and ICML.
+  Its initially apparent preference for LLM-assisted papers disappears
+  after controlling for paper quality: the authors attribute it to greater
+  leniency toward weaker papers, not genuine preference for LLM-authored
+  content. This supports studying AI-assisted review, not a claim that it
+  intensifies figure-first skimming or a technique for gaming reviewers.
 
 **Explicitly not supported, and rejected during this research rather than
 quietly used**: a search surfaced a source (a blog attributed to a

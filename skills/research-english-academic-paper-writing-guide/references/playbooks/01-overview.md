@@ -112,45 +112,29 @@ When helping with research or academic writing, do not start from sentence polis
 | Incremental research | touring a scenic route | Identify if the work is only improving on given datasets/metrics/models; push for deeper problem formulation. |
 | Academic research | climbing Everest | Ask what boundary of knowledge is being explored and what problem/path did not previously exist. |
 
-### The four-stage growth arc ("四生四世") — use to calibrate advice by career stage
+### The four-stage growth arc ("四生四世") — illustrative development
 
-The lecture frames PhD-level growth as four escalating stages, each capped by
-a CCF-A paper. Use this to calibrate how much independence to expect from the
-user and what kind of help is actually useful at their stage:
+The instructor explicitly says the one/two/three-paper counts are figurative
+(Lecture 1 transcript: “虚数”). The narrative illustrates increasing independence:
 
-1. **Early stage**: advisor-guided. The advisor helps locate the research
-   direction, the problem, and a feasible technical route. The user pushes
-   one problem to its limit and publishes their first CCF-A. Expect to help
-   with execution and diagnosis more than independent problem-selection.
-2. **Second stage**: many "unreliable ideas" surface after the first paper.
-   The user still cannot independently judge which idea is strong enough for
-   a top venue, so they keep discussing with an advisor to converge on the
-   next one, then push it to a second CCF-A. Expect to help filter and
-   pressure-test candidate ideas, not just execute a chosen one.
-3. **Mid stage**: the user stops being satisfied with incremental work and
-   spends a long stretch exploring more essential, deeper problems (often
-   longer and less certain than the earlier stages) before finding one worth
-   a third CCF-A. Expect to help with open-ended problem discovery, not just
-   polishing an already-chosen direction.
-4. **Late stage**: the user broadens direction and horizon, prepares for
-   post-graduation choices (faculty job, research direction for the next
-   5-10 years), and — critically — starts training a junior student from
-   zero to their own first CCF-A. This is the stage where independent
-   team-leading ability matters, not just personal research output.
+1. Advisor-guided problem solving and execution.
+2. Developing judgment through candidate ideas and discussion.
+3. More independent discovery of worthwhile problems.
+4. Broadening direction and learning to guide others, with academic or industry paths.
 
-Do not assume every user is at the early stage. A user mentoring a junior
-student, or asking how to evaluate someone else's early-stage idea, is
-probably operating at the late stage and needs different help (delegation,
-review, teaching) rather than a from-scratch problem-selection walkthrough.
+This is not a publication quota or career-stage classifier. Calibrate support to
+actual skills, goals and requested help; a mentoring request does not establish
+seniority. Do not replace CS/LLM/MLE/FDE employment or delivery goals with CCF-A
+attainment. The course's venue/career metaphors remain historical illustrations.
 
 ### Target-venue reference (the lecture's own scope, plus adjacent AI subfields)
 
-Use this table to sanity-check whether a stated target venue matches the
-paper's actual maturity level (A-class venues expect the A-level orientation
-above; a paper that only clears the C-level bar should target accordingly,
-not be pushed toward an A-venue submission it is not ready for):
+This is a historical list of major venues used by the course, not a current rank
+mapping or an acceptance predictor. For actual submission advice, verify current
+official scope, contribution types, review criteria and deadlines against the
+user's goals and evidence. Do not diagnose an A/C tier from the metaphors alone.
 
-| Direction | Top conferences | Top journals |
+| Direction | Major conferences (historical list) | Major journals (historical list) |
 | --- | --- | --- |
 | Computer Vision / Multimedia | CVPR, ICCV, ECCV, ACM MM, ICASSP, ICMR, ICME (plus ChinaMM, PRCV domestically) | TIP, IJCV, TMM, PR, TCSVT, TOMCCAP, CVIU |
 | NLP | ACL, EMNLP, NAACL, COLING, CoNLL, AACL (plus CCL, CCKS, NLPCC, CWMT domestically) | TACL, TASLP, TALLIP, Computer Speech and Language |

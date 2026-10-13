@@ -18,14 +18,22 @@ The abstract is the expansion of the title and the compression of the introducti
 
 A strong paper makes problem, method, and experiment mutually responsive. A weak paper lets them each tell a separate story.
 
-## Mandatory workflow
+## Applicability
+
+The five slots are a method-paper diagnostic, not mandatory invented content for
+all genres. Adapt to the actual contribution, evidence and venue; do not invent a
+method or positive result for a theory, dataset, systems or negative-result paper.
+The source itself uses universal language; this is a current applicability note
+(see `references/course-review-notes.md` §A).
+
+## Workflow
 
 1. **Reconstruct the paper story first.** Identify the real task, the field need, the core challenge, the specific solvable problem, the current-method limitations, the proposed method idea, the method steps, the evidence, and the field-level contribution.
 
 2. **Check problem-method-experiment alignment.**
    - Problem: justified, specific, and grounded in motivation.
    - Method: designed for that problem; every step has an explicit goal.
-   - Experiment: proves method components and analyzes the original motivation.
+   - Experiment: tests claims about method components and analyzes the original motivation.
 
 3. **For abstracts, use the five-slot structure.**
    - Task/challenge.
@@ -45,7 +53,7 @@ A strong paper makes problem, method, and experiment mutually responsive. A weak
 
 6. **Explain method purpose before method details.** State the one-sentence top-level idea before modules. For each module or step, explain what it does, why it is needed, and which challenge or limitation it answers.
 
-7. **Lift contributions above method steps.** Contributions may be a new problem, new perspective, new framework, new method, new SOTA, new capability, new interpretability evidence, or new experimental proof. Do not treat SOTA alone as the main contribution unless the analysis proves the gain comes from solving the stated problem.
+7. **Lift contributions above method steps.** Contributions may be a new problem, new perspective, new framework, new method, new SOTA, new capability, new interpretability evidence, or new experimental proof. Do not treat SOTA alone as the main contribution unless the analysis supports the claim that the gain comes from solving the stated problem.
 
 ## Drafting guidance
 
@@ -71,7 +79,7 @@ Before finalizing, answer:
 - Is that limitation evaluated accurately and professionally?
 - What is the top-level method idea?
 - Which method step addresses which limitation?
-- Which experiment proves each method step?
+- Which evidence tests the claim about each method step?
 - What contribution remains beyond "we achieve SOTA"?
 - Can the abstract be derived by compressing the introduction?
 - Does the paper avoid the weak pattern: "everyone studies it -> step1/step2/step3 -> SOTA"?
@@ -99,7 +107,7 @@ A strong paper makes the three parts mutually responsive:
 
 - Problem: justified, specific, and grounded in research motivation.
 - Method: designed for the problem, with each step having an explicit goal.
-- Experiment: proves each method component and analyzes each motivation.
+- Experiment: tests each claimed component role and analyzes the motivation.
 
 Reject writing where:
 
@@ -131,7 +139,7 @@ Specifically, we first ..., then ..., and finally ...
 Experiments on ... show ..., and further analysis demonstrates ...
 ```
 
-Mandatory slots:
+Diagnostic slots for the demonstrated method-paper genre:
 
 1. Task and challenge.
 2. Existing-method problem.
@@ -164,7 +172,7 @@ Convert the broad challenge into a specific, solvable research problem. Distingu
 
 #### Part 3: Related work and insufficiency
 
-Classify existing work by technical line. Do not list chronologically.
+Classify by technical line; chronological order may explain technical evolution. Avoid a mere author-by-author timeline.
 
 For each group:
 
@@ -202,7 +210,7 @@ Do not repeat method details. Lift the method into field-level contributions:
 - new capability,
 - new interpretability or evidence.
 
-SOTA is not enough unless analysis proves the improvement comes from solving the stated problem.
+SOTA is not enough unless analysis supports the claim that the improvement comes from solving the stated problem.
 
 ---
 
@@ -232,7 +240,7 @@ SOTA is not enough unless analysis proves the improvement comes from solving the
 - [ ] Does the proposed method directly respond to the challenge?
 - [ ] Does every method step have a purpose?
 - [ ] Are contributions lifted beyond method steps?
-- [ ] Do experiments later prove the stated motivations?
+- [ ] Do experiments test the stated motivation, including contrary outcomes?
 - [ ] Does the whole paper form a problem-method-experiment loop?
 
 ---
@@ -245,7 +253,7 @@ When reviewing a draft, ask:
 2. Which sentence states the limitation of current methods?
 3. Which sentence states the method's top-level idea?
 4. Which method components correspond to which stated limitations?
-5. Which experiments prove each component?
+5. Which experiments test the claimed role of each component?
 6. What contribution remains if we remove the phrase "achieves SOTA"?
 7. Does the introduction make the abstract almost write itself?
 

@@ -20,33 +20,19 @@
 
 ---
 
-## 1. Why this playbook exists: the skill's own rules push toward the AI profile
+## 1. Why this playbook exists: clarity, rhythm, and uncertain detector output
 
-This is the uncomfortable finding, and it has to be stated directly rather
-than softened.
+Playbook 09 recommends clear language, consistent terminology, explicit logic,
+and splitting overloaded sentences. These remain reader-oriented writing
+principles. They do not imply a particular sentence-length distribution and
+have not been shown here to cause a particular detector score.
 
-Playbook 09's mandate is *"use the simplest language to express the
-clearest meaning."* Its rules: one sentence, one core meaning; split
-overloaded sentences; define every term at first use; keep naming
-completely consistent across the whole paper; use explicit transitions to
-build the story.
-
-Every one of those rules is correct for a human reader. **Every one of
-them also moves text toward the two quantities pre-2023 AI detectors were
-built to score, and which remain useful proxies today (§2).** Simple,
-high-frequency word choice lowers perplexity. Enforced terminological
-consistency lowers it further, by construction — deliberately removing
-lexical variation is the whole point of the rule. Explicit transitions and
-one-idea sentences regularize paragraph shape, which lowers burstiness.
-
-The course optimizes for *clarity through standardization*. Detectors —
-historically, and still in part today (§2.3) — can register standardization
-itself as a signature of machine authorship. The two objectives collide,
-and Playbook 09 has no awareness of the collision, because the collision
-did not exist when the course was taught. **This does not make Playbook 09
-wrong.** Its rules remain the right way to be read. It is incomplete: it
-never specifies how much rhythmic variance a rewrite should leave behind,
-so an agent applying it maximally drives that variance toward zero.
+A manuscript may nevertheless become monotonous after repetitive editing.
+Review rhythm as a readability issue, using sentence statistics only to locate
+passages worth inspecting. The dated studies below document detector errors
+and group differences under particular test conditions. They do not establish
+that each course rule causes those errors, or that changing sentence-length
+CV will predictably change a current vendor's output.
 
 ### 1.1 The specific mechanical gap
 
@@ -62,7 +48,7 @@ further, rhythm-targeted rewrite of the same text.
 
 | metric | after Playbook 09 alone | after a rhythm-targeted rewrite |
 |---|---|---|
-| CV (SD ÷ mean) = burstiness proxy | 0.469 | 0.521 |
+| Sentence-length CV (SD ÷ mean) | 0.469 | 0.521 |
 | share of sentences < 10 words | 16.6% | 26.5% |
 | SD of sentence length | essentially unchanged between the two passes | |
 | reported detector score | 100% AI-generated | reported by the author as substantially lower (not independently re-run by this skill — §6) |
@@ -73,26 +59,27 @@ by **manufacturing short sentences out of mid-length ones** — precisely the
 band a threshold-triggered "split long sentences" rule never touches,
 because those sentences are not "overloaded" by its test.
 
-Surface clichés were, by direct inspection, **not** the driver: the
+The observed scarcity of surface clichés does not identify the score's
+cause. In the reported case, the
 100%-flagged draft contained exactly one `Additionally`, one `This` used as
 an abstract sentence subject, and three em-dashes in the entire manuscript.
-Scrubbing an "AI word list" would have changed none of the measured
-quantities above.
+A word blacklist alone would not address sentence-length monotony; its
+effect on that detector was not independently tested.
 
 **The rule this generalizes to, independent of the specific numbers in this
 one case**: a rewrite pass that fires only on a length *threshold* trims
 the tail of a sentence-length distribution and leaves its bulk untouched.
-If the goal is a varied, bursty rhythm, the rewrite has to actively create
-short sentences in the band the threshold rule ignores — see R3, not just
-remove the longest outliers.
+A reader-oriented rhythm pass may consider mid-length sentences too, when
+it improves emphasis. It need not manufacture short sentences or increase
+CV: the argument and readability determine whether to revise.
 
 ---
 
 ## 2. What AI detection actually measures
 
-Do not work from the folk version of this. A user who scrubs vocabulary
-because "AI uses certain words" will see no change in any of the numbers
-below, and will not understand why.
+Separate a vendor's current classifier, a language-model statistic, and a
+sentence-length description. They are different measurements. Do not infer
+one from another or treat a word blacklist as a validated detector remedy.
 
 ### 2.1 Perplexity
 A language model assigns each token a probability given what precedes it.
@@ -103,34 +90,23 @@ construction, so raw LLM output tends toward low perplexity — though
 sampling temperature and prompting can push this either way.
 
 ### 2.2 Burstiness
-The variation of that surprise across a document. A widely used,
-self-computable proxy — the one this playbook's script produces — is **SD
-of sentence length ÷ mean sentence length** (a coefficient of variation).
-This is a practitioner proxy popularized by AI-detection tooling and
-commentary; it is a different, simpler quantity than the "burstiness
-parameter" defined in the earlier complex-systems literature on event
-timing, which is bounded and computed differently. Treat "burstiness" in
-this playbook as shorthand for the sentence-length CV specifically, not as
-a claim about the formal complex-systems quantity. Human writing tends to
-vary sentence length more; text optimized to predict a likely next token
-tends to hold a steadier register.
+In some detector explanations, burstiness refers to variation in model
+surprisal. This script instead computes **sentence-length CV (SD / mean)**,
+a descriptive rhythm statistic. Length variation is not surprisal variation.
+The sources cited here do not validate this CV as a substitute for a vendor's
+features, an authorship test, or a predictor of readability. Inspect the
+actual prose before judging whether a distribution is a problem.
 
 ### 2.3 What changed at the vendor level, and what that means for this playbook
-**GPTZero has not used perplexity and burstiness as its direct detection
-mechanism since autumn 2023**; it moved to a trained classifier, with
-perplexity- and burstiness-like signals folded in as part of a larger
-feature set rather than the whole mechanism. This matters for how this
-playbook is used:
+**GPTZero states that it has not directly used perplexity and burstiness
+since autumn 2023**, having moved to a deep-learning architecture (vendor
+page checked 2026-10-13; see Sources). That statement does not establish
+which indirectly related features its current classifier uses.
 
-- Perplexity and burstiness remain useful, **self-computable** proxies —
-  useful precisely because you do not need access to any vendor's model to
-  compute them, and the *direction* of the effect (more standardization →
-  more machine-like profile on these two measures) still holds regardless
-  of what any one vendor's classifier does internally.
-- Do not present CV or short-sentence share as *the* mechanism of any
-  specific vendor's score. Do not promise a user that raising CV will pass
-  a specific tool. Report what was measured, and be explicit that the link
-  to a vendor's output is a lever, not a formula.
+Perplexity requires a specified language model and tokenization; the bundled
+script does not calculate it. Sentence-length CV requires neither, but that
+convenience does not make it a detector proxy. Do not promise that raising
+CV, adding short sentences, or changing terminology will pass any tool.
 
 ### 2.4 The bias finding that matters most here, with its actual timeline
 Detectors are **documented to be biased against non-native English
@@ -145,9 +121,8 @@ this skill's exact use case.
   detectors, US-authored essays were classified accurately while an average
   61.3% of 91 non-native-authored TOEFL essays were flagged as
   AI-generated; the unanimously-flagged essays measured significantly lower
-  perplexity than the rest. This established the mechanism — careful,
-  standard, narrower-register syntax reads as low-perplexity — but the test
-  set was short (mostly under 150 words per essay) test-prep writing on
+  perplexity than the rest. This associated lower perplexity with errors in that sample; it did not
+  isolate the effect of each academic-writing rule. The test set was short (mostly under 150 words per essay) test-prep writing on
   2023-era detectors, not scholarly prose.
 - **The same paper also ran the mechanism in reverse, and this is the
   reason this playbook does not give numeric rewrite targets.** Liang et
@@ -193,24 +168,13 @@ this skill's exact use case.
   fully AI-written — abstracts as 100% AI-generated, against roughly 10%
   for native authors on the same task.
 
-Read together, this is a coherent arc, not a contradiction: the 2023
-benchmark's *specific 91 essays* got fixed by a targeted model update. The
-underlying mechanism — standardized, low-lexical-variance prose reading as
-machine-authored — did not go away, and resurfaces on a different, more
-current, more relevant test two years later. **For this skill's purposes,
-treat the 2025 finding as the more directly applicable evidence**: it
-tests the right tool, on the right genre, at the right recency — while
-still being one study with a modest sample (72 abstracts), in an active
-research area, not a settled constant.
-
-This skill's users are overwhelmingly non-native English writers being
-coached toward simpler, more standardized, more internally consistent
-prose. **They sit inside the population multiple independent studies find
-disproportionately flagged, and Playbook 09's advice, applied without this
-playbook, moves them further into exactly the low-variance profile those
-studies associate with false positives.** That is the reason this playbook
-is mandatory rather than optional — not a claim that any single percentage
-above will reproduce on any specific manuscript.
+These findings concern different corpora, detector versions, and assistance
+conditions. In particular, an AI-assisted abstract is not a clean test of
+false positives on wholly human text. Group differences warrant scrutiny,
+but do not by themselves show that the course's clarity rules caused a
+flag or that the same mechanism persisted unchanged across detector updates.
+Treat the 2025 study as genre-relevant, bounded evidence, not a universal
+error rate; verify its design and current tool versions before applying it.
 
 For institutional context, not as a direct precedent: Vanderbilt University
 disabled Turnitin's AI-detection feature in August 2023, citing both an
@@ -222,15 +186,16 @@ skill operates in — cite it as "institutions with the resources to
 formally evaluate this technology have concluded current detectors are not
 reliable enough for high-stakes decisions," not as "conferences have
 disabled AI detection," which it does not show. When a user is distressed
-by a score, say plainly: a high score is not proof of anything, on any
-detector, in any context.
+by a score, say plainly: a high score alone is not proof of authorship or misconduct; seek the
+writing history, applicable policy, and human review.
 
 ---
 
 ## 3. Operating rules
 
 ### R1 — A detector score never drives a factual change, and this playbook never gives a profile to rewrite toward
-A score is a style signal. It is never a reason to alter a number, a claim,
+A score is an uncertain classifier output, not a style diagnosis. It is
+never a reason to alter a number, a claim,
 a citation, or a hedge that reflects real uncertainty. If lowering a score
 would require overstating a result, refuse and say why. Style is
 negotiable; evidence is not — this is Playbook 13's evidence contract,
@@ -254,26 +219,24 @@ real AI-generated text," and this skill will not hand a user a mechanism it
 cannot scope to only the legitimate case.
 
 What the script is for instead: flagging *monotony*, which is a genuine
-prose defect independent of any detector — a manuscript where almost every
-sentence lands in the same 10-30 word band reads as flat to a human
-reviewer too, for the same reason Playbook 09's own worked examples exist
-(§1.1's mechanical gap: a threshold rule that only trims long outliers does
-not by itself create variety). Use the report as a prompt to ask, per
+possible prose defect independent of any detector. Concentration in one
+length band is a prompt to inspect the actual paragraph, not evidence that
+all human readers find it flat. Use the report to ask, per
 paragraph, "does every sentence here carry the same weight, or does one
 carry the claim and others carry support" — R3 below is how to fix a
 flat stretch once found. There is no target range in this playbook, on
 purpose; if a venue or advisor asks for one, that request should be
 answered by re-reading §2.4 with them, not by picking a number.
 
-Keeping some long sentences matters. A manuscript of uniformly short
-sentences is exactly as flat as one of uniformly medium sentences, and it
-reads as choppy rather than varied — the goal is variance, not shortness.
+Keep long sentences when they express necessary relationships clearly.
+Uniformly short sentences can also read as choppy. The goal is effective
+communication, not shortness or a higher variance statistic.
 
-### R3 — Manufacture short sentences; do not only split long ones
-This is the rule Playbook 09 is missing, and the one that does the actual
-work. The productive move is to take a mid-length sentence that carries a
-judgment plus its supporting detail, and let the judgment stand alone as
-its own sentence:
+### R3 — Split claim and support only when the reader benefits
+A mid-length sentence may carry a judgment plus its supporting detail.
+Letting the judgment stand alone can improve emphasis, provided its scope
+remains clear in context. This is an editorial option, not a statistical
+requirement or a detector intervention:
 
 > **Before (one sentence):** They transfer weakly once the correct video is
 > no longer supplied, and only the six native cells support a
@@ -292,9 +255,9 @@ the specific sentence quoted above.
 ### R4 — Prefer concrete verbs over nominalizations
 `the degradation of performance` → `performance degrades`. `the
 utilization of X for the improvement of Y` → `we use X to improve Y`.
-Nominalization is simultaneously a clarity defect under Playbook 09 and a
-low-perplexity, low-variance construction under §2. Fixing it serves both
-objectives with no tension between them — look for these first.
+Prefer the concrete verb when it clarifies who does what. Nominalizations
+can also be technically appropriate; do not remove them mechanically or
+claim a predictable detector effect.
 
 ### R5 — Terminology consistency is non-negotiable; sentence-frame consistency is not
 Playbook 09 is right that a defined term must stay identical everywhere it
@@ -325,9 +288,8 @@ plainly which sections were left untouched and why.
 
 - **Do not scrub a word blacklist.** Removing `Moreover` / `Furthermore` /
   `delve` / `showcase` is cargo-cult correction: §1.1's measured case scored
-  100% while containing almost none of these words, because the signal is
-  structural (sentence-length uniformity, enforced lexical consistency),
-  not a matter of which individual words appear.
+  100% while containing almost none of these words, and that single observation cannot isolate which classifier signals
+  mattered. Edit wording for precision and readability, not a blacklist.
 - **Do not inject errors or awkwardness to "look human."** It lowers
   quality, and a reviewer notices long before any detector runs.
 - **Do not add hedges purely to raise perplexity.** Playbook 09, and most
@@ -337,11 +299,11 @@ plainly which sections were left untouched and why.
   degrades technical precision, and if discovered, reads as exactly the
   kind of laundering an integrity review exists to catch.
 - **Do not promise a score.** No third party's classifier output can be
-  verified in advance, and §2.4 shows the same tool's own false-positive
-  rate on the same *kind* of bias moving by an order of magnitude between
-  one benchmark and another over eighteen months. Report what was measured
-  — CV, the length distribution — and be explicit that its relationship to
-  any vendor's number is correlational, not a guarantee.
+  verified in advance. Results differ across datasets, assistance conditions,
+  versions, and thresholds; these studies do not establish a longitudinal
+  change in a directly comparable false-positive rate. Report the measured
+  CV and length distribution without inferring their relationship to a
+  vendor's score; this script has not validated such a relationship.
 
 ---
 
@@ -349,7 +311,7 @@ plainly which sections were left untouched and why.
 
 | Playbook | Relationship |
 |---|---|
-| 09 concise & rigorous | **Primary tension**, resolved by sequencing: apply 09 first for clarity, then this playbook for rhythm. 09 alone, taken to its limit, produces the flagged profile in §1.1. |
+| 09 concise & rigorous | Apply 09 first for clarity, then inspect rhythm if needed. The n=1 case does not establish that 09 causes detector flags. |
 | 05 experiments | R3's claim-then-evidence sentence split is 05's "conclusion → evidence → anomaly" ordering, applied at sentence scale. The two reinforce each other. |
 | 10 terminology | R5's boundary: terms stay frozen, the sentence frames around them stay free. |
 | 16 fast reader | A skimming reviewer benefits from short, standalone claim sentences; the rhythm pass and the skim path pull the same direction. |
@@ -359,25 +321,22 @@ plainly which sections were left untouched and why.
 ## 6. Honest limits of this playbook
 
 - **§1.1's "measured case" is one manuscript, n = 1**, reported by the user
-  and not independently re-run by this skill's author. The *direction* of
-  the finding — a threshold-based splitting rule leaves the mid-length band
-  untouched, while manufacturing short sentences raises both CV and
-  short-sentence share — is a straightforward, checkable consequence of how
-  the two rewrite strategies work, and is not in question. The specific
-  magnitude, and the reported drop in any vendor's score, have not been
-  independently verified and should not be read as reproducible constants
-  for any other manuscript.
-- CV moved from 0.469 to 0.521 in that case — a real but moderate rise —
-  while the reported detector score reportedly fell much more sharply. **CV
-  alone does not explain a change of that size.** Lexical and syntactic
-  unpredictability almost certainly moved too, and a trained classifier
-  (§2.3) weighs signals this script cannot see or reproduce. Do not present
-  CV as the whole mechanism, and do not treat a favorable CV as evidence
-  that a rewrite will clear any specific detector.
-- The bias evidence in §2.4 is an active, moving research area, not a fixed
-  fact: the same benchmark produced radically different false-positive
-  rates for the same vendor eighteen months apart, once that vendor
-  targeted it directly. Treat every specific percentage in this playbook as
+  and not independently re-run by this skill's author. The original files
+  and extraction settings are needed to reproduce those statistics. Splitting
+  sentences changes the measured population; it does not universally increase
+  CV, and neither the magnitude nor the reported detector change establishes
+  a causal rule for other manuscripts.
+- The reported CV changed from 0.469 to 0.521 alongside a reported
+  detector-score decrease. These observations do not establish whether CV
+  contributed to the reported score change. There is no measured response
+  function relating the two, so their relative magnitudes cannot establish
+  or rule out an explanation. A trained classifier (§2.3) cannot be
+  reconstructed from this script's length statistics. Do not treat a
+  favorable CV as evidence that a rewrite will clear a specific detector.
+- The bias evidence in §2.4 is an active, moving research area. The 2023
+  vendor retest reused the TOEFL benchmark; the 2025 study used different
+  scholarly abstracts and assistance conditions. These are not a controlled
+  before/after test on the same benchmark. Treat every specific percentage in this playbook as
   a snapshot with a publication date attached — worth re-searching before
   quoting it as current — not a permanent constant to memorize.
 - The detector score in §1.1's measured case was reported by the user;

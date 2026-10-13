@@ -18,12 +18,15 @@
 
 ## What is intentionally NOT bundled
 
-The original slides PDFs and raw transcripts are **not redistributed** in
-this package, out of respect for the instructor's copyright. The official
-PDFs are publicly downloadable from the course homepage (see
-`references/lecture-index.md` for per-lecture links). If you need
-source-exact verification, download the official PDF and compare against the
-lecture reconstruction.
+Standalone original slide PDFs, raw transcript files, videos, and image
+assets are not bundled. **Verbatim transcript text is present in the Markdown
+lecture appendices.** Excluding a file format is not excluding that content.
+The historical merge note below records this unresolved rights question;
+this audit does not establish permission to redistribute third-party course
+text or silently remove it. Public access and attribution alone do not
+establish such permission. The official PDFs are publicly linked from the
+course homepage (`references/lecture-index.md`). Use them for source-exact
+comparison rather than treating a reconstruction as an original slide.
 
 ## Merge history (v4.0.0)
 
@@ -443,3 +446,58 @@ verification against your own downloads):
 | 第十一讲：学术研究之创新性研究点——从哪些角度思考创新性研究点？ | `775dd7f7e6f6fba7dfc01e12f3fa7937f345b20e6f088cd84db5abd845dbaa42` | 10033683 |
 | 第十二讲：学术研究之创新性研究点——如何找论文与进行文献调研？ | `814f4ff8116ddeac38b12ad3c033d0e33c330e3d7fa534be12c46651355a1e51` | 26752751 |
 <!-- CHECKSUMS:END -->
+
+## Semantic-coherence audit (2026-10-13)
+
+This editorial pass preserves the full lecture reconstructions and historical
+merge notes. Current operational guidance supersedes historical assertions
+about exact-once limitation placement, an absolute human-only rendering gate,
+and a causal link from clarity rules to AI-detector scores. Rendering requires
+an explicit per-figure author request; critical limitations remain beside the
+claims they qualify and are synthesized in the conclusion when appropriate.
+
+The public Math Vault PDF linked in playbook 10 was checked on 2026-10-13 and
+contains 28 pages. The companion synthesis's original page-count wording is
+retained with an adjacent correction, rather than silently rewritten.
+
+GPTZero's own architecture page was checked on the same date and states that
+its architecture has not directly used perplexity and burstiness since autumn
+2023. It does not validate sentence-length CV as a detector proxy or establish
+that every clarity rule causes detector flags. The original n=1 figures have
+not been independently reproduced; historical numbers remain attributed.
+
+The rhythm helper now retains sentences shorter than four words, including
+its own playbook's three-word example, and describes its output as sentence-
+length statistics rather than a validated detector metric. New regression
+checks cover these operational boundaries. These checks are not proof that
+every external assertion or every lecture passage has been independently
+verified against original slides or video.
+
+## Complete textual course review (2026-10-13)
+
+A full semantic reading covered every bundled lecture (both reconstruction
+versions and transcript sections), with exact payload reuse for the two identical
+full-course compilations and direct reading of their additional integration prose.
+This is textual coverage, not a fresh verification of original PDF pixels/audio
+or the cited papers' empirical claims; Lecture 10 explicitly labels its transcript
+section as lightly edited. No third-party redistribution permission is inferred.
+
+All 15 course originals remain byte-identical. The current editorial layer is
+`references/course-review-notes.md`: it records known reconstruction slips,
+unresolved source differences, and explicitly labeled scope/evidence limits for
+applying historical advice. Its named corrections govern operational use even
+where the archived compilation says it wins every conflict. Original teaching
+artifacts still govern what the instructor actually said; unresolved conflicts
+must remain uncertain until those artifacts are inspected. Updated playbooks do
+not silently attribute the editorial qualifications to the instructor.
+
+The derived pass corrects auxiliary-loss analogy/causality overreach, universal
+SOTA/ablation and method-paper templates, lost method-first exploration, missing
+actual-data inspection, prestige-majority selection, figurative publication-count
+calibration, historical venue ranking, conflated ET-BERT sentence examples,
+figure/caption/prose complementarity, observed-versus-schematic outcomes,
+case-specific figure routing, comparator differences, reproducibility scope and
+the MuKEA/ET-BERT version attribution. It also narrows the plagiarism warning
+without asserting identical sanctions. The exact replacement hashes and pinned
+pre-edit identities are in `docs/semantic-amendments.json`; checks do not by
+themselves establish behavioral correctness or publication approval.

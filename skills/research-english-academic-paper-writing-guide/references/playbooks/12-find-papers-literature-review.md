@@ -22,7 +22,7 @@ Use this sequence unless the user explicitly asks for a narrower operation.
 1. **Demand stage - clarify what is being studied.**
    - Start from influential tasks, benchmarks, datasets, tutorials, workshops, surveys, and seed papers.
    - Build an evolution line of tasks and technical capabilities.
-   - Answer the demand 5w+1h questions in the literature-review workflow appended below.
+   - Answer the demand 5w+1h questions below using actual authorized data/artifact inspection where available; mark document-only answers when unavailable.
 
 2. **Scientific-problem stage - distill the essential problem.**
    - Group tasks by shared underlying scientific problems, not by method names.
@@ -83,13 +83,10 @@ papers — is the actual skill this lecture is trying to build.
 
 ## Paper selection heuristics
 
-Prioritize papers that meet most of these conditions:
-
-- relevant to the user's target task or demand;
-- answer a fundamental **why** question rather than only an incremental **how** solution;
-- written by a team with sustained work in the area;
-- recognized by top conferences/journals, high citations, best-paper signals, tutorials, surveys, or benchmark adoption;
-- provide a clear claim-evidence chain: premise -> evidence -> conclusion.
+Prioritize relevance to the user's task, substantive problem definition and
+claim-evidence quality. Team continuity, venue, citations, awards, tutorials and
+adoption are discovery cues or tie-breakers, never substitutes for those primary
+criteria. Do not discard relevant credible new work for lacking prestige signals.
 
 ## Output style
 
@@ -124,6 +121,12 @@ Start from influential datasets, benchmarks, tutorials, workshops, surveys, and 
 4. **how** - what are the baseline models and their basic technical ideas?
 5. **what, reflective** - what scientific problem must be solved to reach the target capability?
 6. **where, reflective** - what technical challenges remain unsolved or unverified?
+
+Inspect a representative authorized sample, schema/labels, split metadata and
+official evaluator where available. For LLM data, check prompt/context fields,
+acceptable-answer multiplicity and scoring rules. Record observed versus
+documented versus inferred; unavailable access means document-only knowledge,
+with verification still pending, not an implied completed inspection.
 
 Demand-stage deliverables:
 

@@ -13,8 +13,12 @@ Course attribution:
 Repository scope:
 
 This repository publishes an Agent Skill and a Markdown study reconstruction
-derived from the public course. It intentionally does not redistribute the
-original slide PDFs, raw transcripts, videos, screenshots, or image assets.
+derived from the public course. Standalone original slide PDFs, transcript
+files, videos, screenshots, and image assets are excluded. However, the
+Markdown lecture reconstructions include verbatim transcript appendices;
+excluding source file formats does not mean transcript text is absent.
+This repository does not establish a redistribution license for third-party
+course text. Public availability and attribution are not permission grants.
 Source-exact verification should use the official course links in
 `skills/research-english-academic-paper-writing-guide/references/lecture-index.md`
 and the SHA-256 checksums in

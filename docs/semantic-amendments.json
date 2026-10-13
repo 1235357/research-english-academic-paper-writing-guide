@@ -1,0 +1,208 @@
+{
+  "schema": "derived-semantic-amendments/1",
+  "baseline_commit": "036777d921b528f922df5fb74a6bdb07ec8aafbd",
+  "before_commit": "981d865eafc5c92b939a77cbd3352bc6bb4c7871",
+  "scope": "Explicit derived-guidance corrections after complete textual review of all13 lectures and both identical full-course copies. All15 course originals unchanged; no PDF/audio fidelity or third-party redistribution permission established.",
+  "files": [
+    {
+      "path": ".github/workflows/validate.yml",
+      "baseline_sha256": "1a350ad83ead4f567da40ebbde28922b5e426d9967df532fe6aafb6323825a69",
+      "before_sha256": "1a350ad83ead4f567da40ebbde28922b5e426d9967df532fe6aafb6323825a69",
+      "after_sha256": "f99afab44f19296607c5ec232b647ed7169f649d902328c865c7530f1c09ccdd",
+      "after_size": 1100,
+      "reason": "Run existing fidelity check and new operational semantic regressions in CI."
+    },
+    {
+      "path": "NOTICE",
+      "baseline_sha256": "3079b22f6d2b667aae575ff232a51e8a16cde9c344ad10b800bce889d60f604f",
+      "before_sha256": "3079b22f6d2b667aae575ff232a51e8a16cde9c344ad10b800bce889d60f604f",
+      "after_sha256": "5a60765efe50f08d23309fe734abba841f21f5487c0d0a862b7135e9ff6443d0",
+      "after_size": 1829,
+      "reason": "Distinguish absent original file formats from verbatim transcript text retained in Markdown."
+    },
+    {
+      "path": "README.md",
+      "baseline_sha256": "766449495ee64c720f353eb107b5e5d4de0e0174581c65844fb8dd146731330c",
+      "before_sha256": "3bd7e462f205b62d1e4085699c17072688cc87c6b0627f55bc435f52a72dff99",
+      "after_sha256": "32b7cf4442e6755a55e11edb1e2f932a0227de55b3c4d10c6e783e660240fcc3",
+      "after_size": 12323,
+      "reason": "Disclose transcript content and unresolved third-party redistribution permission without removing originals."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/SKILL.md",
+      "baseline_sha256": "c9b087c0aaa5cefbc6633d3c5dca1239c8616b54c909316c9bdc52082ab83398",
+      "before_sha256": "8bcf4175204c4058a1817fa79d8afa8167338c8f179100acf9c2db63dae7164d",
+      "after_sha256": "05e6c2865cb23b811a86de0b3aec977d987c58f3ba0884a42e3b2c99bd76572c",
+      "after_size": 58671,
+      "reason": "Reconcile rendering delegation and detector claims; add dated corrections beside preserved historical synthesis. Full-course semantic review: add current scope/evidence corrections and accurate source attribution. Release-only appendix identifies version4.7.2 and preservation/activation boundaries."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/01-overview.md",
+      "baseline_sha256": "e50e63465372b1dff3a7414e6aaf76cd783757f153c16fc33c0d7bd67898cb9a",
+      "before_sha256": "e50e63465372b1dff3a7414e6aaf76cd783757f153c16fc33c0d7bd67898cb9a",
+      "after_sha256": "64cf49535fe0c461ba10050daa4ae419d5ba26edd1db9df3cc2b18ee82a61182",
+      "after_size": 11708,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/02-conception-and-title.md",
+      "baseline_sha256": "a80aaf524e63ddaa993c2bd119d230fd6a13fbadcdd97fb834d5b342a9b34e2e",
+      "before_sha256": "a80aaf524e63ddaa993c2bd119d230fd6a13fbadcdd97fb834d5b342a9b34e2e",
+      "after_sha256": "a3c910e30d634bc4023f9b7df62b71aee07178a1e57a18951f743de09844fa1c",
+      "after_size": 11603,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/03-abstract-and-introduction.md",
+      "baseline_sha256": "1500261f70b0bc5bd47aaf7117c9ae8d3fd4548d7fca4f18541b94db352079a5",
+      "before_sha256": "1500261f70b0bc5bd47aaf7117c9ae8d3fd4548d7fca4f18541b94db352079a5",
+      "after_sha256": "c368f6a0c9da62dee72b59a0652e2d87e415d4c0e73c37fbf99ca437597ee8b4",
+      "after_size": 11448,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/04-related-work-and-method.md",
+      "baseline_sha256": "fc52072e5b0d3d01543c780bb6e53c8686447e7d6de7cf012dacff10c4922979",
+      "before_sha256": "fc52072e5b0d3d01543c780bb6e53c8686447e7d6de7cf012dacff10c4922979",
+      "after_sha256": "87bbc879e2155b4b666ebe37f03e476a1fb2f8cf511e43dd1891487de9c67457",
+      "after_size": 13292,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/05-experiments-conclusion-references.md",
+      "baseline_sha256": "7c4890c0c5df7963a2fc0a308710ba5a58fe812effdec480be98b9072ac03cec",
+      "before_sha256": "7c4890c0c5df7963a2fc0a308710ba5a58fe812effdec480be98b9072ac03cec",
+      "after_sha256": "30cafc419303d3e4b45a394c2bcee642895ef60015a56efa9b9e90b4701651e1",
+      "after_size": 9459,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/06-motivation-figure.md",
+      "baseline_sha256": "f1e462c5552959cd0fe0e15fb623865632f53fcf5f76c4cbcf68dfecc44eb3e3",
+      "before_sha256": "f1e462c5552959cd0fe0e15fb623865632f53fcf5f76c4cbcf68dfecc44eb3e3",
+      "after_sha256": "7379b6be913f5fbff07d3bddd89388e5322e4154c48f5e709ea8d5e6d8115457",
+      "after_size": 13986,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/08-framework-figure-extension.md",
+      "baseline_sha256": "cc6af0f75fcbbdb3169d4b8fb40aa79e9f0417d68f899f0a3ca7960ea6ed6d97",
+      "before_sha256": "cc6af0f75fcbbdb3169d4b8fb40aa79e9f0417d68f899f0a3ca7960ea6ed6d97",
+      "after_sha256": "76403fa0d61c53ac8f9e60dd9b5d49f542851e8c5a3fd284658a9c566cbbf409",
+      "after_size": 8527,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/09-concise-and-rigorous.md",
+      "baseline_sha256": "24ce243939e506511b2366f083b03e603a224025b2e7e7f88825ada40dba2020",
+      "before_sha256": "24ce243939e506511b2366f083b03e603a224025b2e7e7f88825ada40dba2020",
+      "after_sha256": "e76ced28d988692ec8f0482373f23f2a249726bcd33255fe2d70cb500b611e7a",
+      "after_size": 7342,
+      "reason": "Separate clarity/rhythm advice from unsupported detector causality. Full-course semantic review: add current scope/evidence corrections and accurate source attribution."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/10-terminology-symbols-figures-references.md",
+      "baseline_sha256": "5370360f083e98037f0624bc8eb35cdb520c501e5b096b816a8197b841431493",
+      "before_sha256": "5370360f083e98037f0624bc8eb35cdb520c501e5b096b816a8197b841431493",
+      "after_sha256": "bb4d02c3442465bd109adafca7c422cf2e89a8da42d1204160b18b1da901f952",
+      "after_size": 9991,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/11-innovation-angles.md",
+      "baseline_sha256": "3f42a5f55c0c8c9d8fda05df2cdf98d4d80e2ae0e537fad685f73f97dff86c64",
+      "before_sha256": "3f42a5f55c0c8c9d8fda05df2cdf98d4d80e2ae0e537fad685f73f97dff86c64",
+      "after_sha256": "7702f29c04c677c14e7af0c76b01799bcd30ada7da923e2b849d01d618e2f825",
+      "after_size": 9785,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/11-pre-prerequisites.md",
+      "baseline_sha256": "6231d973d96c1a91a223b992e4aea12b36ca1ae5887689931f5bdda93b68fa7c",
+      "before_sha256": "6231d973d96c1a91a223b992e4aea12b36ca1ae5887689931f5bdda93b68fa7c",
+      "after_sha256": "4df7a194b21451fef2dd928c3334b785fb60b6f7c8e214f5094e942b1211cc34",
+      "after_size": 7776,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/12-find-papers-literature-review.md",
+      "baseline_sha256": "7ddc01e4ed5e15f132699069d082935db9cd92c37ceb7f0b0cfccef1067c77ab",
+      "before_sha256": "7ddc01e4ed5e15f132699069d082935db9cd92c37ceb7f0b0cfccef1067c77ab",
+      "after_sha256": "1fab4139520ca1ad7c941b770846de5f1dc730102d5727d7eb1e240b663d4eae",
+      "after_size": 12566,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/13-review-feedback-evidence-contract.md",
+      "baseline_sha256": "0529b241067b70bae7aaa6320aeb1d51d98ec302806d6a5675d1e8a00962f71e",
+      "before_sha256": "0529b241067b70bae7aaa6320aeb1d51d98ec302806d6a5675d1e8a00962f71e",
+      "after_sha256": "9eff5a32edb8a32a5663ef6437ae9c72cc7283eaa0663be905c691cdb2272efb",
+      "after_size": 35447,
+      "reason": "Keep critical limitations visible and correct the playbook-05 heading reference."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/14-figure-schema-and-rendering-gate.md",
+      "baseline_sha256": "44976cfeea6645635a7d541225bc096c75880a259ed5d9f080f93f137854f4f0",
+      "before_sha256": "44976cfeea6645635a7d541225bc096c75880a259ed5d9f080f93f137854f4f0",
+      "after_sha256": "b328f359dfb69bf02a055c3b2cec03fb11694cf6aff43c49f52e25dfdafea28a",
+      "after_size": 41057,
+      "reason": "Reconcile author-approved per-figure agent rendering with top-level protocol. Full-course semantic review: add current scope/evidence corrections and accurate source attribution."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/16-fast-reader-and-skim-path.md",
+      "baseline_sha256": "46f5e9791f2da6990481e265dd26571421a87ca316d8668ae8abb82ea307fddb",
+      "before_sha256": "46f5e9791f2da6990481e265dd26571421a87ca316d8668ae8abb82ea307fddb",
+      "after_sha256": "cc563506b9b91637a9f5bf3c269fd9460fc8c36452893be68b27612316f8ba45",
+      "after_size": 12182,
+      "reason": "Include source paper quality-control result and primary URL; do not infer skim behavior from LLM use."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/17-native-register-and-ai-detection.md",
+      "baseline_sha256": "30af12c81c1f6617b34b6f67f1fc1e07835a9d0cd20f3e2fb436387d4a336414",
+      "before_sha256": "30af12c81c1f6617b34b6f67f1fc1e07835a9d0cd20f3e2fb436387d4a336414",
+      "after_sha256": "29bc9b7411464ab18e62ad1800d5fcfd2eb27e89651bb8290a587201d098491a",
+      "after_size": 22794,
+      "reason": "Separate measured sentence length, reported case, corpus differences, and classifier uncertainty."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/18-submission-sprint-discipline.md",
+      "baseline_sha256": "25f08fa88ac20f1e0ad8926af7a655ddf60798a64bd12d65b0db7c847b3601f4",
+      "before_sha256": "25f08fa88ac20f1e0ad8926af7a655ddf60798a64bd12d65b0db7c847b3601f4",
+      "after_sha256": "90f002ddf5ba42cede62dd37ee80cc5a81f4ea03462a3fd89dc522dda001ac36",
+      "after_size": 16402,
+      "reason": "Replace exact-once/supplement-first limitation rule with interpretation-critical placement."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/provenance.md",
+      "baseline_sha256": "e7d31716466becb5e4d2d8b53e0c9ddb9544b1b5f193fb3d916534f279f760b5",
+      "before_sha256": "e7d31716466becb5e4d2d8b53e0c9ddb9544b1b5f193fb3d916534f279f760b5",
+      "after_sha256": "f9057758748751afe0a97cbc81661c706e4974bfe9f60d86a4965d8e4f6556b7",
+      "after_size": 33088,
+      "reason": "Clarify transcript content and document dated derived-guidance corrections while retaining history. Full-course semantic review: add current scope/evidence corrections and accurate source attribution."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/quick-reference.md",
+      "baseline_sha256": "8cc53df91eb6586f222483a02c08b943e76f59dd8619e31e28c5a7c85bfb6673",
+      "before_sha256": "8cc53df91eb6586f222483a02c08b943e76f59dd8619e31e28c5a7c85bfb6673",
+      "after_sha256": "ac6648781f25d1b1d36ea42b9b3016d52bb2682ecc4602aa22f7ad606d10b443",
+      "after_size": 8947,
+      "reason": "Source-read correction: restore scoped, evidence-grounded course guidance; see current course-review notes and focused regressions."
+    },
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/scripts/measure_prose_rhythm.py",
+      "baseline_sha256": "2738f660b83936624fd002ac0ffbf2a4ad15e88144d3b051a3c0962be6dcff42",
+      "before_sha256": "2738f660b83936624fd002ac0ffbf2a4ad15e88144d3b051a3c0962be6dcff42",
+      "after_sha256": "649d518a3ff3680b59376473be26fc61a313a0265b95257c7c16f45ecd755935",
+      "after_size": 10340,
+      "reason": "Retain genuine short claims and label length statistics without unvalidated detector claims."
+    }
+  ],
+  "added_files": [
+    {
+      "path": "skills/research-english-academic-paper-writing-guide/references/course-review-notes.md",
+      "after_sha256": "637bff0525fd24ada45c4ac75f018d3542723f76594f760172fc8022c0a248dd",
+      "after_size": 10288,
+      "reason": "Labeled current applicability/evidence layer and reconstruction errata; explicit scoped precedence without changing archival originals."
+    }
+  ]
+}
