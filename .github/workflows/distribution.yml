@@ -1,0 +1,23 @@
+name: Validate distribution artifacts
+on:
+  push:
+  pull_request:
+jobs:
+  distribution:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install distribution validator dependencies
+        run: python3 -m pip install PyYAML==6.0.3 jsonschema==4.26.0
+      - name: Validate distribution and actual npm tarball installation
+        run: |
+          python3 tools/validate_distribution.py
+          node --test tools/test_installer.mjs tools/test_npm_package.mjs
+      - name: Build and verify complete Skill and plugin ZIPs
+        run: python3 tools/build_release.py --output "$RUNNER_TEMP/release-artifacts" --kind all

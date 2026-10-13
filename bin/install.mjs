@@ -89,8 +89,14 @@ function same(a, b) {
 
 async function atomicJson(p, data) {
   const temporary = `${p}.${randomBytes(6).toString('hex')}.tmp`;
-  await fs.writeFile(temporary, JSON.stringify(data, null, 2) + '\n', { flag: 'wx' });
-  await fs.rename(temporary, p);
+  try {
+    await fs.writeFile(temporary, JSON.stringify(data, null, 2) + '\n', { flag: 'wx' });
+    await fs.rename(temporary, p);
+  } catch (error) {
+    // Cleanup must not turn a successful receipt replacement into a rollback.
+    try { await fs.rm(temporary, { force: true }); } catch { /* Retain the original failure. */ }
+    throw error;
+  }
 }
 
 async function main() {
@@ -101,6 +107,12 @@ async function main() {
   }
   const sourceRoot = path.resolve(args.source || packageRoot);
   await noSymlinkParents(sourceRoot);
+  // Validate package metadata before creating directories or replacing any files.
+  const packageInfo = JSON.parse(await fs.readFile(path.join(sourceRoot, 'package.json'), 'utf8'));
+  if (typeof packageInfo.name !== 'string' || !packageInfo.name ||
+      typeof packageInfo.version !== 'string' || !/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(packageInfo.version)) {
+    throw new Error('Invalid package name/version; no installation was changed');
+  }
   const names = [];
   for (const entry of await fs.readdir(path.join(sourceRoot, 'skills'), { withFileTypes: true })) {
     if (entry.isDirectory() && await exists(path.join(sourceRoot, 'skills', entry.name, 'SKILL.md'))) names.push(entry.name);
@@ -145,7 +157,7 @@ async function main() {
   await noSymlinkParents(stateDir);
   const lock = path.join(stateDir, `${name}.lock`);
   try { await fs.mkdir(lock); } catch (e) { if (e.code === 'EEXIST') throw new Error('An installation is already running; no files were changed'); throw e; }
-  let stage = null, backup = null;
+  let stage = null, backup = null, swapped = false;
   try {
     // Recheck after taking the lock so another process cannot overwrite a change silently.
     const latest = await exists(destination) ? await snapshot(destination) : null;
@@ -163,21 +175,28 @@ async function main() {
         backup = path.join(parent, '.skill-backups', `${name}-${Date.now()}-${randomBytes(4).toString('hex')}`);
         await noSymlinkParents(backup);
         await fs.mkdir(backup, { recursive: true });
-        await fs.rename(destination, path.join(backup, 'skill'));
+        // Preserve the receipt before moving the currently usable installation.
         await fs.copyFile(receiptPath, path.join(backup, 'receipt.json'));
+        await fs.rename(destination, path.join(backup, 'skill'));
       }
-      await fs.rename(stage, destination); stage = null;
+      await fs.rename(stage, destination); stage = null; swapped = true;
     }
-    const packageInfo = JSON.parse(await fs.readFile(path.join(sourceRoot, 'package.json'), 'utf8'));
     await atomicJson(receiptPath, { schema: receiptSchema, skill: name, destination, package: packageInfo.name, version: packageInfo.version, installed_at: new Date().toISOString(), files: desired });
-    console.log(JSON.stringify({ action, skill: name, destination, files: Object.keys(desired).length, bytes: Object.values(desired).reduce((n, f) => n + f.size, 0), backup }));
   } catch (e) {
+    // The receipt uses atomic replacement: a failed write/rename leaves its old
+    // bytes intact. Roll the directory back to the same version. Preserve failed
+    // new files in recovery rather than deleting possible concurrent user edits.
+    if (swapped) {
+      const recovery = backup || await fs.mkdtemp(path.join(stateDir, `${name}-failed-`));
+      await fs.rename(destination, path.join(recovery, 'failed-skill'));
+    }
     if (backup && !await exists(destination) && await exists(path.join(backup, 'skill'))) await fs.rename(path.join(backup, 'skill'), destination);
     throw e;
   } finally {
     if (stage) await fs.rm(stage, { recursive: true, force: true });
     await fs.rm(lock, { recursive: true, force: true });
   }
+  console.log(JSON.stringify({ action, skill: name, destination, files: Object.keys(desired).length, bytes: Object.values(desired).reduce((n, f) => n + f.size, 0), backup }));
 }
 
 main().catch(error => { console.error(error.message); process.exitCode = 1; });

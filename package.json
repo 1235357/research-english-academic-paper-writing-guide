@@ -1,6 +1,6 @@
 {
   "name": "research-english-academic-paper-writing-guide",
-  "version": "4.7.0",
+  "version": "4.7.1",
   "description": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows.",
   "type": "module",
   "private": false,
@@ -13,8 +13,6 @@
   "files": [
     "skills",
     "bin",
-    "tools",
-    "docs",
     "plugin.json",
     ".claude-plugin",
     ".agents",
@@ -31,6 +29,11 @@
   "license": "MIT",
   "scripts": {
     "test:installer": "node --test tools/test_installer.mjs",
-    "validate:distribution": "python tools/validate_distribution.py"
+    "validate:distribution": "python tools/validate_distribution.py",
+    "test:package": "node --test tools/test_npm_package.mjs"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

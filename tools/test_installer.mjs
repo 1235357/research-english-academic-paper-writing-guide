@@ -69,3 +69,75 @@ test('unmanaged files and symlink targets are refused without mutation', async (
     assert.match(unsafe.stderr, /Symlink/);
   } finally { await fs.rm(f.root, { recursive: true, force: true }); }
 });
+
+test('invalid package metadata fails before creating an installation', async () => {
+  const f = await fixture();
+  try {
+    await fs.writeFile(path.join(f.source, 'package.json'), '{broken json');
+    const result = f.run();
+    assert.notEqual(result.status, 0);
+    await assert.rejects(fs.stat(f.parent), { code: 'ENOENT' });
+  } finally { await fs.rm(f.root, { recursive: true, force: true }); }
+});
+
+test('invalid package metadata cannot partially upgrade an existing installation', async () => {
+  const f = await fixture();
+  try {
+    assert.equal(f.run().status, 0);
+    const destination = path.join(f.parent, 'read-example', 'SKILL.md');
+    const receipt = path.join(f.parent, '.skill-installation', 'read-example.json');
+    const original = await fs.readFile(destination);
+    const originalReceipt = await fs.readFile(receipt);
+    await fs.appendFile(path.join(f.skill, 'SKILL.md'), '\nA newer source.\n');
+    await fs.writeFile(path.join(f.source, 'package.json'), '{"name":"test-fixture","version":null}');
+    assert.notEqual(f.run('--upgrade').status, 0);
+    assert.deepEqual(await fs.readFile(destination), original);
+    assert.deepEqual(await fs.readFile(receipt), originalReceipt);
+    await assert.rejects(fs.stat(path.join(f.parent, '.skill-backups')), { code: 'ENOENT' });
+  } finally { await fs.rm(f.root, { recursive: true, force: true }); }
+});
+
+for (const failure of ['writeFile', 'rename']) {
+  for (const upgrade of [false, true]) {
+    test(`receipt ${failure} failure rolls back ${upgrade ? 'upgrade' : 'fresh install'} and permits retry`, async () => {
+      const f = await fixture();
+      try {
+        const destination = path.join(f.parent, 'read-example');
+        const state = path.join(f.parent, '.skill-installation');
+        const receipt = path.join(state, 'read-example.json');
+        let oldSkill, oldReceipt;
+        if (upgrade) {
+          assert.equal(f.run().status, 0);
+          oldSkill = await fs.readFile(path.join(destination, 'SKILL.md'));
+          oldReceipt = await fs.readFile(receipt);
+          await fs.appendFile(path.join(f.skill, 'SKILL.md'), '\nNew version for receipt failure.\n');
+        }
+        const preload = path.join(f.root, 'fault.mjs');
+        await fs.writeFile(preload, `import fs from 'node:fs/promises';
+const method = ${JSON.stringify(failure)};
+const original = fs[method];
+fs[method] = async (...args) => {
+  const target = String(args[method === 'rename' ? 1 : 0]);
+  if (target.includes('.skill-installation') && target.endsWith(method === 'rename' ? '.json' : '.tmp')) {
+    throw Object.assign(new Error('Injected receipt failure'), { code: 'EACCES' });
+  }
+  return original(...args);
+};\n`);
+        const result = spawnSync(process.execPath, ['--import', preload, bin, '--source', f.source, '--target', f.parent, ...(upgrade ? ['--upgrade'] : [])], { encoding: 'utf8' });
+        assert.notEqual(result.status, 0);
+        assert.match(result.stderr, /Injected receipt failure/);
+        if (upgrade) {
+          assert.deepEqual(await fs.readFile(path.join(destination, 'SKILL.md')), oldSkill);
+          assert.deepEqual(await fs.readFile(receipt), oldReceipt);
+        } else {
+          await assert.rejects(fs.stat(destination), { code: 'ENOENT' });
+          await assert.rejects(fs.stat(receipt), { code: 'ENOENT' });
+        }
+        assert.ok(!(await fs.readdir(state)).some(n => n.endsWith('.tmp') || n.endsWith('.lock')));
+        const retry = f.run(...(upgrade ? ['--upgrade'] : []));
+        assert.equal(retry.status, 0, retry.stderr);
+        assert.equal(f.run('--verify').status, 0);
+      } finally { await fs.rm(f.root, { recursive: true, force: true }); }
+    });
+  }
+}

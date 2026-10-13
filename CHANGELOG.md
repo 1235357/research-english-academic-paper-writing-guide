@@ -802,3 +802,13 @@ Initial publishable release candidate.
 - 增加Agent Plugins 1.0.0、Claude叠加清单、两市场入口和Git来源npx安装。
 - 完整离线复制、幂等安装、保护个人修改、干净升级及全部旧文件备份。
 - 明确云端容量、网络、官方目录审核和实际客户端导入的适用范围。
+
+
+## 4.7.1 — 2026-10-13
+
+- Validate package name/version before any installation write; regression covers malformed metadata with zero target mutation.
+- Limit npm files to complete Skill/runtime/plugin content; omit repository-only audit inventories and build tools. No course content removed.
+- Test the actual npm tarball through offline installation and public bin execution, idempotency and every Skill file byte.
+- Run distribution and packed-artifact tests in CI; clarify registry publication, local installation and client activation as separate checks.
+
+- Restore the prior Skill/receipt pair if receipt persistence fails after replacement; preserve failed new files for recovery, clean temporary receipts, and test write/rename failures on both fresh installs and upgrades.

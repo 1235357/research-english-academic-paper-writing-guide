@@ -177,3 +177,8 @@ citations, experiments, PDF, archive contents, or venue compliance.
 ## 4.7.0：Skill／插件发布与完整安装
 
 原有内容完整保留。本次新增[安装和平台兼容说明](docs/INSTALLATION.md)、[正式发布附件](https://github.com/1235357/research-english-academic-paper-writing-guide/releases/tag/v4.7.0)、标准Skill ZIP、Agent Plugins／Claude插件清单、社区npx与离线字节校验安装器。发布层版本与旧正文里的历史版本号分别记录。
+
+
+## 4.7.1：npm 实包安装校验与故障排查
+
+修复安装元数据无效时先写入目标目录的问题；npm 仅发布完整 Skill、安装器及必要插件入口。增加真实 tarball 的离线安装和逐字节校验。npm registry 发布与 GitHub Release 分别核验，当前方式及“安装但未加载”排查见[安装说明](skills/research-english-academic-paper-writing-guide/references/installation.md)。

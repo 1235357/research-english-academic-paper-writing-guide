@@ -565,3 +565,8 @@ Most non-native-speaker "my English isn't good enough" self-diagnoses are actual
 ## 发布与安装附录（4.7.0）
 
 原有指令与全部课程内容完整保留；当前发布版本为 4.7.0。使用 [安装说明](references/installation.md) 选择标准 Skill ZIP、Agent Plugins、Claude Code 或社区 npx skills 安装方式。原始版本标记保留其历史身份。目录结构检查、实际客户端安装与平台市场审核分别记录，不以文件存在推断安装成功。
+
+
+### 发布与安装补充（4.7.1）
+
+当前发布层版本为 4.7.1；完整课程正文与既有历史说明保留。npm registry 发布、本地文件安装和客户端加载是三个独立检查，具体命令与故障定位见 `references/installation.md`。

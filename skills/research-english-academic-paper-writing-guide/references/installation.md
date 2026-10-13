@@ -1,10 +1,10 @@
 # Research and English Academic Paper Writing Guide：安装与发布
 
-当前发布层版本：4.7.0。原有课程、书籍和说明原字节完整保留；旧文档中的历史版本号表示相应内容的历史版本。
+当前发布层版本：4.7.1。原有课程、书籍和说明原字节完整保留；旧文档中的历史版本号表示相应内容的历史版本。
 
 ## 选择下载文件
 
-下载 [GitHub Release](https://github.com/1235357/research-english-academic-paper-writing-guide/releases/tag/v4.7.0) 的显式附件，而非GitHub自动生成的 Source code ZIP。
+下载 [GitHub Release](https://github.com/1235357/research-english-academic-paper-writing-guide/releases/tag/v4.7.1) 的显式附件，而非GitHub自动生成的 Source code ZIP。
 
 | 文件类型 | 解压后入口 | 用途 |
 | --- | --- | --- |
@@ -23,7 +23,7 @@ Node.js 18+，Python辅助阅读脚本需要3.9+；安装器不依赖第三方np
 ```bash
 git clone https://github.com/1235357/research-english-academic-paper-writing-guide.git
 cd research-english-academic-paper-writing-guide
-git checkout v4.7.0
+git checkout v4.7.1
 node bin/install.mjs --agent codex --project /absolute/path/to/project
 node bin/install.mjs --agent claude-code --project /absolute/path/to/project
 ```
@@ -43,13 +43,21 @@ node bin/install.mjs --agent claude-code --project /absolute/path/to/project
 
 ## npm／npx和社区目录
 
-仓库含标准`package.json`和`bin`，可从Git来源运行；尚未在npm公共registry发布，也不需要把书籍二进制发布成npm依赖。
+公共 npm 安装命令（仅在该版本已成功发布到 npm 后可用）：
 
 ```bash
-npx --yes --package=github:1235357/research-english-academic-paper-writing-guide#v4.7.0 research-writing-skill-install --agent codex --project /absolute/path/to/project
+npx --yes --package=research-english-academic-paper-writing-guide@4.7.1 research-writing-skill-install --agent codex --project /absolute/path/to/project
 ```
 
-完整大书在Git/npm缓存及最终目录各占空间；也可直接使用上一节的本地安装器。社区`skills` CLI支持多个Agent及已认证私有Git来源：
+`npm install -g research-english-academic-paper-writing-guide@4.7.1` 只安装命令行程序；仍需运行 `research-writing-skill-install --agent codex --global` 才会复制并注册本地技能目录。npm 不运行自动安装钩子，也不修改客户端设置。安装完成后，在同一项目打开新会话或刷新技能列表，显式调用 `$research-english-academic-paper-writing-guide`，并要求读取 `references/course-full-reconstruction.md` 的相关段落。
+
+版本是否已发布应以 `npm view research-english-academic-paper-writing-guide@4.7.1 version` 实际返回为准。若 registry 返回 E404，则不能把 GitHub Release 当作 npm 发布成功。以下 Git 来源后备路径与 npm registry 发布相互独立：
+
+```bash
+npx --yes --package=github:1235357/research-english-academic-paper-writing-guide#v4.7.1 research-writing-skill-install --agent codex --project /absolute/path/to/project
+```
+
+完整技能在Git/npm缓存及最终目录各占空间；也可直接使用上一节的本地安装器。社区`skills` CLI支持多个Agent及已认证私有Git来源：
 
 ```bash
 DISABLE_TELEMETRY=1 npx --yes skills@1.7.2 add 1235357/research-english-academic-paper-writing-guide --skill research-english-academic-paper-writing-guide --agent codex --agent claude-code --copy -y
@@ -76,10 +84,21 @@ Claude CLI在线`plugin validate`在本次环境被自动批准审核拒绝：�
 
 ```bash
 python tools/validate_distribution.py
-node --test tools/test_installer.mjs
+node --test tools/test_installer.mjs tools/test_npm_package.mjs
 python tools/build_release.py --output /absolute/path/outside-repository --kind all
 ```
 
 构建器仅取Git已跟踪文件，构建前必须提交或暂存新增发布文件。每份ZIP附逐文件大小、源路径和SHA-256；构建完成后流式重新读取每个ZIP条目并对比原字节。输出保存在仓库外，不将ZIP反复嵌入Skill。
 
 来源与限制记录见仓库`docs/ecosystem/sources.json`；原始内容保留基线见`docs/distribution-baseline.json`。所有引用、阅读活动、视觉校对、结构验证和理解验收分别记录，发布机制不会替代实际理解。
+
+
+## 排查“安装成功但没有生效”
+
+1. 确认使用的是目标客户端的技能安装入口或本地技能目录。GitHub、npm、普通聊天附件不会自动创建 ChatGPT 的云端 Skill。
+2. 用相同参数运行安装器的 `--verify`，核对磁盘中的完整文件；这只证明文件一致，不证明客户端已加载。
+3. 在客户端技能列表查找完整名称，并在新会话中显式调用。对 Codex，项目安装必须在该项目或其子目录启动。
+4. 请客户端实际读取完整课程重建及一个任务相关 playbook，报告读取路径与课程论点。如果只能看到简介、读取资源报错或客户端未列出该技能，记录具体客户端、安装入口和错误，不推断“全文已经加载”。
+5. 一个客户端的本地安装不会同步到另一个客户端、浏览器聊天或其他电脑；已有云端插件/桥接器也有独立版本，需要分别核验。
+
+本次离线实测覆盖 npm tarball 的安装命令入口、完整复制、幂等重装、SHA-256 核验与 ZIP 内容；不把这些结果等同于任何登录后客户端的真实导入验收。
