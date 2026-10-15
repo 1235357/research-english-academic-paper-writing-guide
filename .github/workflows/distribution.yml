@@ -19,6 +19,7 @@ jobs:
         run: |
           python3 tools/validate_distribution.py
           python3 tools/test_distribution.py
+          python3 tools/test_web_distribution.py
           node --test tools/test_installer.mjs tools/test_npm_package.mjs
-      - name: Build and verify complete Skill and plugin ZIPs
+      - name: Build and verify complete Skill, plugin and web-plugin ZIPs
         run: python3 tools/build_release.py --output "$RUNNER_TEMP/release-artifacts" --kind all
