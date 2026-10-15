@@ -168,5 +168,128 @@ class WebDistributionTest(unittest.TestCase):
             verify_archive(path)
 
 
+
+class OfflineClosureTest(unittest.TestCase):
+    """Exercise extracted artifacts, never a source checkout as runtime fallback."""
+    @classmethod
+    def setUpClass(cls):
+        cls.temp = tempfile.TemporaryDirectory(prefix='academic-offline-closure-')
+        cls.directory = Path(cls.temp.name)
+        cls.reports = build(ROOT, cls.directory / 'artifacts', 'all')
+        baseline = json.loads((ROOT / 'docs/distribution-baseline.json').read_text())
+        cls.course = [r for r in baseline['files']
+                      if r['path'] == 'docs/course-full-reconstruction.md'
+                      or r['path'].endswith('/references/course-full-reconstruction.md')
+                      or '/references/lectures/' in r['path']]
+        assert len(cls.course) == 15
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.temp.cleanup()
+
+    def extract(self, kind, name):
+        report = next(r for r in self.reports if r['kind'] == kind)
+        destination = self.directory / name
+        with zipfile.ZipFile(self.directory / 'artifacts' / report['file']) as archive:
+            archive.extractall(destination)
+        top = destination / report['root']
+        skill = top if kind == 'skill' else top / 'skills/research-english-academic-paper-writing-guide'
+        return top, skill
+
+    def assert_closure(self, top, skill):
+        # Manifest is checked against extracted bytes, not ROOT or a downloaded file.
+        manifest = json.loads((top / 'release-manifest.json').read_text())
+        for row in manifest['files']:
+            content = (top / row['path']).read_bytes()
+            self.assertEqual(len(content), row['size'])
+            self.assertEqual(hashlib.sha256(content).hexdigest(), row['sha256'])
+        for relative in ['SKILL.md', 'references/installation.md',
+                         'references/course-review-notes.md',
+                         'references/course-full-reconstruction.md',
+                         'references/lecture-index.md', 'references/provenance.md',
+                         'references/quick-reference.md']:
+            self.assertTrue((skill / relative).is_file(), relative)
+        self.assertEqual(len(list((skill / 'references/lectures').glob('*.md'))), 13)
+        self.assertEqual(len(list((skill / 'references/playbooks').glob('*.md'))), 19)
+        # Both baseline full-course copies have the same digest; each has a local
+        # complete representative. Unique course bytes may never be omitted.
+        for row in self.course:
+            relative = ('references/course-full-reconstruction.md'
+                        if row['path'].startswith('docs/') else
+                        row['path'].removeprefix('skills/research-english-academic-paper-writing-guide/'))
+            self.assertEqual(hashlib.sha256((skill / relative).read_bytes()).hexdigest(), row['sha256'])
+        guide = (skill / 'references/installation.md').read_text()
+        self.assertNotRegex(guide, r'https?://|git clone|npx --|npm install|git checkout')
+        self.assertIn('Windows', guide)
+        self.assertIn('Linux', guide)
+        self.assertIn('当前取得的仓库、发布包及工作目录没有可交付', guide)
+        self.assertIn('尚不能据此认定完成', guide)
+        self.assertIn('不以联网链接或转写替代原件', guide)
+        self.assertIn('正常离线带读', guide)
+        self.assertNotIn('请使用 [已发布v4.7.4]', guide)
+        notice = (skill / 'SKILL.md').read_text().split('# Research and English Academic Paper Writing Guide\n', 1)[0]
+        self.assertIn('Original PDF/transcript', notice)
+        self.assertIn('local delivery of', notice)
+        self.assertIn('not complete', notice)
+        self.assertIn('references/installation.md', notice)
+
+    def test_three_artifacts_are_closed_and_all_course_bytes_preserved(self):
+        for kind in ['skill', 'plugin', 'web-plugin']:
+            with self.subTest(kind=kind):
+                top, skill = self.extract(kind, 'complete-' + kind)
+                self.assert_closure(top, skill)
+                self.assertFalse(any(top.rglob('.git')))
+                self.assertFalse(any(top.rglob('*.pdf')))
+                self.assertFalse(any(top.rglob('*.transcript.txt')))
+                if kind == 'plugin':
+                    self.assertTrue((top / 'plugin.json').is_file())
+                    self.assertTrue((top / '.claude-plugin/plugin.json').is_file())
+                    self.assertTrue((top / 'bin/install.mjs').is_file())
+                elif kind == 'web-plugin':
+                    self.assertFalse((top / 'bin').exists())
+                    self.assertFalse((top / 'docs').exists())
+
+    def test_helpers_execute_from_isolated_extraction_with_network_blocked(self):
+        import subprocess
+        import sys
+        top, skill = self.extract('web-plugin', 'script-runtime')
+        for script, arguments in [('check_title.py', ['A Study of Visual Question Answering']),
+                                  ('new_research_point_canvas.py', []),
+                                  ('measure_prose_rhythm.py', ['--help'])]:
+            relative = 'scripts/' + script
+            self.assertTrue((skill / relative).is_file())
+            # -I removes user/site path injection; cwd is the extraction, and
+            # fail-closed Python network hooks prevent helpers using the network.
+            driver = ('import runpy,socket,sys; '
+                      'exec("def blocked(*a, **k): raise RuntimeError(\\"Network forbidden\\")"); '
+                      'socket.socket=blocked; socket.create_connection=blocked; '
+                      'sys.argv=' + repr([relative] + arguments) + '; '
+                      'runpy.run_path(' + repr(relative) + ',run_name="__main__")')
+            result = subprocess.run([sys.executable, '-I', '-c', driver], cwd=skill,
+                                    capture_output=True, text=True, timeout=15)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertTrue(result.stdout.strip())
+
+    def test_missing_guide_course_and_remote_dependency_are_rejected(self):
+        for label, relative in [('guide', 'references/installation.md'),
+                                ('course', 'references/course-full-reconstruction.md')]:
+            top, skill = self.extract('web-plugin', 'missing-' + label)
+            (skill / relative).unlink()
+            with self.assertRaises((AssertionError, FileNotFoundError)):
+                self.assert_closure(top, skill)
+        top, skill = self.extract('web-plugin', 'remote-dependency')
+        guide = skill / 'references/installation.md'
+        guide.write_text(guide.read_text() + '\nRequired: https://example.invalid/WEB-PLUGIN.md\n')
+        # Reconcile the integrity manifest to prove semantic closure catches the
+        # dependency even when file hashes are internally consistent.
+        manifest_path = top / 'release-manifest.json'
+        manifest = json.loads(manifest_path.read_text())
+        row = next(r for r in manifest['files'] if r['path'].endswith('/references/installation.md'))
+        row.update(size=guide.stat().st_size, sha256=hashlib.sha256(guide.read_bytes()).hexdigest())
+        manifest_path.write_text(json.dumps(manifest))
+        with self.assertRaises(AssertionError):
+            self.assert_closure(top, skill)
+
+
 if __name__ == '__main__':
     unittest.main()

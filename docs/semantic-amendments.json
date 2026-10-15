@@ -32,9 +32,9 @@
       "path": "skills/research-english-academic-paper-writing-guide/SKILL.md",
       "baseline_sha256": "c9b087c0aaa5cefbc6633d3c5dca1239c8616b54c909316c9bdc52082ab83398",
       "before_sha256": "8bcf4175204c4058a1817fa79d8afa8167338c8f179100acf9c2db63dae7164d",
-      "after_sha256": "1fbd2c9fc1d7142af347cd9e1596f0e1e877353fa3783689eab708cf74b02b4c",
-      "after_size": 59398,
-      "reason": "Reconcile rendering delegation and detector claims; add dated corrections beside preserved historical synthesis. Full-course semantic review: add current scope/evidence corrections and accurate source attribution. Release-only appendix identifies version4.7.2 and preservation/activation boundaries. Version 4.7.3 prepends an authoritative current-package notice while preserving the entire 4.7.2 entrypoint byte-for-byte; archive release labels and reconstruction lineage names remain unchanged. Version 4.7.4 changes only the authoritative current-package version token from 4.7.3 to 4.7.4 for a packaging-only release; all remaining 4.7.3 entrypoint bytes and all other 42 skill files remain unchanged."
+      "after_sha256": "408757ea38a0be3876ad9d84d14081792a4694dc6754ec72b5ddc8ea6d2dc588",
+      "after_size": 60152,
+      "reason": "Reconcile rendering delegation and detector claims; add dated corrections beside preserved historical synthesis. Full-course semantic review: add current scope/evidence corrections and accurate source attribution. Release-only appendix identifies version4.7.2 and preservation/activation boundaries. Version 4.7.3 prepends an authoritative current-package notice while preserving the entire 4.7.2 entrypoint byte-for-byte; archive release labels and reconstruction lineage names remain unchanged. Version 4.7.4 changes only the authoritative current-package version token from 4.7.3 to 4.7.4 for a packaging-only release; all remaining 4.7.3 entrypoint bytes and all other 42 skill files remain unchanged. Version 4.7.5 updates the authoritative current-package notice with version and offline-delivery boundaries, while preserving the entire prior historical entrypoint. The separate installation guide is self-contained non-lecture documentation; all other 41 skill files and all 15 baseline course Markdown files remain unchanged. Original PDF/transcript file formats are not present; this is not claimed as complete original-format delivery."
     },
     {
       "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/01-overview.md",
