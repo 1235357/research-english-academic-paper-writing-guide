@@ -2,7 +2,7 @@
 
 ## 当前分发：4.7.4（课程来源 4.7.3）
 
-当前正式附件见 [v4.7.4 Release](https://github.com/1235357/research-english-academic-paper-writing-guide/releases/tag/v4.7.4)。4.7.4 修复分发；43 个技能源文件中，仅 SKILL.md 的当前包版本标识变化，其余42文件保持4.7.3来源字节。包内 references/installation.md 中的4.7.3为保留的历史安装说明，不是当前分发版本。
+截至2026-10-15，已发布正式附件见 [v4.7.4 Release](https://github.com/1235357/research-english-academic-paper-writing-guide/releases/tag/v4.7.4)。已发布4.7.4修复分发；该版本43个技能源文件中，仅 SKILL.md 的当前包版本标识变化，其余42文件保持4.7.3来源字节。已发布4.7.4附件内 references/installation.md 中的4.7.3为保留的历史安装说明，不是当时的分发版本。上述字节不变结论仅描述已发布4.7.4，不适用于后续开发候选。
 
 - 网页 New Plugin 选择 `academic-research-v4.7.4-web-plugin.zip`，入口为 `academic-research/plugin.json`，技能在 `academic-research/skills/research-english-academic-paper-writing-guide/SKILL.md`。
 - 独立 Skill 入口选择 `research-english-academic-paper-writing-guide-v4.7.4-skill-full.zip`；不能把它当作 Plugin 包。
@@ -10,7 +10,7 @@
 
 保存与选择上传文件时保留完整的 `.zip` 后缀。2026-10-15 本账户检查中，扩展名缺失的文件未通过选择；带 `.zip` 的对应文件通过了文件选择阶段。未点击最终 Add，避免创建重复插件；这不证明网页端到端安装成功，也不证明所有账户有相同限制。已有托管插件的更新与读回属于另一条验证路径；New Plugin 新建不能代替已有插件更新。
 
-本说明更新不覆盖已发布附件、不改写课程或历史来源清单，也不表示 npm 已发布4.7.4。完整打包范围与限制见 [WEB-PLUGIN.md](WEB-PLUGIN.md)。下方保留4.7.3历史操作说明；其中带版本号的命令明确针对旧版，不应当作4.7.4安装命令。
+本开发候选同步更新仓库与技能内的安装说明，不改写课程原文或历史来源清单。已发布4.7.4附件保持不变；如后续发布包含本说明的新包，必须使用新的发行版本并独立验证，不能覆盖同版本附件。本候选尚未据此发布或更新托管插件，也不表示 npm 已发布4.7.4。完整打包范围与限制见 [WEB-PLUGIN.md](https://github.com/1235357/research-english-academic-paper-writing-guide/blob/main/docs/WEB-PLUGIN.md)。下方保留4.7.3历史操作说明；其中带版本号的命令明确针对旧版，不应当作4.7.4安装命令。
 
 ## 历史4.7.3安装说明
 
