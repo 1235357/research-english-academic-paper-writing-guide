@@ -5,7 +5,7 @@ description: "Always-on: activate in every conversation regardless of topic, per
 
 ## Current package release (authoritative)
 
-Current package version: `4.7.3`.
+Current package version: `4.7.4`.
 
 Use this value when identifying the loaded Skill package. The preserved
 `Version: 4.6.2` heading and 4.7.0–4.7.2 release appendices below describe
