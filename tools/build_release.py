@@ -4,6 +4,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
+import unicodedata
 from pathlib import Path, PurePosixPath
 import shutil
 import stat
@@ -92,6 +94,61 @@ def write_archive(output: Path, top: str, entries: list[dict], metadata: dict) -
         raise
     return {"file": output.name, "size": output.stat().st_size, "sha256": digest(output), "uncompressed_bytes": uncompressed, **report}
 
+def verify_web_plugin(z: zipfile.ZipFile, top: str, manifest: dict) -> None:
+    """Validate the dedicated portable web artifact, not account/UI acceptance."""
+    import yaml
+    names = z.namelist()
+    normalized = set()
+    for info in z.infolist():
+        name = info.filename
+        parts = name.split("/")
+        key = unicodedata.normalize("NFC", name).casefold()
+        if (any(not part or part in (".", "..") or part != part.strip() or ":" in part for part in parts)
+                or "\\" in name or len(parts) > 20 or key in normalized
+                or not stat.S_ISREG(info.external_attr >> 16) or info.flag_bits & 1):
+            raise ValueError(f"Unsafe web ZIP path/type: {name}")
+        normalized.add(key)
+        if info.file_size > 100 * 1024 ** 2:
+            raise ValueError("Web ZIP entry exceeds 100 MiB")
+    if len(names) > 5000 or sum(i.file_size for i in z.infolist()) > 512 * 1024 ** 2:
+        raise ValueError("Web ZIP exceeds conservative submission limits")
+    data = json.loads(z.read(f"{top}/plugin.json"))
+    if data.get("$schema") != "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json":
+        raise ValueError("Web plugin requires the portable manifest schema")
+    name = data.get("name")
+    if (not isinstance(name, str) or not re.fullmatch(r"[a-z0-9]+(?:[.-][a-z0-9]+)*", name)
+            or len(name) > 64 or name != top or data.get("version") != manifest.get("version")):
+        raise ValueError("Web plugin identity/version mismatch")
+    allowed = {"plugin.json", "LICENSE", "NOTICE"}
+    skill_paths = []
+    for row in manifest["files"]:
+        rel = row["path"]
+        if rel not in allowed and not rel.startswith("skills/"):
+            raise ValueError(f"Repository-only file in web plugin: {rel}")
+        if any(field in row for field in ("encoding", "decoded_size", "decoded_sha256")):
+            raise ValueError("Web plugin files must be original unencoded source bytes")
+        if row.get("source_relative") != rel:
+            raise ValueError("Web plugin source path must be preserved")
+        if re.fullmatch(r"skills/[^/]+/SKILL.md", rel):
+            skill_paths.append(rel)
+    if not allowed.issubset({r["path"] for r in manifest["files"]}) or not skill_paths:
+        raise ValueError("Web plugin requires its manifest, legal files and skills")
+    identities = set()
+    for rel in skill_paths:
+        payload = z.read(f"{top}/{rel}")
+        if len(payload) > 1024 ** 2:
+            raise ValueError("Web skill entrypoint exceeds 1 MiB")
+        match = re.match(r"---\r?\n(.*?)\r?\n---(?:\r?\n|$)", payload.decode("utf-8"), re.S)
+        metadata = yaml.safe_load(match[1]) if match else None
+        if (not isinstance(metadata, dict) or metadata.get("name") != rel.split("/")[1]
+                or not isinstance(metadata.get("description"), str) or not metadata["description"].strip()):
+            raise ValueError("Web skill frontmatter/name mismatch")
+        identity = f"{name}:{metadata['name']}"
+        if len(identity) > 64 or identity in identities:
+            raise ValueError("Web skill identity exceeds 64 characters or is duplicated")
+        identities.add(identity)
+
+
 def verify_archive(archive: Path, root: Path | None = None, source_entries: list[dict] | None = None) -> dict:
     with zipfile.ZipFile(archive) as z:
         names = z.namelist()
@@ -108,6 +165,8 @@ def verify_archive(archive: Path, root: Path | None = None, source_entries: list
         manifest = json.loads(z.read(f"{top}/release-manifest.json"))
         if manifest.get("schema") != "single-root-skill-release/1" or manifest.get("root") != top:
             raise ValueError("Invalid release manifest")
+        if manifest.get("kind") not in {"skill", "cloud-skill", "plugin", "web-plugin"}:
+            raise ValueError("Unsupported archive kind")
         expected = {f"{top}/{row['path']}" for row in manifest["files"]} | {f"{top}/release-manifest.json"}
         if set(names) != expected:
             raise ValueError("Archive and complete file manifest disagree")
@@ -119,6 +178,15 @@ def verify_archive(archive: Path, root: Path | None = None, source_entries: list
         elif manifest["kind"] == "plugin":
             if f"{top}/plugin.json" not in expected or f"{top}/.claude-plugin/plugin.json" not in expected:
                 raise ValueError("Plugin overlay/root manifest missing")
+        elif manifest["kind"] == "web-plugin":
+            verify_web_plugin(z, top, manifest)
+            if archive.stat().st_size > 100_000_000:
+                raise ValueError("Web ZIP exceeds 100 MB")
+            if root is not None:
+                actual_skills = {r["path"] for r in manifest["files"] if r["path"].startswith("skills/")}
+                expected_skills = {n for n in tracked(root) if n.startswith("skills/")}
+                if actual_skills != expected_skills:
+                    raise ValueError("Web plugin must preserve every tracked skill file")
         sources = {e["path"]: e for e in source_entries or []}
         for row in manifest["files"]:
             info = z.getinfo(f"{top}/{row['path']}")
@@ -165,6 +233,19 @@ def build(root: Path, output: Path, kind: str, skill_name: str | None = None) ->
             raise ValueError(f"Required distribution files are untracked: {sorted(required - set(names))}")
         entries = [{"path": n, "source": root / n, "source_relative": n} for n in names]
         result.append(write_archive(output / f"{package['name']}-v{package['version']}-plugin.zip", package["name"], entries, {"kind": "plugin", "version": package["version"], "source_repository": package["repository"]["url"], "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()}))
+    if kind in ("web-plugin", "all"):
+        plugin = json.loads((root / "plugin.json").read_text())
+        if plugin.get("version") != package["version"]:
+            raise ValueError("Web plugin and package versions differ")
+        required = {"plugin.json", "LICENSE", "NOTICE"}
+        if not required.issubset(names):
+            raise ValueError("Web plugin manifest/legal files must be tracked")
+        selected = [n for n in names if n in required or n.startswith("skills/")]
+        entries = [{"path": n, "source": root / n, "source_relative": n} for n in selected]
+        result.append(write_archive(output / f"{plugin['name']}-v{package['version']}-web-plugin.zip", plugin["name"], entries,
+                                    {"kind": "web-plugin", "version": package["version"],
+                                     "source_repository": package["repository"]["url"],
+                                     "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()}))
     output.mkdir(parents=True, exist_ok=True)
     (output / "release-assets.json").write_text(json.dumps({"schema": "release-assets/1", "assets": result}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output / "SHA256SUMS.txt").write_text("".join(f"{r['sha256']}  {r['file']}\n" for r in result), encoding="utf-8")
@@ -174,7 +255,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--output", type=Path)
-    parser.add_argument("--kind", choices=["skill", "plugin", "all"], default="all")
+    parser.add_argument("--kind", choices=["skill", "plugin", "web-plugin", "all"], default="all")
     parser.add_argument("--skill")
     parser.add_argument("--verify", type=Path)
     args = parser.parse_args()
