@@ -1,123 +1,58 @@
-# Research and English Academic Paper Writing Guide：安装与发布
+# 4.7.5 安装与离线使用
 
-## 当前分发：4.7.4（课程来源 4.7.3）
+本说明随4.7.5包完整提供。手中没有该版本ZIP时停止安装并取得正确附件；不要用旧版、网页链接、GitHub克隆或npm缓存补齐本包。是否正式发布由发行记录单独确认，构建或源码合并不等于发布或账户安装。
 
-截至2026-10-15，已发布正式附件见 [v4.7.4 Release](https://github.com/1235357/research-english-academic-paper-writing-guide/releases/tag/v4.7.4)。已发布4.7.4修复分发；该版本43个技能源文件中，仅 SKILL.md 的当前包版本标识变化，其余42文件保持4.7.3来源字节。已发布4.7.4附件内 references/installation.md 中的4.7.3为保留的历史安装说明，不是当时的分发版本。上述字节不变结论仅描述已发布4.7.4，不适用于后续开发候选。
+## 两种使用方式与三个附件
 
-- 网页 New Plugin 选择 `academic-research-v4.7.4-web-plugin.zip`，入口为 `academic-research/plugin.json`，技能在 `academic-research/skills/research-english-academic-paper-writing-guide/SKILL.md`。
-- 独立 Skill 入口选择 `research-english-academic-paper-writing-guide-v4.7.4-skill-full.zip`；不能把它当作 Plugin 包。
-- 仓库／本地插件工作流选择 `research-english-academic-paper-writing-guide-v4.7.4-plugin.zip`；开发工具和安装器不在精简网页包内。
+1. **Windows／Linux本地手动复制**：`research-english-academic-paper-writing-guide-v4.7.5-skill-full.zip`含单个`research-english-academic-paper-writing-guide/`技能目录；`research-english-academic-paper-writing-guide-v4.7.5-plugin.zip`含同名插件根目录、plugin.json、.claude-plugin/plugin.json、skills/、本地安装器与开发工具。复制整个所选目录，不要只复制SKILL.md。无需git、npm、联网安装依赖或运行书内程序。
+2. **网页插件文字包**：`academic-research-v4.7.5-web-plugin.zip`含单个`academic-research/`插件根，根内plugin.json、skills/、LICENSE、NOTICE与逐文件release-manifest.json。完整保留现有43个技能文件，包括完整课程转写／重建、历史层和19个playbook；不包含原始PDF、原始独立transcript.txt、视频、截图、图片、仓库开发工具或npm安装器。使用网页支持的Plugin ZIP入口；独立Skill入口只使用前一种skill-full包。各包不能互换。
 
-保存与选择上传文件时保留完整的 `.zip` 后缀。2026-10-15 本账户检查中，扩展名缺失的文件未通过选择；带 `.zip` 的对应文件通过了文件选择阶段。未点击最终 Add，避免创建重复插件；这不证明网页端到端安装成功，也不证明所有账户有相同限制。已有托管插件的更新与读回属于另一条验证路径；New Plugin 新建不能代替已有插件更新。
+**原始格式的真实边界：** 当前可核验的本仓库和上述三个附件均有全部已纳入来源基线的课程Markdown：13讲的双版本正文与完整课程重建。来源基线计15份课程Markdown，其中仓库docs/副本与技能references/副本内容相同；独立Skill／网页包保留一份完整正文，不丢失独有课程内容。当前取得的仓库、发布包及工作目录没有可交付的独立原始PDF／transcript.txt文件。历史正文记载曾使用上传原件，并不证明那些原始文件已在本包。用户要求的“本地包同时附全部原始格式”尚不能据此认定完成；缺少的原件需另行找回和核验，不以联网链接或转写替代原件，也不能擅自公开补传私人文件。
 
-本开发候选同步更新仓库与技能内的安装说明，不改写课程原文或历史来源清单。已发布4.7.4附件保持不变；如后续发布包含本说明的新包，必须使用新的发行版本并独立验证，不能覆盖同版本附件。本候选尚未据此发布或更新托管插件，也不表示 npm 已发布4.7.4。完整打包范围与限制见 [WEB-PLUGIN.md](https://github.com/1235357/research-english-academic-paper-writing-guide/blob/main/docs/WEB-PLUGIN.md)。下方保留4.7.3历史操作说明；其中带版本号的命令明确针对旧版，不应当作4.7.4安装命令。
+正常离线带读以本包完整Markdown为依据，不要求获取外部原件。只有需要原始文件逐字／逐页或视觉核验时，明确报告原始格式缺失并暂停该核验；不要声称已看过原图。历史正文中“随skill打包的.transcript.txt”及“sources文件夹”属于旧来源记录，在当前包中不成立。本段纠正交付边界，不改写或删减保存的课程正文。
 
-## 历史4.7.3安装说明
+## 本地手动复制步骤
 
-本节历史发布层版本：4.7.3。13讲与两份完整课程重建共15份课程原文保持逐字节一致；派生指南的语义修订与新增复核层单独记录。旧文档中的版本号保留历史身份。
+先解压到新的空目录并保留原ZIP。目标目录由你正在使用的客户端设置确定；复制路径不是客户端加载或执行的证明。不要覆盖已有同名技能、个人修改或正在使用的插件。
 
-## 选择下载文件
+- 独立Skill：复制整个`research-english-academic-paper-writing-guide`目录到客户端的skills父目录。目录中必须直接包含SKILL.md、references/、scripts/和agents/。
+- 完整Plugin：复制整个解压后的插件根目录到客户端支持的plugins父目录，或者在该客户端的本地插件入口选中该根目录。根下直接有plugin.json和skills/；若客户端只支持技能目录，则改用skills/内的完整技能目录。
+- Windows文件资源管理器与Linux文件管理器都可完成上述复制，不需要终端。目录选择使用绝对路径，避免误复制外层下载目录。
+- 如果客户端使用Codex约定的项目技能目录，将技能目录放到项目的`.agents/skills/`下；Claude Code项目技能目录为`.claude/skills/`。其他客户端以其实际配置为准，不猜测插件注册路径。
+- 重新打开或刷新客户端技能列表，在目标项目的新会话中显式调用`research-english-academic-paper-writing-guide`。实际读取下列包内文件，再检查是否识别为已加载；仅复制成功不代表客户端已启用。
 
-下载 [GitHub Release](https://github.com/1235357/research-english-academic-paper-writing-guide/releases/tag/v4.7.3) 的显式附件，而非GitHub自动生成的 Source code ZIP。
+## 网页入口步骤与已有插件更新
 
-| 文件类型 | 解压后入口 | 用途 |
-| --- | --- | --- |
-| `*-skill-full.zip` | `research-english-academic-paper-writing-guide/SKILL.md` | 支持Agent Skills的上传入口，或本地技能目录 |
-| `*-plugin.zip` | `research-english-academic-paper-writing-guide/plugin.json` 与 `.claude-plugin/plugin.json` | Agent Plugins / Claude Code 插件入口 |
-| `read-xuexiguan-<unit>-cloud-skill.zip`（仅学习观） | 同名单根目录里的 `SKILL.md` | 有容量限制的云端技能导入入口 |
+保留文件完整`.zip`扩展名，直接选择web-plugin附件，不重新压缩、更换技能名称或添加额外MCP。2026-10-15对4.7.4的检查只观察到带.zip文件通过选择阶段；未点击最终Add以避免重复插件。这不证明4.7.5网页安装成功。
 
-ZIP包含一个顶层文件夹；文件夹名与Skill YAML `name`相同。普通聊天附件可供读取，但不会因此自动注册为系统Skill；在ChatGPT支持Skill／插件的环境及Claude Custom Skills中使用相应导入入口。格式兼容、目录审核、账户功能和实际客户端导入是不同条件。本仓库离线验证包结构，不能据此宣称已经通过所有平台的商店审核或登录后上传。
+New Plugin通常是新建，不能当作已有插件更新。已有插件应通过其受支持更新流程并保留原插件身份、分享范围与权限，再独立读回内容；若没有该更新入口，停止并说明，不用新建副本替代。仓库分发版本与托管插件版本独立，不能仅凭名称或版本推定已同步。
 
-论文写作Skill ZIP保留原54文件基线对应的课程内容和全部双版本正文，13讲与19个playbook不删减。单Skill包及插件包的实测字节、文件清单与SHA-256见Release校验清单。
+## 包内完整阅读入口
 
-## 本地完整安装
+以下路径全部以包含SKILL.md的技能目录为基准；从完整Plugin或网页Plugin根目录先进入`skills/research-english-academic-paper-writing-guide/`。
 
-Node.js 18+，Python辅助阅读脚本需要3.9+；安装器不依赖第三方npm模块，也不联网或执行书内Obsidian插件。
+1. `SKILL.md`：当前使用协议及完整保留的第二来源整体综合。
+2. `references/course-review-notes.md`：当前适用范围与证据纠偏。
+3. `references/course-full-reconstruction.md`：全课程完整重建正文。
+4. `references/lecture-index.md`与`references/lectures/`：13讲全部双版本正文，按讲定位；历史外部链接只作来源线索，不是正常阅读前置步骤。
+5. `references/playbooks/`：19份执行指南；与相关讲次一起读，不以摘要代替全文。
+6. `references/provenance.md`：保留的来源、校验值与不确定性；记录中的原始文件名不等于本包存在该格式。
+7. `references/quick-reference.md`：辅助检查表，不能取代完整正文。
 
-```bash
-git clone https://github.com/1235357/research-english-academic-paper-writing-guide.git
-cd research-english-academic-paper-writing-guide
-git checkout v4.7.3
-node bin/install.mjs --agent codex --project /absolute/path/to/project
-node bin/install.mjs --agent claude-code --project /absolute/path/to/project
-```
-
-| `--agent` | 项目目录 | `--global`目录 |
-| --- | --- | --- |
-| `codex` | `.agents/skills` | `~/.agents/skills` |
-| `claude-code` | `.claude/skills` | `~/.claude/skills` |
-| `gemini-cli` | `.agents/skills` | `~/.gemini/skills` |
-| `github-copilot` | `.agents/skills` | `~/.copilot/skills` |
-| `cursor` | `.cursor/skills` | `~/.cursor/skills` |
-| `generic` | `.agents/skills` | `~/.agents/skills` |
-
-`--target /path/to/skills`指定技能父目录；`--skill research-english-academic-paper-writing-guide`选择技能；`--list`列出技能；`--dry-run`只预览；`--verify`核验安装目录的全部文件SHA-256、字节数及额外文件。完整复制包括原资产、隐藏文件和中文路径，安装回执另放在技能父目录的`.skill-installation`。
-
-重复安装相同内容保持幂等。只有未被修改的受管理安装可以用`--upgrade`升级，升级前把全部旧文件与回执保存在`.skill-backups`。未管理的同名目录、本地新增／删改文件以及符号链接路径都拒绝覆盖；先保存并处理个人改动。
-
-## npm／npx和社区目录
-
-公共 npm 安装命令（仅在该版本已成功发布到 npm 后可用）：
-
-```bash
-npx --yes --package=research-english-academic-paper-writing-guide@4.7.3 research-writing-skill-install --agent codex --project /absolute/path/to/project
-```
-
-`npm install -g research-english-academic-paper-writing-guide@4.7.3` 只安装命令行程序；仍需运行 `research-writing-skill-install --agent codex --global` 才会复制并注册本地技能目录。npm 不运行自动安装钩子，也不修改客户端设置。安装完成后，在同一项目打开新会话或刷新技能列表，显式调用 `$research-english-academic-paper-writing-guide`，并要求读取 `references/course-full-reconstruction.md` 的相关段落。
-
-版本是否已发布应以 `npm view research-english-academic-paper-writing-guide@4.7.3 version` 实际返回为准。若 registry 返回 E404，则不能把 GitHub Release 当作 npm 发布成功。以下 Git 来源后备路径与 npm registry 发布相互独立：
-
-```bash
-npx --yes --package=github:1235357/research-english-academic-paper-writing-guide#v4.7.3 research-writing-skill-install --agent codex --project /absolute/path/to/project
-```
-
-完整技能在Git/npm缓存及最终目录各占空间；也可直接使用上一节的本地安装器。社区`skills` CLI支持多个Agent及已认证私有Git来源：
-
-```bash
-DISABLE_TELEMETRY=1 npx --yes skills@1.7.2 add 1235357/research-english-academic-paper-writing-guide --skill research-english-academic-paper-writing-guide --agent codex --agent claude-code --copy -y
-```
-
-社区CLI有自己的更新行为；上面的命令宜用于新的安装目录。要保留已有本地改动并取得完整备份，用本仓库安装器。直接URL下载在社区CLI有独立下载／解压／文件数预算，完整大书用Git来源。当前支持路径以版本1.7.2的维护方文档为据；其他Agent可由该CLI选择，无需修改原语料。
-
-## 插件市场入口
-
-可移植入口为根`plugin.json`（Agent Plugins 1.0.0）；`skills/`在插件根。Claude叠加入口位于`.claude-plugin/plugin.json`。仓库同时提供`.agents/plugins/marketplace.json`和`.claude-plugin/marketplace.json`，两者本地来源`./`均指仓库／插件根。
-
-在支持的Claude Code客户端：
+三个文字辅助脚本都在`scripts/`内；不安装第三方依赖。可选在已安装Python3.9+的本地机器、技能目录下执行：
 
 ```text
-/plugin marketplace add 1235357/research-english-academic-paper-writing-guide
-/plugin install academic-research@szsdt-research-writing
+python scripts/check_title.py "A Study of Visual Question Answering"
+python scripts/new_research_point_canvas.py
+python scripts/measure_prose_rhythm.py --help
 ```
 
-ChatGPT／Codex支持的本地客户端可读取仓库市场清单；重启或刷新客户端后选择插件。公开Plugins Directory或组织工作区发布仍需相应账号、审核与权限，GitHub Release不等于已进入官方目录。本项目不添加无用途的MCP服务器、自动联网钩子或凭证接收工具。
+网页宿主没有Python时，直接读取完整Markdown即可；这些脚本不是阅读前置条件。开发构建、npm发布、其他版本安装及外部WEB-PLUGIN.md均不是使用本包的必需步骤。
 
-Claude CLI在线`plugin validate`在本次环境被自动批准审核拒绝：该进程尝试向`api.anthropic.com`发送私有资料。因此没有重试或绕过，验证报告记录为blocked；已改做官方schema和本地包内容验证。
+## 完整性、范围与验收
 
-## 构建与核验
+每个ZIP都有release-manifest.json，列出本包实际文件、字节数和SHA-256。它证明文件清单与完整性，不证明版权授权、原始格式齐备、模型已读完或客户端已生效。正常阅读不需要外部仓库、原始PDF、独立transcript.txt或旧Release补齐。
 
-```bash
-python tools/validate_distribution.py
-node --test tools/test_installer.mjs tools/test_npm_package.mjs
-python tools/build_release.py --output /absolute/path/outside-repository --kind all
-```
+相较正式4.7.4，43个技能源文件中只更新SKILL.md的当前版本／交付范围说明及本安装说明，其余41文件保持字节一致；全部15份基线课程Markdown保留。两个版本均不得宣称已交付当前缺失的原始PDF／transcript.txt。
 
-构建器仅取Git已跟踪文件，构建前必须提交或暂存新增发布文件。每份ZIP附逐文件大小、源路径和SHA-256；构建完成后流式重新读取每个ZIP条目并对比原字节。输出保存在仓库外，不将ZIP反复嵌入Skill。
-
-来源与限制记录见仓库`docs/ecosystem/sources.json`；原始内容保留基线见`docs/distribution-baseline.json`。所有引用、阅读活动、视觉校对、结构验证和理解验收分别记录，发布机制不会替代实际理解。
-
-
-## 排查“安装成功但没有生效”
-
-1. 确认使用的是目标客户端的技能安装入口或本地技能目录。GitHub、npm、普通聊天附件不会自动创建 ChatGPT 的云端 Skill。
-2. 用相同参数运行安装器的 `--verify`，核对磁盘中的完整文件；这只证明文件一致，不证明客户端已加载。
-3. 在客户端技能列表查找完整名称，并在新会话中显式调用。对 Codex，项目安装必须在该项目或其子目录启动。
-4. 请客户端实际读取完整课程重建及一个任务相关 playbook，报告读取路径与课程论点。如果只能看到简介、读取资源报错或客户端未列出该技能，记录具体客户端、安装入口和错误，不推断“全文已经加载”。
-5. 一个客户端的本地安装不会同步到另一个客户端、浏览器聊天或其他电脑；已有云端插件/桥接器也有独立版本，需要分别核验。
-
-本次离线实测覆盖 npm tarball 的安装命令入口、完整复制、幂等重装、SHA-256 核验与 ZIP 内容；不把这些结果等同于任何登录后客户端的真实导入验收。
-
-
-### 插件身份与 Skill 身份
-
-插件名为 `academic-research`；独立 Skill 与 npm 包名继续为 `research-english-academic-paper-writing-guide`。插件安装命令使用短插件名，独立技能调用和 npm 命令保持原名。根据 [OpenAI 插件提交错误说明](https://developers.openai.com/plugins/deploy/submission-errors)，插件与 Skill 的组合身份最长 64 字符；当前 `academic-research:research-english-academic-paper-writing-guide` 为 63 字符，旧同名组合为 91 字符。此项修复面向插件导入校验，不代表已通过目录审核或所有客户端实际安装。
+发布与安装验证分开：先核验ZIP和全部正文；再在目标客户端验证导入、技能可见、完整文件读取和实际调用。记录未通过的阶段，不把格式检查或CI成功写成端到端安装成功。不覆盖已发布4.7.4附件；本说明不宣称npm已发布或任何账户已更新。外部官方网站、论文和历史发行链接仅作可选出处，不承担本包正文、安装说明或运行所需文件。

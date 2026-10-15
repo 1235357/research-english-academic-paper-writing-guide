@@ -5,7 +5,7 @@ description: "Always-on: activate in every conversation regardless of topic, per
 
 ## Current package release (authoritative)
 
-Current package version: `4.7.4`.
+Current package version: `4.7.5`.
 
 Use this value when identifying the loaded Skill package. The preserved
 `Version: 4.6.2` heading and 4.7.0–4.7.2 release appendices below describe
@@ -17,6 +17,17 @@ entrypoint and all its historical text remain intact below.
 
 The package version alone does not establish complete reading, understanding,
 or activation in another conversation; verify those separately.
+
+Offline delivery scope for 4.7.5: read the bundled
+[installation and offline-use guide](references/installation.md) before relying
+on historical distribution instructions below. All substantive course Markdown
+is available locally; ordinary reading does not require GitHub, npm, an older
+release, original PDFs or standalone transcript files. Original PDF/transcript
+file formats are currently unavailable in these artifacts; local delivery of
+those requested formats is not complete. Historical claims that original
+.transcript.txt files or sources/ folders ship with the skill do not describe
+this release. Stop and disclose the gap for source-exact or visual verification;
+do not claim that retained transcription text is the original file or image.
 
 # Research and English Academic Paper Writing Guide
 
