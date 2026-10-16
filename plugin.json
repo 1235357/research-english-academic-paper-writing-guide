@@ -1,37 +1,37 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "academic-research",
-  "version": "4.7.5",
-  "description": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows.",
   "author": {
     "name": "1235357",
     "url": "https://github.com/1235357"
   },
+  "description": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "category": "Productivity",
+        "defaultPrompt": [
+          "Use $research-english-academic-paper-writing-guide to read the complete source before applying its reasoning."
+        ],
+        "developerName": "1235357",
+        "displayName": "Academic Research & Writing",
+        "longDescription": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows.",
+        "shortDescription": "Research and paper writing",
+        "websiteURL": "https://github.com/1235357/research-english-academic-paper-writing-guide"
+      }
+    }
+  },
   "homepage": "https://github.com/1235357/research-english-academic-paper-writing-guide",
-  "repository": "https://github.com/1235357/research-english-academic-paper-writing-guide",
   "keywords": [
     "agent-skills",
     "education",
     "source-preservation"
   ],
-  "extensions": {
-    "com.openai": {
-      "interface": {
-        "displayName": "Academic Research & Writing",
-        "shortDescription": "Research and paper writing",
-        "longDescription": "Full 13-lecture research and academic-writing reconstruction, both complete independent versions, 19 execution playbooks and evidence-integrity workflows.",
-        "developerName": "1235357",
-        "category": "Productivity",
-        "capabilities": [
-          "Read",
-          "Write"
-        ],
-        "websiteURL": "https://github.com/1235357/research-english-academic-paper-writing-guide",
-        "defaultPrompt": [
-          "Use $research-english-academic-paper-writing-guide to read the complete source before applying its reasoning."
-        ]
-      }
-    }
-  },
-  "license": "MIT"
+  "license": "MIT",
+  "name": "academic-research",
+  "repository": "https://github.com/1235357/research-english-academic-paper-writing-guide",
+  "version": "4.7.8"
 }

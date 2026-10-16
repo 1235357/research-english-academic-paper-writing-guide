@@ -32,9 +32,9 @@
       "path": "skills/research-english-academic-paper-writing-guide/SKILL.md",
       "baseline_sha256": "c9b087c0aaa5cefbc6633d3c5dca1239c8616b54c909316c9bdc52082ab83398",
       "before_sha256": "8bcf4175204c4058a1817fa79d8afa8167338c8f179100acf9c2db63dae7164d",
-      "after_sha256": "408757ea38a0be3876ad9d84d14081792a4694dc6754ec72b5ddc8ea6d2dc588",
-      "after_size": 60152,
-      "reason": "Reconcile rendering delegation and detector claims; add dated corrections beside preserved historical synthesis. Full-course semantic review: add current scope/evidence corrections and accurate source attribution. Release-only appendix identifies version4.7.2 and preservation/activation boundaries. Version 4.7.3 prepends an authoritative current-package notice while preserving the entire 4.7.2 entrypoint byte-for-byte; archive release labels and reconstruction lineage names remain unchanged. Version 4.7.4 changes only the authoritative current-package version token from 4.7.3 to 4.7.4 for a packaging-only release; all remaining 4.7.3 entrypoint bytes and all other 42 skill files remain unchanged. Version 4.7.5 updates the authoritative current-package notice with version and offline-delivery boundaries, while preserving the entire prior historical entrypoint. The separate installation guide is self-contained non-lecture documentation; all other 41 skill files and all 15 baseline course Markdown files remain unchanged. Original PDF/transcript file formats are not present; this is not claimed as complete original-format delivery."
+      "after_sha256": "0a0f424063a50b704ad9eace69209e05c3b2f0e0558442de1a175bc6fcb48e02",
+      "after_size": 60601,
+      "reason": "Reconcile rendering delegation and detector claims; add dated corrections beside preserved historical synthesis. Full-course semantic review: add current scope/evidence corrections and accurate source attribution. Release-only appendix identifies version4.7.2 and preservation/activation boundaries. Version 4.7.3 prepends an authoritative current-package notice while preserving the entire 4.7.2 entrypoint byte-for-byte; archive release labels and reconstruction lineage names remain unchanged. Version 4.7.4 changes only the authoritative current-package version token from 4.7.3 to 4.7.4 for a packaging-only release; all remaining 4.7.3 entrypoint bytes and all other 42 skill files remain unchanged. Version 4.7.5 updates the authoritative current-package notice with version and offline-delivery boundaries, while preserving the entire prior historical entrypoint. The separate installation guide is self-contained non-lecture documentation; all other 41 skill files and all 15 baseline course Markdown files remain unchanged. Original PDF/transcript file formats are not present; this is not claimed as complete original-format delivery. 4.7.8 preparation: root-reviewed source-routing warning and current version; all lecture corpus bytes preserved. This hash records the changed bytes, not independent acceptance."
     },
     {
       "path": "skills/research-english-academic-paper-writing-guide/references/playbooks/01-overview.md",
@@ -200,9 +200,9 @@
   "added_files": [
     {
       "path": "skills/research-english-academic-paper-writing-guide/references/course-review-notes.md",
-      "after_sha256": "637bff0525fd24ada45c4ac75f018d3542723f76594f760172fc8022c0a248dd",
-      "after_size": 10288,
-      "reason": "Labeled current applicability/evidence layer and reconstruction errata; explicit scoped precedence without changing archival originals."
+      "after_sha256": "110533cf2039ec29026b617626250a2a1f4c9b89207b7758e8a3db7a1cf39429",
+      "after_size": 10541,
+      "reason": "Labeled current applicability/evidence layer and reconstruction errata; explicit scoped precedence without changing archival originals. 4.7.8 preparation: root-reviewed source-routing warning and current version; all lecture corpus bytes preserved. This hash records the changed bytes, not independent acceptance."
     }
   ]
 }

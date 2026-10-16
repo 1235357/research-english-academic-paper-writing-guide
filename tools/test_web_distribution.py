@@ -48,11 +48,11 @@ class WebDistributionTest(unittest.TestCase):
         }
         actual = {n.removeprefix(self.top + '/') for n in self.data} - {'release-manifest.json'}
         self.assertEqual(actual, expected)
-        self.assertEqual(len([n for n in actual if n.startswith('skills/')]), 43)
+        self.assertEqual(len([n for n in actual if n.startswith('skills/')]), 46)
         for n in actual:
             self.assertEqual(self.data[f'{self.top}/{n}'], (ROOT / n).read_bytes(), n)
         self.assertFalse(any('marketplace' in n or '/.github/' in n for n in self.data))
-        self.assertEqual(verify_archive(self.archive, root=ROOT)['files_verified'], 46)
+        self.assertEqual(verify_archive(self.archive, root=ROOT)['files_verified'], 49)
         with zipfile.ZipFile(self.archive) as z:
             self.assertIsNone(z.testzip())
         manifest = json.loads(self.data[f'{self.top}/plugin.json'])
