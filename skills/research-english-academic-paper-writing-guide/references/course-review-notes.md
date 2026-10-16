@@ -1,3 +1,5 @@
+当前4.7.8候选引用边界：先读[current-source-erratum.md](current-source-erratum.md)。加餐正文与正式第十一讲幻灯片存在已观察到的来源归属冲突；历史正文原样保留，不能据此宣称全课程已无损转录。
+
 # Current course review: scope, evidence and reconstruction errata
 
 Reviewed 2026-10-13. This is an editorial application layer, not a new lecture
