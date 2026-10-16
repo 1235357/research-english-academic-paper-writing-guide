@@ -7,9 +7,9 @@ description: "Always-on: activate in every conversation regardless of topic, per
 
 Current package version: `4.7.8`.
 
-Local release preparation; not yet published or independently accepted.
+Delivery scope: self-contained textual core. Publication status is established by the matching GitHub Release; actual ChatGPT import and Windows installation require separate verification.
 
-Read [the current source-routing erratum](references/current-source-erratum.md) before citing the bonus lecture. Its preserved historical20-slide reconstruction must not be presented as a verified page-by-page transcription of the current9-page bonus PDF.
+Read [the current source-routing erratum](references/current-source-erratum.md) before citing the bonus lecture. Its preserved historical 20-slide reconstruction must not be presented as a verified page-by-page transcription of the current 9-page bonus PDF.
 
 Use this value when identifying the loaded Skill package. The preserved
 `Version: 4.6.2` heading and 4.7.0–4.7.2 release appendices below describe
